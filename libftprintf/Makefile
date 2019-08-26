@@ -6,18 +6,18 @@
 #    By: fkante <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/07/31 11:18:56 by fkante           ###   ########.fr        #
+#    Updated: 2019/08/26 12:07:32 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf.a
 CC = clang
 AR = ar -rcs
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 BUILD_DIR = build/
-HEAD = libft.h
+HEAD = libftprintf.h
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c
 SRCS += ft_isalnum.c
