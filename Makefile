@@ -6,7 +6,7 @@
 #    By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/26 11:56:42 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/26 12:04:18 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ft_printf
 
 LIB_DIR = libft
 
-LIB = libft.a
+LIB = libftprintf.a
 
 LIB_PATH = $(LIB_DIR)/$(LIB)
 
