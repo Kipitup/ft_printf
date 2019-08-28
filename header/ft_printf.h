@@ -6,7 +6,7 @@
 /*   By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/28 15:04:14 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/28 15:31:55 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_state_machine
 
 typedef void (*tab_statefunc)(t_state_machine *self, void *p_cursor);
 
+int		parser (char *cursor);
 void	st_string (char *string);
 void	st_conversion();
 int		is_conversion();
@@ -44,9 +45,33 @@ int		is_flag();
 
 typedef enum	type_flag
 {
-	E_TYPE_DL,
-	E_TYPE_HH,
+	E_TYPE_FLAG_FLAG_HH,
+	E_TYPE_FLAG_LL,
+	E_TYPE_FLAG_H,
+	E_TYPE_FLAG_L,
+	E_TYPE_FLAG_L_MAJ,
+	E_TYPE_FLAG_PLUS,
+	E_TYPE_FLAG_MINUS,
+	E_TYPE_FLAG_HASH,
+	E_TYPE_FLAG_ZERO,
+	E_TYPE_FLAG_SPACE,
+	E_TYPE_FLAG_POINT
 }				e_type_flag;
+
+typedef enum	type_conv
+{
+	E_TYPE_CONV_C,
+	E_TYPE_CONV_S,
+	E_TYPE_CONV_P,
+	E_TYPE_CONV_D,
+	E_TYPE_CONV_I,
+	E_TYPE_CONV_O,
+	E_TYPE_CONV_U,
+	E_TYPE_CONV_X,
+	E_TYPE_CONV_X_MAJ,
+	E_TYPE_CONV_F
+
+}				e_type_conv;
 
 #endif
 
