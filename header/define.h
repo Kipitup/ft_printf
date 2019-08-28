@@ -6,7 +6,7 @@
 /*   By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/28 15:11:30 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/28 16:58:23 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include <stdio.h> //warning
 # include <stdint.h>
 # include <stdarg.h>
+# include <math.h>
 # include "../libftprintf/libft.h"
+# include "ft_printf.h"
 
 # define FALSE		0
 # define TRUE		1
@@ -40,6 +42,7 @@
 # define FLAG_HASH		0x0000000000000080
 # define FLAG_ZERO		0x0000000000000100
 # define FLAG_SPACE		0x0000000000000200
+# define FLAG_POINT		0x0000000000000400
 
 # define CONV_C			0x0000000000001000
 # define CONV_S			0x0000000000002000
