@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 17:00:41 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 18:50:02 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ int8_t	flag(t_state_machine *machine, char *input)
 
 int8_t	conversion(t_state_machine *machine, char *input)
 {
-	static const char *grammar[10] = {"c", "s", "p", "d", "i", "o", "u", "x",
+	static const char	*grammar[10] = {"c", "s", "p", "d", "i", "o", "u", "x",
 									"X", "f"};
-	int		i;
-	size_t	len;
+	int					i;
+	size_t				len;
+//	static t_convfunc	conversion_func[10] = {conv_char, conv_string, conv_ptr,
+//		conv_dec, conv_int, conv_oct, conv_udec, conv_hex, conv_hex_M, conv_flo}
 
 	i = 0;
 	machine->p_cursor = input;
@@ -64,6 +66,7 @@ int8_t	conversion(t_state_machine *machine, char *input)
 		if (ft_strnequ(grammar[i], input, len) == TRUE)
 		{
 			//machine->option |= pow(2, (i + 1)) << 8;
+			//conversion_func[i](machine->option, machine.);
 			printf("|conv: %s|\n", grammar[i]);
 			return ((int8_t)len);
 		}

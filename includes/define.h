@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 16:29:56 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 17:25:45 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <math.h>
+# include <inttypes.h>
 # include "libft.h"
 # include "ft_printf.h"
 

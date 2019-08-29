@@ -6,7 +6,7 @@
 /*   By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 16:39:17 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 18:50:08 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ typedef struct	s_state_machine
 {
 	char				*p_cursor;
 //	t_vector			*p_out;
-	unsigned long long	option;
+	uint64_t			option;
 	enum				e_main_states	state;
 }				t_state_machine;
 
 typedef int8_t (*t_statefunc)(t_state_machine *self, char *input);
+typedef int8_t (*t_convfunc)(uint64_t option, char *input);
 
 int8_t	parser(t_state_machine *machine, char *input);
 int8_t	string(t_state_machine *machine, char *input);
