@@ -6,44 +6,39 @@
 /*   By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/28 15:31:55 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/28 18:20:17 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DEFINE_H
-# define DEFINE_H
+#ifndef FT_PRINT_H
+# define FT_PRINT_H
 
 # include "define.h"
 
-typedef enum	main_states
+enum	e_main_states
 {
 	ST_STRING,
 	ST_FLAG,
 	ST_CONVERSION,
-	ST_PRINT,
 	ST_ERROR
-}				e_main_states;
+};
 
 typedef struct	s_state_machine
 {
 	void				*p_cursor;
 	unsigned long long	option;
-	e_main_states		state;
+	enum				e_main_states	state;
 }				t_state_machine;
 
-typedef void (*tab_statefunc)(t_state_machine *self, void *p_cursor);
+typedef int8_t (*t_statefunc)(t_state_machine *self, char *input);
 
-int		parser (char *cursor);
-void	st_string (char *string);
-void	st_conversion();
-int		is_conversion();
-int		is_width();
-int		is_precision();
-int		is_cast();
-int		is_conversion_specifier();
-int		is_flag();
+int8_t	parser(t_state_machine *machine, char *input);
+int8_t	string(t_state_machine *machine, char *input);
+int8_t	conversion(t_state_machine *machine, char *input);
+int8_t	flag(t_state_machine *machine, char *input);
+int8_t	error(t_state_machine *machine, char *input);
 
-typedef enum	type_flag
+enum	e_type_flag
 {
 	E_TYPE_FLAG_FLAG_HH,
 	E_TYPE_FLAG_LL,
@@ -56,9 +51,9 @@ typedef enum	type_flag
 	E_TYPE_FLAG_ZERO,
 	E_TYPE_FLAG_SPACE,
 	E_TYPE_FLAG_POINT
-}				e_type_flag;
+};
 
-typedef enum	type_conv
+enum	e_type_conv
 {
 	E_TYPE_CONV_C,
 	E_TYPE_CONV_S,
@@ -71,7 +66,7 @@ typedef enum	type_conv
 	E_TYPE_CONV_X_MAJ,
 	E_TYPE_CONV_F
 
-}				e_type_conv;
+};
 
 #endif
 
