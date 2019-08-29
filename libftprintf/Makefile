@@ -6,7 +6,15 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
+<<<<<<< Updated upstream
+<<<<<<< HEAD
 #    Updated: 2019/08/29 15:25:38 by amartino         ###   ########.fr        #
+=======
+#    Updated: 2019/08/29 12:01:38 by amartino         ###   ########.fr        #
+>>>>>>> 4b803ec... [feature/MAKEFILE] makefile for printf complet
+=======
+#    Updated: 2019/08/29 15:58:37 by amartino         ###   ########.fr        #
+>>>>>>> Stashed changes
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +26,7 @@ CFLAGS += -Wextra
 CFLAGS += -Werror
 BUILD_DIR = build/
 HEAD = libft.h
+INCLUDES = -I .
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c
 SRCS += ft_isalnum.c
@@ -95,7 +104,7 @@ $(BUILD_DIR):
 	mkdir $@
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	$(RM) -R $(BUILD_DIR)

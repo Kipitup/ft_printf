@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/27 17:24:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:59:33 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft.h"
+# include "libft.h"
 
 # define DEFAULT_VECTOR_SIZE 64
 # define DEFAULT_VECTOR_SCALE 16

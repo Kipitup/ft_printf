@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:35:59 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/27 18:10:37 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:55:50 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,10 @@ t_vector		*vct_new(size_t size)
 {
 	t_vector	*new_vector;
 
-	new_vector = NULL;
-	if (!(new_vector = (t_vector*)malloc(sizeof(t_vector))))
-		return (NULL);
-	if (!(new_vector->str = (char*)malloc(sizeof(char) * size)))
-	{
-		free(new_vector);
-		return (NULL);
-	}
-	new_vector->str[size - 1] = '\0';
-	new_vector->size = size;
-	new_vector->len = 0;
-	new_vector->scale = DEFAULT_VECTOR_SCALE;
-	return (new_vector);
-}
-
-#define DEFAULT_VCT_SIZE 64 
-
-t_vector		*vct_new(size_t size)
-{
-	t_vector	*new_vector;
-
 	new_vector = (t_vector *)malloc(sizeof(t_vector));
 	if (new_vector == NULL)
 		return (NULL);
-	new_vector->size = size == 0 ? DEFAULT_VCT_SIZE : size;
+	new_vector->size = size == 0 ? DEFAULT_VECTOR_SIZE : size;
 	new_vector->len = 0;
 	new_vector->scale = DEFAULT_VECTOR_SCALE;
 	new_vector->str = ft_memalloc(size);
