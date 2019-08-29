@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/28 18:53:56 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 10:46:28 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,8 @@ int		main(int ac, char **av)
 	printf("%d\n", (parser(&machine, av[1])));
 	return (0);
 }
+
+
+/*option &= ~SPACE enleve
+option |= SPACE ajoute
+option & SPACE test*/
