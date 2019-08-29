@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 09:45:36 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 10:54:35 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ int8_t	string(t_state_machine *machine, char *input)
 {
 	machine->p_cursor = input;			
 	if (*input == CONVERSION_SIGN)
-	{
-		printf("in_string: %c\t", *input);
 		machine->state = ST_FLAG;
-	}
 	else
 	{
 		///////// ADD BUFFER (input)
@@ -82,7 +79,7 @@ int8_t	error(t_state_machine *machine, char *input)
 	int		scale;
 	char	*tmp;
 	
-	scale = input - machine->p_cursor;//error
+	scale = input - machine->p_cursor; //error check with 
 //	tmp = ft_strndup(machine->p_cursor, scale); 
 	/// ADD STRING (output, tmp);
 //	ft_strdel(&tmp);
@@ -97,13 +94,8 @@ int8_t		parser(t_state_machine *machine, char *input)
 
 	while (*input)
 	{
-//		printf("state number :%u\n", machine->state);
 		if ((scale = parser[machine->state](machine, input)) != FAILURE)
-		{
-//			printf("state: %d\t", machine->state);
-//			printf("input: %c\n", *input);
 			input += scale;
-		}
 	}
 	//write(1, machine->output->buffer, vct_len(machine->output);
 	return (-2);
