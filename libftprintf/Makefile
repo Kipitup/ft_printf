@@ -6,11 +6,11 @@
 #    By: fkante <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/07/31 11:18:56 by fkante           ###   ########.fr        #
+#    Updated: 2019/08/29 14:37:09 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf.a
 CC = clang
 AR = ar -rcs
 CFLAGS += -Wall
@@ -64,6 +64,7 @@ SRCS += ft_strlcat.c
 SRCS += ft_strlen.c
 SRCS += ft_strmap.c
 SRCS += ft_strmapi.c
+SRCS += ft_strndup.c
 SRCS += ft_strncat.c
 SRCS += ft_strncmp.c
 SRCS += ft_strncpy.c
@@ -105,3 +106,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean re
+.SILENT:
