@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 18:38:55 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 19:48:07 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 	than the string SIZE, an equivalent reallocation occurs.
 **************************************************************************** */
 
-
+ //to be changed
+ 
 int8_t	vct_strjoin(t_vector *vector, char *str)
 {
 	size_t len;
@@ -30,7 +31,7 @@ int8_t	vct_strjoin(t_vector *vector, char *str)
 		if (vct_increase_scale(vector) == FAILURE)
 			return (FAILURE);
 	}
-	ft_strcat(vector->str, str);
+	ft_strcpy(vector->str + vector->len, str);
 	vector->len += len;
 	return (SUCCESS);
 }
