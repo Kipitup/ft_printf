@@ -6,7 +6,7 @@
 #    By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/26 12:04:18 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/28 18:45:42 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,29 +14,18 @@ NAME = ft_printf
 
 LIB_DIR = libft
 
-LIB = libftprintf.a
+LIB = libft.a #to be changed
 
 LIB_PATH = $(LIB_DIR)/$(LIB)
 
-SRC = 
+SRC = 	statemachine/statemachine
+		statemachine/main
 
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
 FFLAG =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
-
-DFLAGS = -Wall -Wextra -Werror -fsanitize=address,undefined -g3 -pedantic\
-		 -ansi -O2 -Wchar-subscripts -Wformat=2 -Wimplicit-int\
-		 -Werror-implicit-function-declaration -Wmain -Wparentheses\
-		 -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused\
-		 -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow\
-		 -Wpointer-arith -Wbad-function-cast -Wwrite-strings \
-		 -Wsign-compare -Waggregate-return -Wstrict-prototypes\
-		 -Wmissing-declarations -Wmissing-noreturn\
-		 -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations\
-		 -Wpacked -Wredundant-decls -Wnested-externs -Winline -Wlong-long\
-		 -Wunreachable-code
 
 OBJ = $(patsubst %, %.o, $(SRC))
 
@@ -92,8 +81,6 @@ FORCE:
                              #####################
 ifeq ($(f), no)
 CFLAGS = -g
-else ifeq ($(f), d)
-CFLAGS = $(DFLAGS)
 else ifeq ($(f), f)
 CFLAGS = $(FFLAG)
 endif
