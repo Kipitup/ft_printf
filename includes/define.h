@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+        */
+/*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 10:54:36 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 15:04:00 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include <stdarg.h>
 # include <math.h>
-# include "../libftprintf/libft.h"
+# include "libft.h"
 # include "ft_printf.h"
 
 # define FALSE		0

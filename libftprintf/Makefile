@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fkante <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/07/31 11:18:56 by fkante           ###   ########.fr        #
+#    Updated: 2019/08/29 12:01:38 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libftprintf.a
 CC = clang
 AR = ar -rcs
 CFLAGS += -Wall
@@ -105,3 +105,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean re
+.SILENT:
