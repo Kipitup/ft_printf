@@ -15,6 +15,7 @@
 
 # Executables
 *.out
+ft_printf
 
 # Debug files
 *.dSYM/

@@ -6,13 +6,24 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 15:07:37 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 17:00:41 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "define.h"
 #include "ft_printf.h"
 
+int8_t	string(t_state_machine *machine, char *input)
+{
+	machine->p_cursor = input;
+	if (*input == CONVERSION_SIGN)
+		machine->state = ST_FLAG;
+	else
+	{
+//		vct_add(machine->p_out, *input);
+	}
+	return (1);
+}
 
 int8_t	flag(t_state_machine *machine, char *input)
 {
@@ -29,7 +40,7 @@ int8_t	flag(t_state_machine *machine, char *input)
 		if (ft_strnequ(grammar[i], input, len) == TRUE)
 		{
 			//machine->option |= pow(2, (i + 1));
-			printf("|flag%s|\n", grammar[i]);
+			printf("|flag: %s|\n", grammar[i]);
 			return ((int8_t)len);
 		}
 		i++;
@@ -53,7 +64,7 @@ int8_t	conversion(t_state_machine *machine, char *input)
 		if (ft_strnequ(grammar[i], input, len) == TRUE)
 		{
 			//machine->option |= pow(2, (i + 1)) << 8;
-			printf("|conv%s|\n", grammar[i]);
+			printf("|conv: %s|\n", grammar[i]);
 			return ((int8_t)len);
 		}
 		i++;
@@ -62,26 +73,14 @@ int8_t	conversion(t_state_machine *machine, char *input)
 	return (FAILURE);
 }
 
-int8_t	string(t_state_machine *machine, char *input)
-{
-	machine->p_cursor = input;
-	if (*input == CONVERSION_SIGN)
-		machine->state = ST_FLAG;
-	else
-	{
-		///////// ADD BUFFER (input)
-	}
-	return (1);
-}
-
 int8_t	error(t_state_machine *machine, char *input)
 {
 	int		scale;
-	// char	*tmp;
-
+//	char	*tmp;
+	
 	scale = input - machine->p_cursor; //error check with
-//	tmp = ft_strndup(machine->p_cursor, scale);
-	/// ADD STRING (output, tmp);
+//	if ((tmp = ft_strndup(machine->p_cursor, scale)) == FAILURE)
+//		return (ERROR_DUP);
 //	ft_strdel(&tmp);
 	machine->state = ST_STRING;
 	return (scale);
@@ -94,11 +93,12 @@ int8_t		parser(t_state_machine *machine, char *input)
 
 	while (*input)
 	{
+		printf("input: %c\tscale: %d\tstate:%u\n", *input, scale, machine->state);
 		if ((scale = parser[machine->state](machine, input)) != FAILURE)
 			input += scale;
 	}
-	//write(1, machine->output->buffer, vct_len(machine->output);
-	return (-2);
+	//write(1, machine->p.out, vct_len(machine->p.out);
+	return (-5);
 }
 
 //on revient pas en état de conversion

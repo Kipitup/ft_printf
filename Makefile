@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/29 15:07:12 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/29 16:25:50 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,29 +62,6 @@ COMMIT_MESSAGE ?= $(shell bash -c $(REQUEST))
 
                      ####################################
                      #                   				#
-                     #       	  	IFEQ	   			#
-                     #                   				#
-                     ####################################
-
-# FLAGS
-ifeq ($(f), no)
-CFLAGS = -g
-else ifeq ($(f), f)
-CFLAGS = $(DFLAGS)
-endif
-
-# VALGRIND
-$(VAL):
-ifeq ($(VAL), no)
-VALGRIND =
-else
-CFLAGS += -g
-SHOW_LEAK = --show-leak-kinds=definite
-VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
-endif
-
-                     ####################################
-                     #                   				#
                      #              OBJS	   			#
                      #                   				#
                      ####################################
@@ -133,6 +110,29 @@ re: fclean all
 .PHONY: clean fclean all re libft t FORCE git
 .SILENT:
 FORCE:
+
+                     ####################################
+                     #                   				#
+                     #       	  	IFEQ	   			#
+                     #                   				#
+                     ####################################
+
+# FLAGS
+ifeq ($(f), no)
+CFLAGS = -g
+else ifeq ($(f), f)
+CFLAGS = $(DFLAGS)
+endif
+
+# VALGRIND
+$(VAL):
+ifeq ($(VAL), no)
+VALGRIND =
+else
+CFLAGS += -g
+SHOW_LEAK = --show-leak-kinds=definite
+VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
+endif
 
                      ####################################
                      #                   				#

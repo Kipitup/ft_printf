@@ -6,16 +6,16 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 15:04:00 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 16:29:56 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
+# include <stdio.h> //warning
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> //warning
 # include <stdint.h>
 # include <stdarg.h>
 # include <math.h>

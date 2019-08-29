@@ -6,7 +6,7 @@
 /*   By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 10:54:38 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 16:39:17 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ enum	e_main_states
 typedef struct	s_state_machine
 {
 	char				*p_cursor;
+//	t_vector			*p_out;
 	unsigned long long	option;
 	enum				e_main_states	state;
 }				t_state_machine;
