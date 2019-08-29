@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 .gitignore
+=======
+>>>>>>> 525b7ef... [develop] main/gitignore
 # Object files
 *.o
 
