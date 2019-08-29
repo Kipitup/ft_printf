@@ -1,3 +1,4 @@
+.gitignore
 # Object files
 *.o
 
@@ -14,6 +15,7 @@
 
 # Executables
 *.out
+ft_printf
 
 # Debug files
 *.dSYM/
