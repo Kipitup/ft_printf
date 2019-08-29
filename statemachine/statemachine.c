@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 10:54:35 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 12:09:01 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int8_t	string(t_state_machine *machine, char *input)
 		machine->state = ST_FLAG;
 	else
 	{
-		///////// ADD BUFFER (input)
+		vct_add(output, *input);
 	}
 	return (1);
 }
@@ -80,9 +80,10 @@ int8_t	error(t_state_machine *machine, char *input)
 	char	*tmp;
 	
 	scale = input - machine->p_cursor; //error check with 
-//	tmp = ft_strndup(machine->p_cursor, scale); 
-	/// ADD STRING (output, tmp);
-//	ft_strdel(&tmp);
+	if ((tmp = ft_strndup(machine->p_cursor, scale)) == FAILURE)
+		return (ERROR_DUP);
+	vct_add(output, tmp) 				// ADD STRING (output, tmp);
+	ft_strdel(&tmp);
 	machine->state = ST_STRING;
 	return (scale);
 }
@@ -91,14 +92,20 @@ int8_t		parser(t_state_machine *machine, char *input)
 {
 	static t_statefunc	parser[4] = {string, flag, conversion, error};
 	int8_t				scale;
+	char				*output_string;
 
+	if (machine->state == ST_STRING && *output_string == NULL)
+			vct_new(0);
 	while (*input)
 	{
+		printf("input: %c\tscale: %d\n", *input, scale);
 		if ((scale = parser[machine->state](machine, input)) != FAILURE)
 			input += scale;
+		if (ft_error(scale, machine) == SUCCESS)
+			return (FAILURE);
 	}
 	//write(1, machine->output->buffer, vct_len(machine->output);
-	return (-2);
+	return (-5);
 }
 
 //on revient pas en état de conversion
