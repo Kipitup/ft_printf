@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/29 15:07:12 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/29 18:02:55 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ LIB = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DFLAGS =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
-INCLUDES = -I ./includes -I ./libftprintf
+INCLUDES += -I./includes
+INCLUDES += -I./libftprintf
 HEAD += ./includes/define.h
 HEAD += ./includes/ft_printf.h
 

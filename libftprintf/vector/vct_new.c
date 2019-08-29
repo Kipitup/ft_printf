@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:35:59 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 15:55:50 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 18:33:06 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,11 @@ t_vector		*vct_new(size_t size)
 	new_vector->size = size == 0 ? DEFAULT_VECTOR_SIZE : size;
 	new_vector->len = 0;
 	new_vector->scale = DEFAULT_VECTOR_SCALE;
-	new_vector->str = ft_memalloc(size);
+	new_vector->str = ft_memalloc(new_vector->size);
 	if (new_vector->str == NULL)
 	{
 		free(new_vector);
 		new_vector = NULL;
 	}
 	return (new_vector);
-}
-
-int8_t	vct_add_string(t_vector *vct)
-{
-	char	*old;
-
-	old = vct->str;
-	vct->size += vct->scale;
-	vct->str = ft_memalloc(vct->size);
-	if (vct->str == NULL)
-		return (FAILURE);
-	ft_strcpy(vct->str, old);
-	ft_strdel(old);
-	return (SUCCESS);
-}
-
-int8_t	vct_add_string(t_vector *vct, char *s)
-{
-	size_t len;
-
-	len = ft_strlen(s);
-	while (len + vct->len >= vct->size)
-	{
-		if (vct_resize(vct) == FAILURE)
-			return (FAILURE);
-	}
-	ft_strcat(vct->str, s);
-	return (SUCCESS);
 }
