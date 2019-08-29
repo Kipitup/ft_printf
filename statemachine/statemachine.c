@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 15:07:37 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 20:05:14 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int8_t	conversion(t_state_machine *machine, char *input)
 		len = ft_strlen(grammar[i]);
 		if (ft_strnequ(grammar[i], input, len) == TRUE)
 		{
-			//machine->option |= pow(2, (i + 1)) << 8;
+			//machine->option |= pow(2, (i + 1)) << 16;
 			printf("|conv%s|\n", grammar[i]);
 			return ((int8_t)len);
 		}
