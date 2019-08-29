@@ -1,0 +1,22 @@
+# Object files
+*.o
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Temp files
+*.swp
+
+# Libraries
+*.lib
+*.a
+
+# Executables
+*.out
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb

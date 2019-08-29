@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 15:10:32 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 16:02:52 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,4 @@ int		main(int ac, char **av)
 /*option &= ~SPACE enleve
 option |= SPACE ajoute
 option & SPACE test*/
+
