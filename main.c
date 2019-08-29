@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 16:02:52 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 19:30:29 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		main(int ac, char **av)
 {
-	int				fd;
 	t_vector		*output_string;
 	t_state_machine	machine;
 
@@ -26,6 +25,7 @@ int		main(int ac, char **av)
 //	if (machine->state == ST_STRING && *output_string == NULL)
 //		output_string = vct_new(0);
 //	machine.p_out = *output_string;
+	(void)output_string;
 	printf("%d\n", (parser(&machine, av[1])));
 	return (0);
 }
@@ -34,4 +34,3 @@ int		main(int ac, char **av)
 /*option &= ~SPACE enleve
 option |= SPACE ajoute
 option & SPACE test*/
-

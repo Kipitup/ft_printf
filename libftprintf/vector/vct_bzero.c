@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_del.c                                          :+:      :+:    :+:   */
+/*   vct_bzero.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 16:30:22 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 19:22:27 by amartino         ###   ########.fr       */
+/*   Created: 2019/08/29 17:05:32 by amartino          #+#    #+#             */
+/*   Updated: 2019/08/29 19:24:45 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /* ***************************************************************************
-	Free the vector and set it to NULL
+	Fill the allocated bloc with '\0'
 **************************************************************************** */
 
-void			vct_del(t_vector **vector)
+void			vct_bzero(t_vector *vector)
 {
-	char 	*s;
-
-	if (vector && (*vector)->str)
-	{
-		s = (*vector)->str;
-		ft_strdel(&s);
-	}
-	ft_memdel((void**)vector);
+	ft_bzero(vector->str, vector->size);
+	vector->len = 0;
 }

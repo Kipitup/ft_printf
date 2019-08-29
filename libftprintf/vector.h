@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/27 17:24:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/29 19:04:44 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft.h"
+# include "libft.h"
+
+# define FALSE		0
+# define TRUE		1
+# define FAILURE	-1
+# define SUCCESS	0
+# define ON			1
+# define OFF		0
 
 # define DEFAULT_VECTOR_SIZE 64
 # define DEFAULT_VECTOR_SCALE 16
@@ -37,12 +44,11 @@ typedef struct 	s_vector
 
 void			vct_del(t_vector **vector);
 t_vector		*vct_new(size_t size);
-ssize_t			vct_add(t_vector *vector, char c);
-ssize_t			vct_remove(t_vector *vector, size_t len);
-ssize_t			vct_concat(t_vector *vector, char *str);
-ssize_t			vct_insert_char_index(t_vector *vector, char c, size_t index);
-ssize_t			vct_reset(t_vector *vector);
-ssize_t			vct_increase_scale(t_vector *vector, size_t scale);
+int8_t			vct_strjoin(t_vector *vector, char *str);
+void			vct_remove_from_end(t_vector *vector, size_t len);
+int8_t			vct_add_char(t_vector *vector, char c);
+void			vct_bzero(t_vector *vector);
+int8_t			vct_increase_scale(t_vector *vector);
 
 
 #endif

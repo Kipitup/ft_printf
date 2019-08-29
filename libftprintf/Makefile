@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/08/29 12:01:38 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/29 19:30:30 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 BUILD_DIR = build/
-HEAD = libft.h
+
+INCLUDES = -I./includes
+HEAD += ./includes/libft.h
+HEAD += ./includes/vector.h
+
 SRCS += ft_atoi.c
 SRCS += ft_bzero.c
 SRCS += ft_isalnum.c
@@ -64,6 +68,7 @@ SRCS += ft_strlcat.c
 SRCS += ft_strlen.c
 SRCS += ft_strmap.c
 SRCS += ft_strmapi.c
+SRCS += ft_strndup.c
 SRCS += ft_strncat.c
 SRCS += ft_strncmp.c
 SRCS += ft_strncpy.c
@@ -83,6 +88,22 @@ SRCS += ft_absolute.c
 SRCS += ft_fibonacci.c
 SRCS += ft_memjoin_str.c
 SRCS += ft_sqrt.c
+
+# vectors
+SRCS += vct_del.c
+SRCS += vct_new.c
+SRCS += vct_strjoin.c
+SRCS += vct_remove_from_end.c
+SRCS += vct_add_char.c
+SRCS += vct_increase_scale.c
+SRCS += vct_bzero.c
+
+PATH_SRCS += ./vector
+PATH_SRCS += .
+
+vpath %.c $(PATH_SRCS)
+
+
 OBJS += $(patsubst %.c, $(BUILD_DIR)%.o, $(SRCS))
 
 all: $(NAME)
@@ -94,7 +115,7 @@ $(BUILD_DIR):
 	mkdir $@
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	$(RM) -R $(BUILD_DIR)
