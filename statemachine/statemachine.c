@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   statemachine.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 10:54:35 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/29 15:07:37 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/define.h"
-#include "../header/ft_printf.h"
+#include "define.h"
+#include "ft_printf.h"
 
 
 int8_t	flag(t_state_machine *machine, char *input)
@@ -40,13 +40,13 @@ int8_t	flag(t_state_machine *machine, char *input)
 
 int8_t	conversion(t_state_machine *machine, char *input)
 {
-	static const char *grammar[10] = {"c", "s", "p", "d", "i", "o", "u", "x", 
+	static const char *grammar[10] = {"c", "s", "p", "d", "i", "o", "u", "x",
 									"X", "f"};
 	int		i;
 	size_t	len;
 
 	i = 0;
-	machine->p_cursor = input;		
+	machine->p_cursor = input;
 	while (i < 10)
 	{
 		len = ft_strlen(grammar[i]);
@@ -64,7 +64,7 @@ int8_t	conversion(t_state_machine *machine, char *input)
 
 int8_t	string(t_state_machine *machine, char *input)
 {
-	machine->p_cursor = input;			
+	machine->p_cursor = input;
 	if (*input == CONVERSION_SIGN)
 		machine->state = ST_FLAG;
 	else
@@ -77,10 +77,10 @@ int8_t	string(t_state_machine *machine, char *input)
 int8_t	error(t_state_machine *machine, char *input)
 {
 	int		scale;
-	char	*tmp;
-	
-	scale = input - machine->p_cursor; //error check with 
-//	tmp = ft_strndup(machine->p_cursor, scale); 
+	// char	*tmp;
+
+	scale = input - machine->p_cursor; //error check with
+//	tmp = ft_strndup(machine->p_cursor, scale);
 	/// ADD STRING (output, tmp);
 //	ft_strdel(&tmp);
 	machine->state = ST_STRING;
