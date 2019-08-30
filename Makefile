@@ -6,7 +6,11 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2019/08/29 16:25:50 by fkante           ###   ########.fr        #
+=======
+#    Updated: 2019/08/30 16:29:08 by amartino         ###   ########.fr        #
+>>>>>>> f35d6ae... [LIB] forgot a file from the previous commit
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +106,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	echo "$(YELLOW)$(NAME)$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
+	echo "$(YELLOW)$(NAME)$(END) \t were \t $(GREEN)clean$(END)\n"
 	$(MAKE) fclean -C $(LIB_DIR)
 
 re: fclean all
