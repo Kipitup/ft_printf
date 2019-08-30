@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 16:29:56 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/30 16:46:47 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,31 @@
 # define ON			1
 # define OFF		0
 
-# define CONVERSION_SIGN	'%'
+# define NB_OF_FLAGS 11
+# define NB_OF_CONVS 10
+# define CONVERSION_SIGN '%'
+# define HH "hh"
+# define LL "ll"
+# define H "h"
+# define L "l"
+# define L_MAJ "L"
+# define PLUS "+"
+# define MOINS "-"
+# define HASH "#"
+# define ZERO "0"
+# define SPACE " "
+# define POINT "."
+# define C "c"
+# define S "s"
+# define P "p"
+# define D "d"
+# define I "i"
+# define O "o"
+# define U "u"
+# define X "x"
+# define X_MAJ "X"
+# define F "f"
+
 
 
 # define FLAG_HH		0x0000000000000001

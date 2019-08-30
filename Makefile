@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/30 16:34:26 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/30 16:46:42 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ LIB = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DFLAGS =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
-INCLUDES = -I ./includes -I ./libftprintf
+INCLUDES += -I./includes
+INCLUDES += -I./libftprintf/includes
 HEAD += ./includes/define.h
 HEAD += ./includes/ft_printf.h
 
@@ -35,7 +36,6 @@ LIB_PATH = $(LIB_DIR)/$(LIB)
 
 # SRCS
 PATH_SR = statemachine/
-PATH_SR += test/
 
 vpath %.c $(PATH_SR)
 
@@ -111,12 +111,11 @@ re: fclean all
 .SILENT:
 FORCE:
 
-                     ####################################
-                     #                   				#
-                     #       	  	IFEQ	   			#
-                     #                   				#
-                     ####################################
-
+					 ####################################
+					 #                   				#
+					 #       	  	IFEQ	   			#
+					 #                   				#
+					 ####################################
 # FLAGS
 ifeq ($(f), no)
 CFLAGS = -g
