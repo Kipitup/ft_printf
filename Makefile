@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/29 19:30:31 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/30 16:10:19 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DFLAGS =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
 INCLUDES += -I./includes
-INCLUDES += -I./libftprintf
+INCLUDES += -I./libftprintf/includes
 HEAD += ./includes/define.h
 HEAD += ./includes/ft_printf.h
 
@@ -36,7 +36,6 @@ LIB_PATH = $(LIB_DIR)/$(LIB)
 
 # SRCS
 PATH_SR = statemachine/
-PATH_SR += test/
 
 vpath %.c $(PATH_SR)
 
@@ -60,29 +59,6 @@ T ?= sample
 VAL ?= no
 REQUEST = 'read -p "Enter a commit message:" pwd; echo $$pwd'
 COMMIT_MESSAGE ?= $(shell bash -c $(REQUEST))
-
-                     ####################################
-                     #                   				#
-                     #       	  	IFEQ	   			#
-                     #                   				#
-                     ####################################
-
-# FLAGS
-ifeq ($(f), no)
-CFLAGS = -g
-else ifeq ($(f), f)
-CFLAGS = $(DFLAGS)
-endif
-
-# VALGRIND
-$(VAL):
-ifeq ($(VAL), no)
-VALGRIND =
-else
-CFLAGS += -g
-SHOW_LEAK = --show-leak-kinds=definite
-VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
-endif
 
                      ####################################
                      #                   				#
@@ -134,6 +110,28 @@ re: fclean all
 .PHONY: clean fclean all re libft t FORCE git
 .SILENT:
 FORCE:
+
+					 ####################################
+					 #                   				#
+					 #       	  	IFEQ	   			#
+					 #                   				#
+					 ####################################
+# FLAGS
+ifeq ($(f), no)
+CFLAGS = -g
+else ifeq ($(f), f)
+CFLAGS = $(DFLAGS)
+endif
+
+# VALGRIND
+$(VAL):
+ifeq ($(VAL), no)
+VALGRIND =
+else
+CFLAGS += -g
+SHOW_LEAK = --show-leak-kinds=definite
+VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
+endif
 
                      ####################################
                      #                   				#

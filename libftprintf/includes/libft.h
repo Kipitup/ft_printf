@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/29 19:08:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:02:04 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ size_t				ft_nb_unitlen(int nb);
 int					ft_fibonacci(int index);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
+double				ft_pow(double x, double y);
+unsigned long		ft_pow_positive(unsigned long x, unsigned long y);
 
 /*
 ** ############################################################################

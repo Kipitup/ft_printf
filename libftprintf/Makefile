@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/08/29 19:30:30 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/30 16:04:28 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,8 @@ SRCS += ft_absolute.c
 SRCS += ft_fibonacci.c
 SRCS += ft_memjoin_str.c
 SRCS += ft_sqrt.c
+SRCS += ft_pow.c
+SRCS += ft_pow_positive.c
 
 # vectors
 SRCS += vct_del.c
