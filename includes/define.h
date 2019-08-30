@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 17:25:45 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/30 16:23:30 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define OFF		0
 
 # define CONVERSION_SIGN	'%'
+# define NB_OF_CONVS		10
 
 
 # define FLAG_HH		0x0000000000000001

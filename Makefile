@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/29 16:25:50 by fkante           ###   ########.fr        #
+#    Updated: 2019/08/30 09:23:12 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ LIB_PATH = $(LIB_DIR)/$(LIB)
 # SRCS
 PATH_SR = statemachine/
 PATH_SR += test/
+PATH_SR += conversion/
 
 vpath %.c $(PATH_SR)
 
@@ -49,6 +50,9 @@ SRCS += main
 
 # State Machine
 SRCS += statemachine
+
+# Conversion
+SRCS += check_flag
 
                      ####################################
                      #                   				#
