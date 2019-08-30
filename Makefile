@@ -6,7 +6,11 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2019/08/30 09:23:12 by fkante           ###   ########.fr        #
+=======
+#    Updated: 2019/08/30 16:29:08 by amartino         ###   ########.fr        #
+>>>>>>> f35d6aecc71656f866fe5d96206b174c5649470c
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +25,8 @@ LIB = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DFLAGS =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
-INCLUDES = -I ./includes -I ./libftprintf
+INCLUDES += -I./includes
+INCLUDES += -I./libftprintf/includes
 HEAD += ./includes/define.h
 HEAD += ./includes/ft_printf.h
 
@@ -35,8 +40,11 @@ LIB_PATH = $(LIB_DIR)/$(LIB)
 
 # SRCS
 PATH_SR = statemachine/
+<<<<<<< HEAD
 PATH_SR += test/
 PATH_SR += conversion/
+=======
+>>>>>>> f35d6aecc71656f866fe5d96206b174c5649470c
 
 vpath %.c $(PATH_SR)
 
@@ -106,7 +114,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	echo "$(YELLOW)$(NAME)$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
+	echo "$(YELLOW)$(NAME)$(END) \t were \t $(GREEN)clean$(END)\n"
 	$(MAKE) fclean -C $(LIB_DIR)
 
 re: fclean all
@@ -114,6 +122,28 @@ re: fclean all
 .PHONY: clean fclean all re libft t FORCE git
 .SILENT:
 FORCE:
+
+					 ####################################
+					 #                   				#
+					 #       	  	IFEQ	   			#
+					 #                   				#
+					 ####################################
+# FLAGS
+ifeq ($(f), no)
+CFLAGS = -g
+else ifeq ($(f), f)
+CFLAGS = $(DFLAGS)
+endif
+
+# VALGRIND
+$(VAL):
+ifeq ($(VAL), no)
+VALGRIND =
+else
+CFLAGS += -g
+SHOW_LEAK = --show-leak-kinds=definite
+VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
+endif
 
                      ####################################
                      #                   				#

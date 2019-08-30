@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_del.c                                          :+:      :+:    :+:   */
+/*   vct_strjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 16:30:22 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 19:50:52 by amartino         ###   ########.fr       */
+/*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
+/*   Updated: 2019/08/29 19:48:07 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /* ***************************************************************************
-	Free the vector and set it to NULL
+	Add a char to the end of the vector string.
+
+	As for all vectors functions, if the LENGHT of the new string is bigger
+	than the string SIZE, an equivalent reallocation occurs.
 **************************************************************************** */
 
-void			vct_del(t_vector **vector)
+ //to be changed
+ 
+int8_t	vct_strjoin(t_vector *vector, char *str)
 {
-	if (*vector != NULL && (*vector)->str != NULL)
-		 ft_strdel(&((*vector)->str));
-	ft_memdel((void**)vector);
+	size_t len;
+
+	len = ft_strlen(str);
+	while (len + vector->len >= vector->size)
+	{
+		if (vct_increase_scale(vector) == FAILURE)
+			return (FAILURE);
+	}
+	ft_strcpy(vector->str + vector->len, str);
+	vector->len += len;
+	return (SUCCESS);
 }

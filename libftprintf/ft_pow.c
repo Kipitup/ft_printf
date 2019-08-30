@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_del.c                                          :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 16:30:22 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 19:50:52 by amartino         ###   ########.fr       */
+/*   Created: 2019/08/30 11:37:04 by amartino          #+#    #+#             */
+/*   Updated: 2019/08/30 16:01:10 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "libft.h"
 
-/* ***************************************************************************
-	Free the vector and set it to NULL
-**************************************************************************** */
-
-void			vct_del(t_vector **vector)
+double ft_pow(double x, double y)
 {
-	if (*vector != NULL && (*vector)->str != NULL)
-		 ft_strdel(&((*vector)->str));
-	ft_memdel((void**)vector);
+	double	i;
+	double 	tmp;
+	int8_t	neg;
+
+	i = 0;
+	neg = 0;
+	tmp = x;
+	if (y < 0)
+	{
+		y *= -1;
+		neg = 1;
+	}
+	while (i < y)
+	{
+		x *= tmp;
+		i++;
+	}
+	return (neg == 0 ? x : x == 1 ? 1/x : 1);
 }
