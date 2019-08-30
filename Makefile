@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/30 16:10:19 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/30 16:29:08 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
-	echo "$(YELLOW)$(NAME)$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
+	echo "$(YELLOW)$(NAME)$(END) \t were \t $(GREEN)clean$(END)\n"
 	$(MAKE) fclean -C $(LIB_DIR)
 
 re: fclean all
