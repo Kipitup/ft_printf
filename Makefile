@@ -6,11 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2019/08/29 16:25:50 by fkante           ###   ########.fr        #
-=======
-#    Updated: 2019/08/30 16:29:08 by amartino         ###   ########.fr        #
->>>>>>> f35d6ae... [LIB] forgot a file from the previous commit
+#    Updated: 2019/08/30 16:34:26 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
