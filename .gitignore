@@ -9,6 +9,7 @@
 
 # Temp files
 *.swp
+*.swo
 
 # Libraries
 *.lib
@@ -16,6 +17,7 @@
 
 # Executables
 *.out
+ft_printf
 
 # Debug files
 *.dSYM/

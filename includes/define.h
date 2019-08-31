@@ -6,19 +6,20 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/30 11:33:21 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/30 16:56:07 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
+# include <stdio.h> //warning
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> //warning
 # include <stdint.h>
 # include <stdarg.h>
 # include <math.h>
+# include <inttypes.h>
 # include "libft.h"
 # include "ft_printf.h"
 
