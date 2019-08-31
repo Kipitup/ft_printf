@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/30 16:58:05 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/31 21:40:05 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,18 @@ int8_t	string(t_state_machine *machine, char *input)
 	return (1);
 }
 
+
+
+{
+	machine->cur_out = conv[i](va_args, machine->option);
+	:
+}
+
 int8_t		parser(t_state_machine *machine, char *input)
 {
-	static t_statefunc	parser[4];
+	static t_statefunc	parser[4] = {string, flag, conversion, error};
 	int8_t				scale;
 
-	parser = {string, flag, conversion, error};
 	while (*input)
 	{
 		printf("input: %c\tscale: %d\tstate:%u\n", *input, scale, machine->state);

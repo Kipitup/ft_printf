@@ -1,5 +1,3 @@
-.gitignore
-
 # Object files
 *.o
 
@@ -8,8 +6,7 @@
 *.pch
 
 # Temp files
-*.swp
-*.swo
+*.sw*
 
 # Libraries
 *.lib

@@ -6,47 +6,40 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/30 16:52:17 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/31 21:59:36 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	check_cancel_flag(uint64_t option)
+void	check_cancel_flag(t_state_machine *machine)
 {
-	t_main	t_argv;
-
-	if (option & FLAG_PLUS && option & FLAG_SPACE)
-		option &= ~FLAG_SPACE;
-	if (option & FLAG_MINUS && option & FLAG_ZER0)
-		option &= ~FLAG_ZERO;
-	t_argv.option = option;
+	if (machine->option & FLAG_PLUS && machine->option & FLAG_SPACE)
+		machine->option &= ~FLAG_SPACE;
+	if (machine->option & FLAG_MINUS && machine->option & FLAG_ZER0)
+		machine->option &= ~FLAG_ZERO;
 }
 
-int		ft_printf(const char *input, ...)
+void	rolling_through_conversion(t_state_machine machine, char *input)
 {
-}
+	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char,
+					conv_to_string, conv_to_pointer, conv_to_decimal,
+					conv_to_int, conv_to_octal, conv_to_u_decimal,
+					conv_to_hexa, conv_to_hexa_maj, conv_to_float};
+	t_vector				*local;
+	uint8_t					i;
 
-void	after_check_of_option()
-{
-	va_list		arg_pf;
-	t_main 		t_argv;
-	int			valid_conv_count;
-	static		t_convfunc func_ptr[NB_CONV_FUNC];
-
-	func_ptr = {conv_to_char, conv_to_string, conv_to_pointer, conv_to_decimal,
-				conv_to_int, conv_to_octal, conv_to_u_decimal, conv_to_hexa,
-				conv_to_hexa_maj, conv_to_float};
-
-	//initialize valist for the valid number of conv
-	va_start(arg_pf, input);
-
-	//we access the arguments assigned to valist
-	t_argv.p_arg = va_arg(arg_pf, char*);
-	printf("print argv : |%s|\n", argv);
-}
-// clean n free memory for valist 
-
-va_end(arg_pf);
-return (0);
+	
+	i = 0;
+	while (i < NB_OF_CONVS)
+	{
+		if (machine->option & ((1 << i) << SHIFT_TO_CONVS))
+		{
+			local = funct_ptr[i](machine, input);
+			vct_join(machine->out, local);
+			vct_del(&local);
+			break ;
+		}
+		i++;
+	}
 }
