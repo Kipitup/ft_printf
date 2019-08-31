@@ -6,10 +6,9 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/30 16:46:42 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/31 16:37:59 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
                      ####################################
                      #                   				#
                      #       	MAIN VARIABLES 			#
@@ -36,6 +35,7 @@ LIB_PATH = $(LIB_DIR)/$(LIB)
 
 # SRCS
 PATH_SR = statemachine/
+PATH_SR += conversion/
 
 vpath %.c $(PATH_SR)
 
@@ -49,6 +49,9 @@ SRCS += main
 
 # State Machine
 SRCS += statemachine
+
+# Conversion
+SRCS += check_flag
 
                      ####################################
                      #                   				#
@@ -116,6 +119,29 @@ FORCE:
 					 #       	  	IFEQ	   			#
 					 #                   				#
 					 ####################################
+# FLAGS
+ifeq ($(f), no)
+CFLAGS = -g
+else ifeq ($(f), f)
+CFLAGS = $(DFLAGS)
+endif
+
+# VALGRIND
+$(VAL):
+ifeq ($(VAL), no)
+VALGRIND =
+else
+CFLAGS += -g
+SHOW_LEAK = --show-leak-kinds=definite
+VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
+endif
+
+                     ####################################
+                     #                   				#
+                     #       	  	IFEQ	   			#
+                     #                   				#
+                     ####################################
+
 # FLAGS
 ifeq ($(f), no)
 CFLAGS = -g

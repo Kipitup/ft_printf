@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/30 16:46:51 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/31 16:39:50 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,29 @@ typedef struct	s_state_machine
 {
 	char				*p_cursor;
 //	t_vector			*p_out;
-	unsigned long long	option;
-	enum				e_main_states	state;
+	uint64_t			option;
+	enum e_main_states	state;
 }				t_state_machine;
 
-typedef int8_t (*t_statefunc)(t_state_machine *self, char *input);
+typedef struct	s_main
+{
+	t_vector 			*output;
+	uint64_t			option;
+	va_list				arg_printf;
+}				t_main;
 
-int8_t	parser(t_state_machine *machine, char *input);
-int8_t	string(t_state_machine *machine, char *input);
-int8_t	conversion(t_state_machine *machine, char *input);
-int8_t	flag(t_state_machine *machine, char *input);
-int8_t	error(t_state_machine *machine, char *input);
+typedef int8_t	(*t_statefunc)(t_state_machine *self, char *input);
+typedef int8_t	(*t_convfunc)(uint64_t option, char *argv);
+
+int8_t			parser(t_state_machine *machine, char *input);
+int8_t			string(t_state_machine *machine, char *input);
+int8_t			conversion(t_state_machine *machine, char *input);
+int8_t			flag(t_state_machine *machine, char *input);
+int8_t			error(t_state_machine *machine, char *input);
+
+t_state_machine init_state_machine(char *argv);
+int				ft_printf(const char *input, ...)
+					__attribute__((format(printf, 1, 2)));
 
 enum	e_type_flag
 {

@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/30 16:48:37 by amartino         ###   ########.fr       */
+/*   Updated: 2019/08/31 16:37:31 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,19 @@ int8_t	conversion(t_state_machine *machine, char *input)
 	return (FAILURE);
 }
 
+int8_t	error(t_state_machine *machine, char *input)
+{
+	int		scale;
+//	char	*tmp;
+
+	scale = input - machine->p_cursor; //error check with
+//	if ((tmp = ft_strndup(machine->p_cursor, scale)) == FAILURE)
+//		return (ERROR_DUP);
+//	ft_strdel(&tmp);
+	machine->state = ST_STRING;
+	return (scale);
+}
+
 int8_t	string(t_state_machine *machine, char *input)
 {
 	machine->p_cursor = input;
@@ -72,24 +85,12 @@ int8_t	string(t_state_machine *machine, char *input)
 	return (1);
 }
 
-int8_t	error(t_state_machine *machine, char *input)
-{
-	int		scale;
-	// char	*tmp;
-
-	scale = input - machine->p_cursor; //error check with
-//	tmp = ft_strndup(machine->p_cursor, scale);
-	/// ADD STRING (output, tmp);
-//	ft_strdel(&tmp);
-	machine->state = ST_STRING;
-	return (scale);
-}
-
 int8_t		parser(t_state_machine *machine, char *input)
 {
-	static t_statefunc	parser[4] = {string, flag, conversion, error};
+	static t_statefunc	parser[4];
 	int8_t				scale;
 
+	parser = {string, flag, conversion, error};
 	while (*input)
 	{
 		printf("input: %c\tscale: %d\tstate:%u\n", *input, scale, machine->state);

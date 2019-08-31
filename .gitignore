@@ -8,6 +8,7 @@
 
 # Temp files
 *.swp
+*.swo
 
 # Libraries
 *.lib
