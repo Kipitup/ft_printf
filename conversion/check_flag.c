@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/30 16:52:17 by fkante           ###   ########.fr       */
+/*   Updated: 2019/08/31 19:37:20 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
+/*
 void	check_cancel_flag(uint64_t option)
 {
 	t_main	t_argv;
@@ -45,8 +45,8 @@ void	after_check_of_option()
 	t_argv.p_arg = va_arg(arg_pf, char*);
 	printf("print argv : |%s|\n", argv);
 }
-// clean n free memory for valist 
+// clean n free memory for valist
 
 va_end(arg_pf);
 return (0);
-}
+}*/

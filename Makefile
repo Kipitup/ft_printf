@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/31 16:37:59 by amartino         ###   ########.fr        #
+#    Updated: 2019/08/31 18:29:25 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -34,10 +34,11 @@ HEAD += ./includes/ft_printf.h
 LIB_PATH = $(LIB_DIR)/$(LIB)
 
 # SRCS
-PATH_SR = statemachine/
-PATH_SR += conversion/
+PATH_SRC += statemachine/
+PATH_SRC += conversion/
+PATH_SRC += init/
 
-vpath %.c $(PATH_SR)
+vpath %.c $(PATH_SRC)
 
                      ####################################
                      #                   				#
@@ -46,9 +47,14 @@ vpath %.c $(PATH_SR)
                      ####################################
 # main
 SRCS += main
+SRCS += ft_printf
+
+# initialize
+SRCS += init_printf
 
 # State Machine
 SRCS += statemachine
+SRCS += states
 
 # Conversion
 SRCS += check_flag
