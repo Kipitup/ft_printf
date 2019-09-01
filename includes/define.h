@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 15:10:35 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/01 18:23:24 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define L 					"l"
 # define L_MAJ				"L"
 # define PLUS 				"+"
-# define MOINS				"-"
+# define MINUS				"-"
 # define HASH				"#"
 # define ZERO				"0"
 # define SPACE				" "
