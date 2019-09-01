@@ -26,7 +26,7 @@ void		debug(t_state_machine *machine, char *input, int8_t scale,
 				scale == 0 ? 1 : scale, input, state_str[state], machine->option);
 }
 
-int8_t		parser(t_state_machine *machine, char *input, va_list args_printf)
+int8_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	static t_statefunc	parser[5] = {string, flag, conversion, output, error};
 	int8_t				scale;

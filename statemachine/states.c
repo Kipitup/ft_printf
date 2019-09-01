@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int8_t	string(t_state_machine *machine, char *input, va_list args_printf)
+int8_t	string(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	(void)args_printf;
 	machine->p_cursor = input;
@@ -28,7 +28,7 @@ int8_t	string(t_state_machine *machine, char *input, va_list args_printf)
 	return (1);
 }
 
-int8_t	flag(t_state_machine *machine, char *input, va_list args_printf)
+int8_t	flag(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	(void)args_printf;
 	static const char	*flags[NB_OF_FLAGS] = {HH, LL, H, L, L_MAJ, PLUS,
@@ -52,7 +52,7 @@ int8_t	flag(t_state_machine *machine, char *input, va_list args_printf)
 	return (FAILURE);
 }
 
-int8_t	conversion(t_state_machine *machine, char *input, va_list args_printf)
+int8_t	conversion(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	(void)args_printf;
 	static char *convs[NB_OF_CONVS] = {C, S, P, D, I, O, U, X, X_MAJ, F};
@@ -71,7 +71,7 @@ int8_t	conversion(t_state_machine *machine, char *input, va_list args_printf)
 	return (0);
 }
 
-int8_t			output(t_state_machine *machine, char *input, va_list args_printf)
+int8_t			output(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	check_and_cancel_flag(machine);
 	if (*input == '\0')
@@ -88,7 +88,7 @@ int8_t			output(t_state_machine *machine, char *input, va_list args_printf)
 	return (1);
 }
 
-int8_t	error(t_state_machine *machine, char *input, va_list args_printf)
+int8_t	error(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	(void)machine;
 	(void)input;

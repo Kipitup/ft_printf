@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/01 19:59:06 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/01 20:08:49 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int8_t	convert(t_state_machine *machine, char *input, va_list *args_printf)
 	{
 		if (machine->option & ((1 << i) << SHIFT_TO_CONVS))
 		{
-			local =	func_ptr[i](*args_printf, machine->option);
+			local =	func_ptr[i](args_printf, machine->option);
 			vct_strjoin(machine->p_output, local->str);
 			vct_del(&local);
 			break ;

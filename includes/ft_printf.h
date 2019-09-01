@@ -33,8 +33,8 @@ typedef struct	s_state_machine
 	enum e_main_states	state;
 }				t_state_machine;
 
-typedef int8_t		(*t_statefunc)(t_state_machine *self, char *input, va_list args_printf);
-typedef t_vector	*(*t_convfunc)(va_list args_printf, uint64_t flag);
+typedef int8_t		(*t_statefunc)(t_state_machine *self, char *input, va_list *args_printf);
+typedef t_vector	*(*t_convfunc)(va_list *args_printf, uint64_t flag);
 
 /*
 **********************
@@ -49,12 +49,12 @@ int				ft_printf(const char *input, ...); //__attribute__
 **  STATE MACHINE	**
 **********************
 */
-int8_t			parser(t_state_machine *machine, char *input, va_list args_printf);
-int8_t			string(t_state_machine *machine, char *input, va_list args_printf);
-int8_t			conversion(t_state_machine *machine, char *input, va_list args_printf);
-int8_t			flag(t_state_machine *machine, char *input, va_list args_printf);
-int8_t			output(t_state_machine *mahcine, char *input, va_list args_printf);
-int8_t			error(t_state_machine *machine, char *input, va_list args_printf);
+int8_t			parser(t_state_machine *machine, char *input, va_list *args_printf);
+int8_t			string(t_state_machine *machine, char *input, va_list *args_printf);
+int8_t			conversion(t_state_machine *machine, char *input, va_list *args_printf);
+int8_t			flag(t_state_machine *machine, char *input, va_list *args_printf);
+int8_t			output(t_state_machine *mahcine, char *input, va_list *args_printf);
+int8_t			error(t_state_machine *machine, char *input, va_list *args_printf);
 
 /*
 **********************
@@ -68,19 +68,19 @@ void  			init_state_machine(t_state_machine *machine, const char *input);
 **    CONVERSION	**
 **********************
 */
-t_vector		*conv_to_char(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_string(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_pointer(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_decimal(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_int(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_octal(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_u_decimal(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_hexa(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_hexa_maj(va_list args_printf, uint64_t flag);
-t_vector		*conv_to_float(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_char(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_string(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_pointer(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_decimal(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_int(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_octal(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_u_decimal(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_hexa(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_hexa_maj(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_float(va_list *args_printf, uint64_t flag);
 
 void			check_and_cancel_flag(t_state_machine *machine);
-int8_t			convert(t_state_machine *machine, char *input, va_list args_printf);
+int8_t			convert(t_state_machine *machine, char *input, va_list *args_printf);
 
 enum	e_type_flag
 {
