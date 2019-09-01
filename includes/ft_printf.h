@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/31 21:50:49 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 12:29:50 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ int8_t			error(t_state_machine *machine, char *input, va_list args_printf);
 
 void  			init_state_machine(t_state_machine *machine, const char *input);
 
-int				ft_printf(const char *input, ...)
-					__attribute__((format(printf, 1, 2)));
+t_state_machine init_state_machine(char *argv);
+
+void			check_and_cancel_flag(t_state_machine *machine);
+void			rolling_through_conversion(t_state_machine, char *args);
+int				ft_printf(const char *input, ...) //__attribute__
+//					((format(printf, 1, 2)));
 
 enum	e_type_flag
 {

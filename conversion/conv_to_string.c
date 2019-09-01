@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conversion.c                                       :+:      :+:    :+:   */
+/*   conv_to_string.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/29 17:06:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/30 16:51:45 by fkante           ###   ########.fr       */
+/*   Created: 2019/08/31 20:31:42 by fkante            #+#    #+#             */
+/*   Updated: 2019/08/31 21:56:24 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*conversion_to_char()
+int8_t	*conv_to_string(t_state_machine *machine, char *args)
 {
-		ft_putchar(input);
+	while (*args != *p_cursor)
+	{
+		vct_strjoin(machine->p_out, args);
+		args++;
+	}
+	return (SUCCESS);
 }
-
-char	*conversion_to_string(t_state_machine *machine, char *input)
-{
-
-
