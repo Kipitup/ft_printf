@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/30 11:37:04 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/31 21:43:03 by amartino         ###   ########.fr       */
+/*   Created: 2019/08/31 17:12:35 by amartino          #+#    #+#             */
+/*   Updated: 2019/08/31 19:59:14 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-double ft_pow(double x, double y)
+int				ft_printf(const char *input, ...)
 {
-	double	i;
-	double 	tmp;
-	int8_t	neg;
+	t_state_machine	machine;
+	va_list			args_printf;
 
-	i = 1;
-	neg = 0;
-	tmp = x;
-	if (y < 0)
-	{
-		y *= -1;
-		neg = 1;
-	}
-	while (i < y)
-	{
-		x *= tmp;
-		i++;
-	}
-	return (neg == 0 ? x : x == 1 ? 1/x : 1);
+	init_state_machine(&machine, input);
+	va_start(args_printf, input);
+	printf("%d\n", (parser(&machine, (char *)input, args_printf)));
+	va_end(args_printf);
+	return (SUCCESS);
 }

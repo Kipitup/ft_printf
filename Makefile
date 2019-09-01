@@ -6,14 +6,9 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2019/08/30 09:23:12 by fkante           ###   ########.fr        #
-=======
-#    Updated: 2019/08/30 16:29:08 by amartino         ###   ########.fr        #
->>>>>>> f35d6aecc71656f866fe5d96206b174c5649470c
+#    Updated: 2019/08/31 18:29:25 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
                      ####################################
                      #                   				#
                      #       	MAIN VARIABLES 			#
@@ -39,14 +34,11 @@ HEAD += ./includes/ft_printf.h
 LIB_PATH = $(LIB_DIR)/$(LIB)
 
 # SRCS
-PATH_SR = statemachine/
-<<<<<<< HEAD
-PATH_SR += test/
-PATH_SR += conversion/
-=======
->>>>>>> f35d6aecc71656f866fe5d96206b174c5649470c
+PATH_SRC += statemachine/
+PATH_SRC += conversion/
+PATH_SRC += init/
 
-vpath %.c $(PATH_SR)
+vpath %.c $(PATH_SRC)
 
                      ####################################
                      #                   				#
@@ -55,9 +47,14 @@ vpath %.c $(PATH_SR)
                      ####################################
 # main
 SRCS += main
+SRCS += ft_printf
+
+# initialize
+SRCS += init_printf
 
 # State Machine
 SRCS += statemachine
+SRCS += states
 
 # Conversion
 SRCS += check_flag
