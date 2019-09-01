@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_strjoin.c                                      :+:      :+:    :+:   */
+/*   vct_join.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 15:09:20 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/01 14:57:15 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/01 15:04:39 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /* ***************************************************************************
-	Add a char to the end of the vector string.
+	Join 2 vector string together.
 
 	As for all vectors functions, if the LENGHT of the new string is bigger
 	than the string SIZE, an equivalent reallocation occurs.
 **************************************************************************** */
 
-int8_t	vct_strjoin(t_vector *vector, char *str)
+int8_t	vct_join(t_vector *dest, t_vector *src)
 {
-	size_t len;
-
-	len = ft_strlen(str);
-	while (len + vector->len >= vector->size)
+	while (src->len + dest->len >= dest->size)
 	{
-		if (vct_increase_scale(vector) == FAILURE)
+		if (vct_increase_scale(dest) == FAILURE)
 			return (FAILURE);
 	}
-	ft_strcpy(vector->str + vector->len, str);
-	vector->len += len;
+	ft_strcpy(dest->str + dest->len, src->str);
+	dest->len += src->len;
 	return (SUCCESS);
 }
