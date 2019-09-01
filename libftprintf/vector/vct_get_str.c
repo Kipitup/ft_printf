@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_strjoin.c                                      :+:      :+:    :+:   */
+/*   vct_get_str.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 15:09:20 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/01 15:06:11 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/01 15:10:56 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+# include "vector.h"
 
 /* ***************************************************************************
-	Add a char to the end of the vector string.
-
-	As for all vectors functions, if the LENGHT of the new string is bigger
-	than the string SIZE, an equivalent reallocation occurs.
+	Return a pointer on the vector string
 **************************************************************************** */
 
-int8_t	vct_strjoin(t_vector *vector, char *str)
+char	*vct_get_str_pointer(t_vector *vector)
 {
-	size_t len;
+	char	*str;
 
-	len = ft_strlen(str);
-	while (len + vector->len >= vector->size)
-	{
-		if (vct_increase_scale(vector) == FAILURE)
-			return (FAILURE);
-	}
-	ft_strcpy(vector->str + vector->len, str);
-	vector->len += len;
-	return (SUCCESS);
+	str = NULL;
+	if (vector != NULL && vector->str != NULL)
+		str = vector->str;
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 18:02:42 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 18:26:21 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ enum	e_main_states
 	ST_FLAG,
 	ST_CONVERSION,
 	ST_OUTPUT,
-	ST_ERROR
+	ST_ERROR,
+	ST_END
 };
 
 typedef struct	s_state_machine

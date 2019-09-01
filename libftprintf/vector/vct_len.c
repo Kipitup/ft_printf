@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   vct_len.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/31 17:12:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 16:39:19 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/01 14:54:09 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/01 14:56:01 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "vector.h"
 
-int				ft_printf(const char *input, ...)
+size_t	vct_len(t_vector *vector)
 {
-	t_state_machine	machine;
-	va_list			args_printf;
-
-	init_state_machine(&machine, input);
-	va_start(args_printf, input);
-	parser(&machine, (char *)input, args_printf);
-	va_end(args_printf);
-	return (SUCCESS);
+	if (vector == NULL)
+		return (0);
+	return (vector->len);
 }

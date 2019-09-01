@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 14:44:16 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 17:55:08 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@ int8_t	string(t_state_machine *machine, char *input, va_list args_printf)
 	machine->p_cursor = input;
 	if (*input == CONVERSION_SIGN)
 		machine->state = ST_FLAG;
-	else
-		vct_add_char(machine->p_output, *input);
+	else if (*input == '\0')
+	{
+		machine->state = ST_OUTPUT;
+		return (0);
+	}
+	else if (vct_add_char(machine->p_output, *input) == FAILURE)
+		machine->state = ST_ERROR;
 	return (1);
 }
 
@@ -63,15 +68,24 @@ int8_t	conversion(t_state_machine *machine, char *input, va_list args_printf)
 	}
 	machine->option |= ft_pow_positive(2, i) << 16;
 	machine->state = ST_OUTPUT;
-	return (1);
+	return (0);
 }
 
 int8_t			output(t_state_machine *machine, char *input, va_list args_printf)
 {
 	check_and_cancel_flag(machine);
-	convert(machine, input, args_printf);
-	machine->state = ST_STRING;
-	return (0);
+	if (*input == '\0')
+	{
+		// EXTRACT
+		machine->state = ST_END;
+		return (0);
+	}
+	else if (convert(machine, input, args_printf) == FAILURE)
+		machine->state = ST_ERROR;
+	else
+		machine->state = ST_STRING;
+	machine->option = 0;
+	return (1);
 }
 
 int8_t	error(t_state_machine *machine, char *input, va_list args_printf)

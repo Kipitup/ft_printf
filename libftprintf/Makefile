@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/08/30 16:46:56 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/01 15:08:57 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,9 @@ SRCS += vct_remove_from_end.c
 SRCS += vct_add_char.c
 SRCS += vct_increase_scale.c
 SRCS += vct_bzero.c
+SRCS += vct_len.c
+SRCS += vct_join.c
+SRCS += vct_get_str.c
 
 PATH_SRCS += ./vector
 PATH_SRCS += .

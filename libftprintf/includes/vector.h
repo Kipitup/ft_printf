@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/29 19:04:44 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 15:11:01 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ typedef struct 	s_vector
 
 void			vct_del(t_vector **vector);
 t_vector		*vct_new(size_t size);
-int8_t			vct_strjoin(t_vector *vector, char *str);
-void			vct_remove_from_end(t_vector *vector, size_t len);
-int8_t			vct_add_char(t_vector *vector, char c);
+size_t			vct_len(t_vector *vector);
 void			vct_bzero(t_vector *vector);
 int8_t			vct_increase_scale(t_vector *vector);
-
+char			*vct_get_str_pointer(t_vector *vector);
+int8_t			vct_strjoin(t_vector *vector, char *str);
+int8_t			vct_join(t_vector *dest, t_vector *src);
+void			vct_remove_from_end(t_vector *vector, size_t len);
+int8_t			vct_add_char(t_vector *vector, char c);
 
 #endif
