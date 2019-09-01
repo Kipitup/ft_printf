@@ -13,5 +13,6 @@ int		main()
 	printf("|%0.10d|\n", -12); 
 	printf("|%-10.5d|\n", -12);
 	printf("|%-010.5d|\n", -12);
+	printf("|%c|\n", "qwdsad");
 	return (0);
 }

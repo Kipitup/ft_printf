@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 17:55:08 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 19:02:26 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int8_t	flag(t_state_machine *machine, char *input, va_list args_printf)
 {
 	(void)args_printf;
 	static const char	*flags[NB_OF_FLAGS] = {HH, LL, H, L, L_MAJ, PLUS,
-											   MOINS, HASH, ZERO, SPACE, POINT};
+											   MINUS, HASH, ZERO, SPACE, POINT};
 	size_t				len;
 	uint8_t				i;
 
