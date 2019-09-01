@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/01 14:21:16 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 16:31:20 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	check_and_cancel_flag(t_state_machine *machine)
 		machine->option &= ~FLAG_ZERO;
 }
 
-void	convert(t_state_machine *machine, char *input, va_list args_printf)
+int8_t	convert(t_state_machine *machine, char *input, va_list args_printf)
 {
 	(void)machine;
 	(void)input;
@@ -46,4 +46,5 @@ void	convert(t_state_machine *machine, char *input, va_list args_printf)
 		}
 		i++;
 	}*/
+	return (SUCCESS);
 }

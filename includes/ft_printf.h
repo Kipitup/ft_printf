@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 14:44:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 17:17:46 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ enum	e_main_states
 	ST_FLAG,
 	ST_CONVERSION,
 	ST_OUTPUT,
-	ST_ERROR
+	ST_ERROR,
+	ST_END
 };
 
 typedef struct	s_state_machine
@@ -71,7 +72,7 @@ void  			init_state_machine(t_state_machine *machine, const char *input);
 int8_t			*conv_to_string(t_state_machine *machine, char *input);
 
 void			check_and_cancel_flag(t_state_machine *machine);
-void			convert(t_state_machine *machine, char *input, va_list args_printf);
+int8_t			convert(t_state_machine *machine, char *input, va_list args_printf);
 
 enum	e_type_flag
 {
