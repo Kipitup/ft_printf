@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/01 17:55:07 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 18:58:02 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		debug(t_state_machine *machine, char *input, int8_t scale,
 	static const char  *state_str[] = {"\033[31mSTR", "\033[32mFLAG",
 							"\033[33mCONV", "\033[36mOUT", "\033[35mERROR"};
 
-	if (state == ST_OUTPUT)
+	if (state == ST_BUFFER)
 		printf("|------------>\tstate:%s\033[0m\n\n",
 					state_str[state]);
 	else if (*input != '\0')
@@ -28,7 +28,7 @@ void		debug(t_state_machine *machine, char *input, int8_t scale,
 
 int8_t		parser(t_state_machine *machine, char *input, va_list args_printf)
 {
-	static t_statefunc	parser[5] = {string, flag, conversion, output, error};
+	static t_statefunc	parser[5] = {string, flag, conversion, buffer, end};
 	int8_t				scale;
 	enum e_main_states	cur_state;
 
@@ -41,6 +41,5 @@ int8_t		parser(t_state_machine *machine, char *input, va_list args_printf)
 			input += scale;
 		}
 	}
-	printf("\nlen is : %lu \t%s\n", machine->p_output->len, machine->p_output->str);
 	return (-5);
 }

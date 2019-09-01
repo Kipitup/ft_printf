@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 17:17:46 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 18:57:59 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ enum	e_main_states
 	ST_STRING,
 	ST_FLAG,
 	ST_CONVERSION,
-	ST_OUTPUT,
-	ST_ERROR,
+	ST_BUFFER,
 	ST_END
 };
 
@@ -53,8 +52,10 @@ int8_t			parser(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			string(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			conversion(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			flag(t_state_machine *machine, char *input, va_list args_printf);
-int8_t			output(t_state_machine *mahcine, char *input, va_list args_printf);
+int8_t			buffer(t_state_machine *mahcine, char *input, va_list args_printf);
 int8_t			error(t_state_machine *machine, char *input, va_list args_printf);
+int8_t			end(t_state_machine *machine, char *input, va_list args_printf);
+
 
 
 /*

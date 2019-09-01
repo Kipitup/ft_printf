@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 17:55:08 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 18:58:14 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int8_t	string(t_state_machine *machine, char *input, va_list args_printf)
 		machine->state = ST_FLAG;
 	else if (*input == '\0')
 	{
-		machine->state = ST_OUTPUT;
+		machine->state = ST_BUFFER;
 		return (0);
 	}
 	else if (vct_add_char(machine->p_output, *input) == FAILURE)
-		machine->state = ST_ERROR;
+		machine->state = ST_END;
 	return (1);
 }
 
@@ -67,31 +67,34 @@ int8_t	conversion(t_state_machine *machine, char *input, va_list args_printf)
 		i++;
 	}
 	machine->option |= ft_pow_positive(2, i) << 16;
-	machine->state = ST_OUTPUT;
+	machine->state = ST_BUFFER;
 	return (0);
 }
 
-int8_t			output(t_state_machine *machine, char *input, va_list args_printf)
+int8_t			buffer(t_state_machine *machine, char *input, va_list args_printf)
 {
-	check_and_cancel_flag(machine);
 	if (*input == '\0')
 	{
-		// EXTRACT
+		printf("\nlen is : %lu \t", machine->p_output->len);
+		write(1, &machine->p_output->str, machine->p_output->len);
+		write(1, "\n", 1);
 		machine->state = ST_END;
 		return (0);
 	}
-	else if (convert(machine, input, args_printf) == FAILURE)
-		machine->state = ST_ERROR;
+	check_and_cancel_flag(machine);
+	if (convert(machine, input, args_printf) == FAILURE)
+		machine->state = ST_END;
 	else
 		machine->state = ST_STRING;
 	machine->option = 0;
 	return (1);
 }
 
-int8_t	error(t_state_machine *machine, char *input, va_list args_printf)
+int8_t	end(t_state_machine *machine, char *input, va_list args_printf)
 {
-	(void)machine;
 	(void)input;
 	(void)args_printf;
-	return (FAILURE);
+
+	vct_del(&machine->p_output);
+	return (SUCCESS);
 }

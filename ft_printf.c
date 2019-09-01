@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 17:12:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 16:39:19 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 19:30:44 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int				ft_printf(const char *input, ...)
 {
-	t_state_machine	machine;
-	va_list			args_printf;
+	t_state_machine		machine;
+	va_list	args_printf;
 
 	init_state_machine(&machine, input);
 	va_start(args_printf, input);
