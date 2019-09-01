@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 12:29:50 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:44:53 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,46 @@ typedef struct	s_state_machine
 	enum e_main_states	state;
 }				t_state_machine;
 
-typedef int8_t	(*t_statefunc)(t_state_machine *self, char *input, va_list args_printf);
-typedef int8_t	(*t_convfunc)(uint64_t option, char *input);
+typedef int8_t		(*t_statefunc)(t_state_machine *self, char *input, va_list args_printf);
+typedef t_vector	*(*t_convfunc)(t_state_machine *machine, char *input);
 
+/*
+**********************
+**     FT_PRINTF    **
+**********************
+*/
+int				ft_printf(const char *input, ...); //__attribute__
+//					((format(printf, 1, 2)));
+
+/*
+**********************
+**  STATE MACHINE	**
+**********************
+*/
 int8_t			parser(t_state_machine *machine, char *input, va_list args_printf);
-int8_t			string(t_state_machine *machine, char *input);
-int8_t			conversion(t_state_machine *machine, char *input);
-int8_t			flag(t_state_machine *machine, char *input);
+int8_t			string(t_state_machine *machine, char *input, va_list args_printf);
+int8_t			conversion(t_state_machine *machine, char *input, va_list args_printf);
+int8_t			flag(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			output(t_state_machine *mahcine, char *input, va_list args_printf);
 int8_t			error(t_state_machine *machine, char *input, va_list args_printf);
 
+
+/*
+**********************
+**  	 INIT	    **
+**********************
+*/
 void  			init_state_machine(t_state_machine *machine, const char *input);
 
-t_state_machine init_state_machine(char *argv);
+/*
+**********************
+**    CONVERSION	**
+**********************
+*/
+int8_t			*conv_to_string(t_state_machine *machine, char *input);
 
 void			check_and_cancel_flag(t_state_machine *machine);
-void			rolling_through_conversion(t_state_machine, char *args);
-int				ft_printf(const char *input, ...) //__attribute__
-//					((format(printf, 1, 2)));
+void			convert(t_state_machine *machine, char *input, va_list args_printf);
 
 enum	e_type_flag
 {
@@ -77,7 +99,8 @@ enum	e_type_conv
 	E_TYPE_CONV_U,
 	E_TYPE_CONV_X,
 	E_TYPE_CONV_X_MAJ,
-	E_TYPE_CONV_F
+	E_TYPE_CONV_F,
+	E_TYPE_CONV_NONE
 
 };
 

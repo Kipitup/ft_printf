@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 12:29:40 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:26:25 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@
 # define CONV_X				0x0000000000800000
 # define CONV_X_MAJ			0x0000000001000000
 # define CONV_F				0x0000000002000000
+# define CONV_NONE			0x0000000004000000
 
 #endif

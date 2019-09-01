@@ -6,22 +6,26 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/01 12:29:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/01 14:21:16 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	check_cancel_flag(t_state_machine *machine)
+void	check_and_cancel_flag(t_state_machine *machine)
 {
 	if (machine->option & FLAG_PLUS && machine->option & FLAG_SPACE)
 		machine->option &= ~FLAG_SPACE;
-	if (machine->option & FLAG_MINUS && machine->option & FLAG_ZER0)
+	if (machine->option & FLAG_MINUS && machine->option & FLAG_ZERO)
 		machine->option &= ~FLAG_ZERO;
 }
 
-void	rolling_through_conversion(t_state_machine machine, char *input)
+void	convert(t_state_machine *machine, char *input, va_list args_printf)
 {
+	(void)machine;
+	(void)input;
+	(void)args_printf;
+	/*
 	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char,
 					conv_to_string, conv_to_pointer, conv_to_decimal,
 					conv_to_int, conv_to_octal, conv_to_u_decimal,
@@ -35,11 +39,11 @@ void	rolling_through_conversion(t_state_machine machine, char *input)
 	{
 		if (machine->option & ((1 << i) << SHIFT_TO_CONVS))
 		{
-			local = funct_ptr[i](machine, input);
-			vct_join(machine->out, local);
+			local = func_ptr[i](machine, input);
+			vct_strjoin(machine->p_output, local->str);
 			vct_del(&local);
 			break ;
 		}
 		i++;
-	}
+	}*/
 }
