@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 17:51:52 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/01 18:02:42 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ void  			init_state_machine(t_state_machine *machine, const char *input);
 **    CONVERSION	**
 **********************
 */
-t_vector		*conv_to_char(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_string(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_pointer(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_decimal(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_int(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_octal(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_u_decimal(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_hexa(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to__hexa_maj(t_state_machine *machine, char *input, va_list args_printf);
-t_vector		*conv_to_float(t_state_machine *machine, char *input, va_list args_printf);
+t_vector		*conv_to_char(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_string(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_pointer(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_decimal(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_int(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_octal(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_u_decimal(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_hexa(va_list args_printf, uint64_t flag);
+t_vector		*conv_to__hexa_maj(va_list args_printf, uint64_t flag);
+t_vector		*conv_to_float(va_list args_printf, uint64_t flag);
 
 void			check_and_cancel_flag(t_state_machine *machine);
 int8_t			convert(t_state_machine *machine, char *input, va_list args_printf);
