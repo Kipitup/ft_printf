@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/02 12:06:37 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/02 19:02:56 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ int8_t			flag(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			buffer(t_state_machine *mahcine, char *input, va_list args_printf);
 int8_t			error(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			end(t_state_machine *machine, char *input, va_list args_printf);
-uint64_t		is_width_or_precision(t_state_machine *machine, char *input);
-
+uint8_t			is_width(t_state_machine *machine, char *input);
+uint8_t			is_precision(t_state_machine *machine, char *input);
+uint64_t	get_numbers(t_state_machine *machine, char *input, size_t *count);
 
 
 /*

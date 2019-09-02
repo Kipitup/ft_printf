@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_uint64_t_len.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 17:24:57 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/02 13:35:28 by amartino         ###   ########.fr       */
+/*   Created: 2018/12/18 14:09:52 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/02 19:02:22 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isdigit(int c)
+#include <stdint.h>
+
+uint64_t		ft_uint64_t_len(uint64_t num)
 {
-	return (c >= '0' && c <= '9');
+	uint64_t		size;
+
+	if (num == 0)
+		return (1);
+	size = 1;
+	while (num > 9)
+	{
+		num /= 10;
+		size++;
+	}
+	return (size);
 }

@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/30 16:56:18 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/02 16:33:54 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 double				ft_pow(double x, double y);
 unsigned long		ft_pow_positive(unsigned long x, unsigned long y);
+uint64_t			ft_uint64_t_len(uint64_t num);
 
 /*
 ** ############################################################################
