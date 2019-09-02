@@ -13,19 +13,22 @@ int		main()
 	printf("|%0.10d|\n", -12); 
 	printf("|%-10.5d|\n", -12);
 	printf("|%-010.5d|\n", -12);
-*/
+	*/
 	/************************************************************************/
 	//test for char
 	/************************************************************************/
-	printf("char: |%c|\n", 'q');
-	printf("char: |%hhc|\n", 'q');
-	printf("char: |%llc|\n", 'q');
-	printf("char: |%hc|\n", 'q');
-	printf("char: |%lc|\n", 'q');
-	printf("char: |%+c|\n", 'q');
-	printf("char: |%-5c|\n", 'q');
-	printf("char: |%#c|\n", 'q');
-	printf("char: |%0c|\n", 'q');
-	printf("char: |% 5c|\n", 'q');
+	/*
+	printf("char: |%c|\n", 'Q');
+	printf("char: |%hhc|\n", 'Q');
+	printf("char: |%llc|\n", 'Q');
+	printf("char: |%hc|\n", 'Q');
+	printf("char: |%lc|\n", 'Q');
+	printf("char: |%5c|\n", 'Q');
+	printf("char: |%#c|\n", 'Q');
+	printf("char: |%0c|\n", 'Q');
+	printf("char: |%-5c|\n", 'Q');
+	printf("char: |% 5c|\n", 'Q');
+	*/
+	printf("ptr: |%p|\n", 255);
 	return (0);
 }

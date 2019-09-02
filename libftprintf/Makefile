@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/01 15:08:57 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/02 17:07:00 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS += ft_isascii.c
 SRCS += ft_isdigit.c
 SRCS += ft_isprint.c
 SRCS += ft_itoa.c
+SRCS += ft_itoa_base.c
 SRCS += ft_lstadd.c
 SRCS += ft_lstdel.c
 SRCS += ft_lstdelone.c

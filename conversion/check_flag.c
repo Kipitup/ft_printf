@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/02 10:16:14 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/02 18:52:04 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int8_t	convert(t_state_machine *machine, char *input, va_list *args_printf)
 /*	(void)machine;
 	(void)args_printf;
 */	
-	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char};/*,
-							conv_to_string, conv_to_pointer, conv_to_decimal,
-							conv_to_int, conv_to_octal, conv_to_u_decimal,
-							conv_to_hexa, conv_to_hexa_maj, conv_to_float};*/
+	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char, 
+							conv_to_string, conv_to_pointer, conv_to_nbr,
+							conv_to_nbr, conv_to_nbr, conv_to_u_decimal,
+							conv_to_nbr, conv_to_hexa_maj, conv_to_float};
 	t_vector				*local;
 	uint8_t					i;
 
