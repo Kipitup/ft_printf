@@ -6,11 +6,17 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 17:59:32 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/01 18:10:03 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/02 10:16:16 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	apply_flag(void str_to_conv, uint64_t flag)
+void	apply_flag_char(char char_to_conv, uint64_t flag)
 {
-	
+	int		i;
+
+	i = 0;
+	while (i < NB_OF_FLAGS)
+	{
+		if (flag & (1 << i)	
+	}
 }
