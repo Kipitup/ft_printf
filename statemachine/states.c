@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 18:58:14 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/02 12:13:14 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ int8_t	flag(t_state_machine *machine, char *input, va_list args_printf)
 		}
 		i++;
 	}
+	if ((len = is_width_or_precision(machine, input)) > 0)
+		return ((int8_t)len);
+	printf("NO\n");
 	machine->state = ST_CONVERSION;
 	return (FAILURE);
 }

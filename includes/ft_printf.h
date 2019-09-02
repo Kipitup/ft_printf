@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/01 18:57:59 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/02 12:06:37 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ typedef struct	s_state_machine
 {
 	char				*p_cursor;
 	t_vector			*p_output;
-	uint64_t			option;
+	uint64_t			width;
+	uint64_t			precision;
+	uint32_t			option;
 	enum e_main_states	state;
 }				t_state_machine;
 
@@ -55,6 +57,7 @@ int8_t			flag(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			buffer(t_state_machine *mahcine, char *input, va_list args_printf);
 int8_t			error(t_state_machine *machine, char *input, va_list args_printf);
 int8_t			end(t_state_machine *machine, char *input, va_list args_printf);
+uint64_t		is_width_or_precision(t_state_machine *machine, char *input);
 
 
 
