@@ -1,4 +1,5 @@
 # Object files
+libftprintf/build/*.o
 *.o
 
 # Precompiled Headers
@@ -11,6 +12,7 @@
 # Libraries
 *.lib
 *.a
+libftprintf/*.a
 
 # Executables
 *.out
