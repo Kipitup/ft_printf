@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_strjoin.c                                      :+:      :+:    :+:   */
+/*   vct_cat.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 17:34:24 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/01 14:57:15 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/03 17:23:36 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /*
-**	Add a char to the end of the vector string.
+**	Concat 2 vector string.
 **
 **	As for all vectors functions, if the LENGHT of the new string is bigger
 **	than the string SIZE, an equivalent reallocation occurs.
 */
 
-int8_t	vct_strjoin(t_vector *vector, char *str)
+int8_t	vct_cat(t_vector *dest, t_vector *src)
 {
-	size_t len;
-
-	if (vector != NULL && vector->str != NULL && str != NULL)
+	if (dest != NULL && dest->str != NULL
+		&& src != NULL && src->str != NULL)
 	{
-		len = ft_strlen(str);
-		if (len + vector->len >= vector->size)
+		if (src->len + dest->len + 1 >= dest->size)
 		{
-			if (vct_increase_scale(vector, len + DEFAULT_VCT_SCALE) == FAILURE)
-				vct_del(&vector);
+			if (vct_increase_scale(dest, src->size) == FAILURE)
+				vct_del(&dest);
 		}
-		if (vector != NULL)
+		if (dest != NULL)
 		{
-			ft_strcpy(vector->str + vector->len, str);
-			vector->len += len;
+			ft_memmove(dest->str + dest->len, src->str, src->len);
+			dest->len += src->len;
+			dest->str[dest->len] = '\0';
 		}
 	}
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (dest == NULL ? FAILURE : SUCCESS);
 }

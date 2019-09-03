@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/03 11:00:16 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/03 15:16:03 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,8 +102,10 @@ SRCS += vct_add_char.c
 SRCS += vct_increase_scale.c
 SRCS += vct_bzero.c
 SRCS += vct_len.c
-SRCS += vct_join.c
+SRCS += vct_cat.c
 SRCS += vct_get_str.c
+SRCS += vct_join.c
+SRCS += vct_join_free.c
 
 PATH_SRCS += ./vector
 PATH_SRCS += .
@@ -123,6 +125,8 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+
 
 clean:
 	$(RM) -R $(BUILD_DIR)
@@ -134,3 +138,11 @@ re: fclean all
 
 .PHONY: clean fclean re
 .SILENT:
+
+RED = \x1b[31m
+GREEN = \x1b[32m
+YELLOW = \x1b[33m
+BLUE = \x1b[34m
+MAGENTA = \x1b[35m
+CYAN = \x1b[36m
+END = \x1b[0m
