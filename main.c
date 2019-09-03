@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 10:21:00 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/03 10:38:33 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int		main(int ac, char **av)
 	printf(av[1], av[2], ac <= 3 ? NULL : av[3],
 						ac <= 4 ? NULL : av[4], ac <= 5 ? NULL : av[5]);
 	*/
+	ft_printf(av[1], atoi(av[2]));
+	printf("------------\n");
 	printf("Leur Printf:\t");
 	printf(av[1], atoi(av[2]));
-	printf("------------\n");
-	ft_printf(av[1], atoi(av[2]));
 	
 	return (0);
 }
