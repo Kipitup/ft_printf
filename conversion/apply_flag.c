@@ -6,17 +6,12 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 17:59:32 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 09:47:33 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/03 10:11:34 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	apply_width(char char_to_conv, uint64_t flag)
+void	apply_flag(char *out_to_conv, uint64_t flag)
 {
-	int		i;
+		if (flag & FLAG_HH)
 
-	i = 0;
-	while (i < NB_OF_FLAGS)
-	{
-		if (flag & (1 << i)	
-	}
 }
