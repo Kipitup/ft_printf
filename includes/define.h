@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/02 18:27:37 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/03 11:03:06 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 # define L 					"l"
 # define L_MAJ				"L"
 # define PLUS 				"+"
-# define MOINS				"-"
+# define MINUS				"-"
 # define HASH				"#"
 # define ZERO				"0"
 # define SPACE				" "
@@ -85,11 +85,11 @@
 # define CONV_NONE			0x04000000
 
 # define C_RED   			\033[31m
-# define C_GREEN = \033[32m
-# define C_YELLOW = \033[33m
-# define C_BLUE = \033[34m
-# define C_MAGENTA = \033[35m
-# define C_CYAN = \033[36m
-# define C_END = \033[0m
+# define C_GREEN			\033[32m
+# define C_YELLOW			\033[33m
+# define C_BLUE				\033[34m
+# define C_MAGENTA			\033[35m
+# define C_CYAN				\033[36m
+# define C_END				\033[0m
 
 #endif

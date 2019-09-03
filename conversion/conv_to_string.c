@@ -6,16 +6,26 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 20:31:42 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/31 21:56:24 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/03 09:46:33 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int8_t	*conv_to_string(t_state_machine *machine, char *args)
+#include "ft_printf.h"
+
+t_vector	*conv_to_string(va_list *args_printf, uint64_t flag)
 {
-	while (*args != *p_cursor)
+	t_vector	*vector;
+	char		*str;
+
+	(void)flag;
+	str = va_arg(*args_printf, char *);
+	//apply_flag(c, flag);
+	if ((vector = vct_new(0)) == NULL)
+		return (NULL);
+	if ((vct_strjoin(vector, str)) == FAILURE)
 	{
-		vct_strjoin(machine->p_out, args);
-		args++;
+		vct_del(&vector);
+		return (NULL);
 	}
-	return (SUCCESS);
+	return (vector);
 }

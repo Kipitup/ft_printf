@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/31 18:29:25 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/03 11:05:59 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -55,9 +55,17 @@ SRCS += init_printf
 # State Machine
 SRCS += statemachine
 SRCS += states
+SRCS += width_and_precision
 
 # Conversion
 SRCS += check_flag
+SRCS += conv_to_char
+SRCS += conv_to_string
+SRCS += conv_to_ptr
+SRCS += conv_to_nbr
+SRCS += conv_to_u_decimal
+SRCS += conv_to_hexa_maj
+SRCS += conv_to_float
 
                      ####################################
                      #                   				#

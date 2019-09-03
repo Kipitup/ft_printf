@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_to_char.c                                     :+:      :+:    :+:   */
+/*   apply_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/01 17:55:03 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 10:25:03 by fkante           ###   ########.fr       */
+/*   Created: 2019/09/01 17:59:32 by fkante            #+#    #+#             */
+/*   Updated: 2019/09/03 10:11:34 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-t_vector	*conv_to_char(va_list *args_printf, uint64_t flag)
+void	apply_flag(char *out_to_conv, uint64_t flag)
 {
-	t_vector	*vector;
-	char		c;
+		if (flag & FLAG_HH)
 
-	(void)flag;
-	c = (char)va_arg(*args_printf, int);
-	//apply_flag(c, flag);
-	if ((vector = vct_new(0)) == NULL)
-		return (NULL);
-	if ((vct_add_char(vector, c)) == FAILURE)
-	{
-		vct_del(&vector);
-		return (NULL);
-	}
-	return (vector);
 }
