@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 11:04:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/03 20:13:17 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ t_vector		*conv_to_u_decimal(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_hexa_maj(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_float(va_list *args_printf, uint64_t flag);
 
-t_vector		*nbr_to_hex(uint32_t octet, size_t len, t_vector *address);
-
+int64_t			apply_modifier_di(int64_t nbr_conv, uint64_t flag);
+uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint64_t flag);
+uint64_t		apply_modifier_u(uint64_t nbr_conv, uint64_t flag);
+	
 void			check_and_cancel_flag(t_state_machine *machine);
 int8_t			convert(t_state_machine *machine, char *input, va_list *args_printf);
 
