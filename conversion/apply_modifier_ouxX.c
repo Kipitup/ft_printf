@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply_flag.c                                       :+:      :+:    :+:   */
+/*   apply_modifier_ouxX.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/01 17:59:32 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 10:11:34 by fkante           ###   ########.fr       */
+/*   Created: 2019/09/03 20:00:08 by fkante            #+#    #+#             */
+/*   Updated: 2019/09/03 20:03:19 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	apply_flag(char *out_to_conv, uint64_t flag)
+#include "ft_printf.h"
+
+uint64_t	apply_modifier_oxX(int64_t nbr_conv, uint64_t flag)
 {
 		if (flag & FLAG_HH)
-
+			nbr_conv = (uint8_t)nbr_conv;
+		if (flag & FLAG_H)
+			nbr_conv = (uint16_t)nbr_conv;
+		if (flag & FLAG_L)
+			nbr_conv = (uint32_t)nbr_conv;
+		if (flag & FLAG_LL)
+			nbr_conv = (uint64_t)nbr_conv;
+	return(nbr_conv);
 }

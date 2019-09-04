@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 11:04:21 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/04 09:20:36 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int8_t	flag(t_state_machine *machine, char *input, va_list *args_printf)
 		len = i < 2 ? 2 : 1;
 		if (ft_strnequ(flags[i], input, len) == TRUE)
 		{
+			if (i < NB_OF_MODIFIER)//to be DEFINED
+				machine->option &= ~ALL_MOD;
 			machine->option |= ft_pow_positive(2, i);
 			return (flags[i] == POINT ? is_precision(machine, input + 1) : len);
 		}

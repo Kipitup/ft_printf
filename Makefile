@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/03 11:05:59 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/03 17:34:12 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -66,6 +66,9 @@ SRCS += conv_to_nbr
 SRCS += conv_to_u_decimal
 SRCS += conv_to_hexa_maj
 SRCS += conv_to_float
+
+# Modifier
+SRCS += apply_modifier_nbr
 
                      ####################################
                      #                   				#
