@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 11:03:06 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/04 09:20:55 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 
 # define NB_OF_FLAGS		11
 # define NB_OF_CONVS		10
+# define NB_OF_MODIFIER		5
 
 # define SHIFT_TO_CONVS		16
 
@@ -71,6 +72,8 @@
 # define FLAG_SPACE			0x00000200
 # define FLAG_POINT			0x00000400
 //add wild_card
+
+# define ALL_MOD			0x0000001f
 
 # define CONV_C				0x00010000
 # define CONV_S				0x00020000

@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 18:51:01 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 10:26:15 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/04 09:30:32 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,22 @@
 t_vector		*conv_to_nbr(va_list *args_printf, uint64_t flag)
 {
 	t_vector	*vector;
-	uint8_t		base;
-	int64_t		nbr;
 	char		*nb_itoa;
+	int64_t		nbr;
+	uint8_t		base;
 
-	(void)flag;
 	base = 10;
 	if (flag & CONV_O)
 			base = 8;
 	if (flag & CONV_X)
 			base = 16;
 	nbr = va_arg(*args_printf, int64_t);
+	printf("That's nbr: %lld\n", nbr);
+	if (flag & CONV_D || flag & CONV_I)
+		nbr = apply_modifier_di(nbr, flag);
+	else
+		nbr = apply_modifier_oxX(nbr, flag);
+	printf("That's nbr after: %lld\n", nbr);
 	if ((vector = vct_new(0)) == NULL)
 		return (NULL);
 	if((nb_itoa = ft_itoa_base(nbr, base)) == NULL)

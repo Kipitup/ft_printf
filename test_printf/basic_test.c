@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdarg.h>
 
 int		main()
 {/*
@@ -19,26 +20,26 @@ int		main()
 	/************************************************************************/
 	//test for char
 	/************************************************************************/
-	/*
-	printf("char: |%c|\n", 'Q');
-	printf("char: |%hhc|\n", 'Q');
-	printf("char: |%llc|\n", 'Q');
-	printf("char: |%hc|\n", 'Q');
-	printf("char: |%lc|\n", 'Q');
-	printf("char: |%5c|\n", 'Q');
-	printf("char: |%#c|\n", 'Q');
-	printf("char: |%0c|\n", 'Q');
-	printf("char: |%-5c|\n", 'Q');
-	printf("char: |% 5c|\n", 'Q');
-	*/
+	   printf("char: |%c|\n", 'Q');
+	   printf("char: |%hhc|\n", 'Q');
+	   printf("char: |%llc|\n", 'Q');
+	   printf("char: |%hc|\n", 'Q');
+	   printf("char: |%lc|\n", 'Q');
+	   printf("char: |%5c|\n", 'Q');
+	   printf("char: |%#c|\n", 'Q');
+	   printf("char: |%0c|\n", 'Q');
+	   printf("char: |%-5c|\n", 'Q');
+	   printf("char: |% 5c|\n", 'Q');
 	/************************************************************************/
 	//test for flag
 	/************************************************************************/
+	/*
 	printf("hh:|%hhd|\n", 12);
 	printf("h:|%hd|\n", 12);
 	printf("ll:|%lld|\n", 12);
 	printf("l:|%ld|\n", 12);
 	printf("L:|%Ld|\n", 12);
 	printf("#:|%#d|\n", 12);
+	*/
 	return (0);
 }
