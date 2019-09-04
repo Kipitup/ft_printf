@@ -6,22 +6,22 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 14:09:52 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/02 19:02:22 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/04 17:27:33 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdint.h>
+#include "libft.h"
 
-uint64_t		ft_uint64_t_len(uint64_t num)
+size_t		ft_uint64_t_len(uint64_t num, uint8_t base)
 {
-	uint64_t		size;
+	size_t		size;
 
 	if (num == 0)
 		return (1);
 	size = 1;
 	while (num > 9)
 	{
-		num /= 10;
+		num /= base;
 		size++;
 	}
 	return (size);

@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:12:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 09:15:11 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/04 17:36:53 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,12 @@ t_vector		*conv_to_hexa_maj(va_list *args_printf, uint64_t flag)
 	int64_t		nbr;
 	char		*nb_itoa;
 
-	(void)flag;
 	base = 16;
 	nbr = va_arg(*args_printf, int64_t);
-	if ((vector = vct_new(0)) == NULL)
-		return (NULL);
-	if((nb_itoa = ft_itoa_base_maj(nbr, base)) == NULL)
-		return (NULL);
-	if ((vct_strjoin(vector, nb_itoa)) == FAILURE)
-	{
-		vct_del(&vector);
-		return (NULL);
-	}	
+	nbr = apply_modifier_oxX(nbr, flag);
+	vector = vct_new(0);
+	if((nb_itoa = ft_itoa_base_maj(nbr, base)) != NULL)
+		if ((vct_strjoin(vector, nb_itoa)) == FAILURE)
+			vct_del(&vector);
 	return (vector);
 }

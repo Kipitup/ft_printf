@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/03 15:16:03 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/04 16:47:38 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,7 @@ SRCS += ft_sqrt.c
 SRCS += ft_pow.c
 SRCS += ft_pow_positive.c
 SRCS += ft_uint64_t_len.c
+SRCS += ft_int64_t_len.c
 
 # vectors
 SRCS += vct_del.c
