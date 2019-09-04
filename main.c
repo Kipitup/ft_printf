@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/04 09:46:19 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/04 12:14:56 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,33 @@ int		main(int ac, char **av)
 	//if (ac <= 2)
 	//	return (0);
 	//char *str;
-	(void)av;
 	(void)ac;
 
 	//str = NULL;
-	/*
+	
 	ft_printf(av[1], av[2], ac <= 3 ? NULL : av[3],
 						ac <= 4 ? NULL : av[4], ac <= 5 ? NULL : av[5]);
 	printf("------------\n");
+	printf("printf:\t");
 	printf(av[1], av[2], ac <= 3 ? NULL : av[3],
 						ac <= 4 ? NULL : av[4], ac <= 5 ? NULL : av[5]);
-	*/
-	/*
+	
+/*
 	ft_printf(av[1], atoll(av[2]));
 	printf("------------\n");
 	printf("Printf:\t\t");
 	printf(av[1], atoll(av[2]));
-	*/
-	printf("printf: |%c|\n", 'Q');
-	ft_printf("ft_printf: |%c|\n", 'Q');
-	printf("printf: |%hhc|\n", 'Q');
-	ft_printf("ft_printf: |%hhc|\n", 'Q');
-	printf("printf: |%llc|\n", 'Q');
-	ft_printf("ft_printf: |%llc|\n", 'Q');
-	printf("printf: |%hc|\n", 'Q');
-	ft_printf("ft_printf: |%hc|\n", 'Q');
-	printf("printf: |%lc|\n", 'Q');
-	ft_printf("ft_printf: |%lc|\n", 'Q');
+*/	
+//	printf("printf: |%c|\n", 'Q');
+//	ft_printf("ft_printf: |%c|\n", 'Q');
+//	printf("printf: |%hhc|\n", 'Q');
+//	ft_printf("ft_printf: |%hhc|\n", 'Q');
+//	ft_printf("ft_printf: |%llc|\n", 'Q');
+//	printf("printf: |%llc|\n", 'Q');
+//	ft_printf("ft_printf: |%hc|\n", 'Q');
+//	printf("printf: |%hc|\n", 'Q');
+//	ft_printf("ft_printf: |%lc|\n", 'Q');
+//	printf("printf: |%lc|\n", 'Q');
 
 	return (0);
 }

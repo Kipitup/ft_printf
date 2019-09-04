@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int		main()
-{/*
+int		main(int ac, char **av)
+{
+	(void)ac;
+	/*
 	printf("%#hhhMol%%%\n");
 	printf("%-5%\n");
 
@@ -20,7 +22,8 @@ int		main()
 	/************************************************************************/
 	//test for char
 	/************************************************************************/
-	   printf("char: |%c|\n", 'Q');
+	/*   
+	printf("char: |%c|\n", 'Q');
 	   printf("char: |%hhc|\n", 'Q');
 	   printf("char: |%llc|\n", 'Q');
 	   printf("char: |%hc|\n", 'Q');
@@ -29,7 +32,11 @@ int		main()
 	   printf("char: |%#c|\n", 'Q');
 	   printf("char: |%0c|\n", 'Q');
 	   printf("char: |%-5c|\n", 'Q');
-	   printf("char: |% 5c|\n", 'Q');
+	   printf("char: |% 5c|\n", 'Q');*/
+	   printf("h: |%hs|\n", av[1]);
+	   printf("hh: |%hhs|\n", av[1]);
+	   printf("l: |%ls|\n", av[1]);
+	   printf("ll: |%lls|\n", av[1]);
 	/************************************************************************/
 	//test for flag
 	/************************************************************************/
