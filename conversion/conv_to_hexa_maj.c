@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   conv_to_hexa_maj.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:12:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 09:15:11 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/04 14:32:59 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_vector		*conv_to_hexa_maj(va_list *args_printf, uint64_t flag)
+t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
 {
 	t_vector	*vector;
 	uint8_t		base;
@@ -30,6 +30,6 @@ t_vector		*conv_to_hexa_maj(va_list *args_printf, uint64_t flag)
 	{
 		vct_del(&vector);
 		return (NULL);
-	}	
+	}
 	return (vector);
 }

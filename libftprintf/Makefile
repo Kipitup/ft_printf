@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/03 15:16:03 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/04 17:44:58 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,8 +97,8 @@ SRCS += ft_uint64_t_len.c
 SRCS += vct_del.c
 SRCS += vct_new.c
 SRCS += vct_strjoin.c
-SRCS += vct_remove_from_end.c
-SRCS += vct_add_char.c
+SRCS += vct_pop.c
+SRCS += vct_push_char.c
 SRCS += vct_increase_scale.c
 SRCS += vct_bzero.c
 SRCS += vct_len.c

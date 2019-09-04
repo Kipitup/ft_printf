@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 16:29:13 by fkante            #+#    #+#             */
-/*   Updated: 2019/08/31 19:58:44 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/04 14:35:28 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,12 @@ void	init_state_machine(t_state_machine *machine, const char *input)
 	machine->state = ST_STRING;
 	machine->p_cursor = (char *)input;
 	machine->p_output = vct_new(0);
+}
+
+void	init_flags(t_state_machine *machine, t_flag *flag)
+{
+	ft_bzero(flag, sizeof(t_flag));
+	flag->width = 		machine->width;
+	flag->precision = 	machine->precision;
+	flag->option = 	machine->option;
 }

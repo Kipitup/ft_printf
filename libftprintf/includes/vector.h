@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 17:26:15 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/04 17:44:24 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ int8_t			vct_cat(t_vector *dest, t_vector *src);
 t_vector		*vct_join(t_vector *dest, t_vector *src);
 t_vector		*vct_join_free(t_vector *dest, t_vector *src,
 							int first_or_second_or_both);
-void			vct_remove_from_end(t_vector *vector, size_t len);
-int8_t			vct_add_char(t_vector *vector, char c);
+void			vct_pop(t_vector *vector, size_t len);
+int8_t			vct_push_char(t_vector *vector, char c);
+//int8_t			vct_add_char_at();
+//vct_new_str
+//vct_pop_from
 
 #endif
