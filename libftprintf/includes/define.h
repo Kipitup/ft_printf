@@ -6,29 +6,19 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/04 14:33:56 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 11:41:23 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
-# include <stdio.h> //warning
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
 # include <stdarg.h>
-# include <math.h>
 # include <inttypes.h>
 # include "libft.h"
-# include "ft_printf.h"
-
-# define FALSE				0
-# define TRUE				1
-# define FAILURE			-1
-# define SUCCESS			0
-# define ON					1
-# define OFF				0
 
 # define NB_OF_FLAGS		11
 # define NB_OF_CONVS		10

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   apply_modifier_ouxX.c                              :+:      :+:    :+:   */
+/*   conv_to_di.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 20:00:08 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/03 20:03:19 by fkante           ###   ########.fr       */
+/*   Created: 2019/09/02 18:51:01 by fkante            #+#    #+#             */
+/*   Updated: 2019/09/05 09:44:41 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-uint64_t	apply_modifier_oxX(int64_t nbr_conv, uint64_t flag)
+t_vector		*conv_to_di(va_list *args_printf, uint64_t flag)
 {
-		if (flag & FLAG_HH)
-			nbr_conv = (uint8_t)nbr_conv;
-		if (flag & FLAG_H)
-			nbr_conv = (uint16_t)nbr_conv;
-		if (flag & FLAG_L)
-			nbr_conv = (uint32_t)nbr_conv;
-		if (flag & FLAG_LL)
-			nbr_conv = (uint64_t)nbr_conv;
-	return(nbr_conv);
+	t_vector	*vector;
+	char		*nb_itoa;
+	int64_t		nbr;
+	uint8_t		base;
+
+	base = 10;
+	nbr = va_arg(*args_printf, int64_t);
+	nbr = apply_modifier_di(nbr, flag);
+	vector = vct_new(0);
+	if((nb_itoa = ft_itoa_base(nbr, base)) != NULL)
+		if ((vct_strjoin(vector, nb_itoa)) == FAILURE)
+			vct_del(&vector);
+	return (vector);
 }

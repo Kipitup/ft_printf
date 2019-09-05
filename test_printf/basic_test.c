@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdint.h>
 
 int		main(int ac, char **av)
 {
 	(void)ac;
+	int64_t oct = 15616165651;
 	/*
 	printf("%#hhhMol%%%\n");
 	printf("%-5%\n");
@@ -32,14 +34,15 @@ int		main(int ac, char **av)
 	   printf("char: |%#c|\n", 'Q');
 	   printf("char: |%0c|\n", 'Q');
 	   printf("char: |%-5c|\n", 'Q');
-	   printf("char: |% 5c|\n", 'Q');*/
-	   printf("h: |%hs|\n", av[1]);
+	   printf("char: |% 5c|\n", 'Q');
+	   printf("h: |%ahs|\n", av[1]);
 	   printf("hh: |%hhs|\n", av[1]);
 	   printf("l: |%ls|\n", av[1]);
 	   printf("ll: |%lls|\n", av[1]);
+	   */
 	/************************************************************************/
-	//test for flag
-	/************************************************************************/
+	//test for decimal
+	///************************************************************************/
 	/*
 	printf("hh:|%hhd|\n", 12);
 	printf("h:|%hd|\n", 12);
@@ -48,5 +51,22 @@ int		main(int ac, char **av)
 	printf("L:|%Ld|\n", 12);
 	printf("#:|%#d|\n", 12);
 	*/
+	/************************************************************************/
+	//test for pointer 
+	/************************************************************************/
+/*	printf("hh:|%hhp|\n", ptr);
+	printf("h:|%hp|\n", ptr);
+	printf("ll:|%llp|\n", ptr);
+	printf("l:|%lp|\n", ptr);
+*/
+	/************************************************************************/
+	//test for octal 
+	/************************************************************************/
+	printf("octal:|%o|\n", oct);
+	printf("hh:|%hho|\n", oct);
+	printf("h:|%ho|\n", oct);
+	printf("ll:|%llo|\n", oct);
+	printf("l:|%lo|\n", oct);
+
 	return (0);
 }

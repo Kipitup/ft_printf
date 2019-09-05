@@ -6,13 +6,13 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 09:13:58 by fkante            #+#    #+#             */
-/*   Updated: 2019/04/26 13:55:57 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 09:07:59 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_absolute(int nb)
+int64_t		ft_absolute(int64_t nb)
 {
 	return (nb >= 0 ? nb : -nb);
 }
