@@ -6,11 +6,17 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 11:48:45 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 18:02:03 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	cancel_flag_for_numeric_conv(t_flag *flag)
+{
+	if (flag->option & FLAG_ZERO && flag->option & FLAG_POINT)
+		flag->option &= ~FLAG_ZERO;
+}
 
 void	check_and_cancel_flag(t_state_machine *machine)
 {
@@ -20,7 +26,7 @@ void	check_and_cancel_flag(t_state_machine *machine)
 		machine->option &= ~FLAG_ZERO;
 }
 
-int8_t	convert(t_state_machine *machine, char *input, va_list *args_printf)
+int8_t	convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf)
 {
 	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char,
 							conv_to_string, conv_to_pointer, conv_to_di,
@@ -35,7 +41,7 @@ int8_t	convert(t_state_machine *machine, char *input, va_list *args_printf)
 	{
 		if (machine->option & ((1 << i) << SHIFT_TO_CONVS))
 		{
-			if ((local = func_ptr[i](args_printf, machine->option)) == NULL)
+			if ((local = func_ptr[i](args_printf, flag)) == NULL)
 					return (FAILURE);
 			if (vct_strjoin(machine->p_output, local->str) == FAILURE)
 				return (FAILURE);

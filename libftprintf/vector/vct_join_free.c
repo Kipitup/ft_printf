@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:14:53 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 17:27:16 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 14:56:46 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,23 @@ t_vector	*vct_join_free(t_vector *dest, t_vector *src,
 {
 	t_vector	*new;
 
-	new = NULL;
-	if (dest != NULL)
+	if (dest == NULL && src == NULL)
+		new = NULL;
+	else if (dest == NULL)
+		new = vct_dup(src);
+	else if (src == NULL)
+		new = vct_dup(dest);
+	else
 	{
-		if ((new = vct_new(dest->len + (src != NULL ? src->len : 0) + 16)))
+		new = vct_new(dest->len + src->len + DEFAULT_VCT_SCALE);
+		if (new != NULL)
 		{
 			ft_memmove(new->str, dest->str, dest->len);
-			if (src != NULL)
-				ft_memmove(new->str + dest->len, src->str, src->len);
-			new->len = dest->len + (src != NULL ? src->len : 0);
+			ft_memmove(new->str + dest->len, src->str, src->len);
+			new->len = dest->len + src->len;
+			new->str[new->len] = '\0';
 		}
 	}
-	else if (dest == NULL && src != NULL)
-	{
-		if ((new = vct_new(src->len + DEFAULT_VCT_SCALE)) != NULL)
-		{
-			ft_memmove(new->str, src->str, src->len);
-			new->len = src->len;
-		}
-	}
-	if (new != NULL)
-		new->str[new->len] = '\0';
 	free_vector(dest, src, first_or_second_or_both);
 	return (new);
 }

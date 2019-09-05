@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_increase_scale.c                               :+:      :+:    :+:   */
+/*   vct_push_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/29 16:44:22 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 14:19:01 by amartino         ###   ########.fr       */
+/*   Created: 2019/08/29 17:34:15 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/05 11:38:57 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /*
-**	Increase the size of allocated bloc by a certain scale.
-**
-**	The size et the scale are both define in vector.h
+**	Add a char to the end of the string
 */
 
-int8_t			vct_increase_scale(t_vector *vector, size_t scale)
+int8_t			vct_push_char(t_vector *vector, char c)
 {
-	char	*old;
-
 	if (vector != NULL && vector->str != NULL)
 	{
-		old = vector->str;
-		vector->size += (scale == 0 ? vector->scale : scale);
-		vector->str = ft_memalloc(vector->size);
-		if (vector->str != NULL)
-			ft_memcpy(vector->str, old, vector->len);
-		ft_strdel(&old);
+		if (vector->len + 1 >= vector->size)
+			if (vct_increase_scale(vector, 0) == FAILURE)
+				vct_del(&vector);
+		if (vector != NULL)
+		{
+			vector->str[vector->len] = c;
+			vector->str[vector->len + 1] = '\0';
+			vector->len += 1;
+		}
 	}
-	return (vector == NULL || vector->str == NULL ? FAILURE : SUCCESS);
+	return (vector == NULL ? FAILURE : SUCCESS);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   apply_modifier_nbr.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 17:33:08 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 17:54:58 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 18:03:57 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int64_t		apply_modifier_di(int64_t nbr_conv, uint64_t flag)
+int64_t		apply_modifier_di(int64_t nbr_conv, uint32_t flag)
 {
 	if (flag & FLAG_HH)
 		nbr_conv = (int8_t)nbr_conv;
@@ -31,7 +31,7 @@ int64_t		apply_modifier_di(int64_t nbr_conv, uint64_t flag)
 	return (nbr_conv);
 }
 
-int64_t		apply_modifier_oxX(int64_t nbr_conv, uint64_t flag)
+int64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag)
 {
 	if (flag & FLAG_HH)
 		nbr_conv = (uint8_t)nbr_conv;
@@ -46,7 +46,7 @@ int64_t		apply_modifier_oxX(int64_t nbr_conv, uint64_t flag)
 	return (nbr_conv);
 }
 
-uint64_t	apply_modifier_u(uint64_t nbr_conv, uint64_t flag)
+uint64_t	apply_modifier_u(uint64_t nbr_conv, uint32_t flag)
 {
 	if (flag & FLAG_HH)
 		nbr_conv = (uint8_t)nbr_conv;
@@ -64,9 +64,9 @@ uint64_t	apply_modifier_u(uint64_t nbr_conv, uint64_t flag)
 uint64_t	apply_modifier_p(uint64_t address, uint64_t flag)
 {
 	 if (flag & FLAG_HH)
-		address = (uint64_t)address; 
+		address = (uint64_t)address;
 	else if (flag & FLAG_H)
-		address = (uint64_t)address; 
+		address = (uint64_t)address;
 	else if (flag & FLAG_L)
 		address = (unsigned long)address;
 	else if (flag & FLAG_LL)

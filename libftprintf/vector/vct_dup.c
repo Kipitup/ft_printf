@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_remove_from_end.c                              :+:      :+:    :+:   */
+/*   vct_dup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/29 17:04:17 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 17:14:51 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/05 10:56:01 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/05 11:03:00 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-/*
-**	Remove a certain number of characters from the end of the string
-*/
-
-void			vct_remove_from_end(t_vector *vector, size_t len)
+t_vector	*vct_dup(t_vector *vector)
 {
-	size_t start;
+	t_vector	*dup;
 
+	dup = NULL;
 	if (vector != NULL && vector->str != NULL)
 	{
-		start = vector->len - len;
-		ft_bzero((vector->str + start), len);
-		vector->len -= len;
+		dup = vct_new(vector->size);
+		if (dup != NULL)
+		{
+			if ((vct_cat(dup, vector)) == FAILURE)
+				vct_del(&dup);
+		}
 	}
+	return (dup);
 }

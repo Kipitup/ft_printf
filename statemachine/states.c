@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/04 09:20:36 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/04 14:37:42 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int8_t	string(t_state_machine *machine, char *input, va_list *args_printf)
 	(void)args_printf;
 	machine->p_cursor = input;
 	if (*input == CONVERSION_SIGN)
-		machine->state = ST_FLAG;
+		machine->state = ST_FLAGS;
 	else if (*input == '\0')
 	{
 		machine->state = ST_BUFFER;
@@ -28,7 +28,7 @@ int8_t	string(t_state_machine *machine, char *input, va_list *args_printf)
 	return (1);
 }
 
-int8_t	flag(t_state_machine *machine, char *input, va_list *args_printf)
+int8_t	flags(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	static const char	*flags[NB_OF_FLAGS] = {HH, LL, H, L, L_MAJ, PLUS,
 											   MINUS, HASH, ZERO, SPACE, POINT};
@@ -77,6 +77,8 @@ int8_t	conversion(t_state_machine *machine, char *input, va_list *args_printf)
 
 int8_t			buffer(t_state_machine *machine, char *input, va_list *args_printf)
 {
+	t_flag		flag;
+
 	if (*input == '\0')
 	{
 		printf("\nlen is : %lu\n", machine->p_output->len);
@@ -86,7 +88,8 @@ int8_t			buffer(t_state_machine *machine, char *input, va_list *args_printf)
 		return (0);
 	}
 	check_and_cancel_flag(machine);
-	if (convert(machine, input, args_printf) == FAILURE)
+	init_flags(machine, &flag);
+	if (convert(machine, &flag, input, args_printf) == FAILURE)
 		machine->state = ST_END;
 	else
 		machine->state = ST_STRING;

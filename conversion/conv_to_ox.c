@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conv_to_ox.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 15:57:05 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 18:15:57 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_vector		*conv_to_ox(va_list *args_printf, uint64_t flag)
 	char		*nb_itoa;
 	int64_t		nbr;
 	uint8_t		base;
-	
+
 	base = 16;
 	if (flag & CONV_O)
 	{
