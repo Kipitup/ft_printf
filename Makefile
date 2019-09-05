@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/05 18:32:26 by fkante           ###   ########.fr        #
+#    Updated: 2019/09/05 18:35:14 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -69,7 +69,7 @@ SRCS += conv_to_hexa_maj
 SRCS += conv_to_float
 
 # Modifier
-SRCS += apply_modifier_nbr
+SRCS += apply_modifier
 SRCS += apply_padding_flag
 
                      ####################################
