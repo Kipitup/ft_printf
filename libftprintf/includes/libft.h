@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/04 17:26:32 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 16:19:07 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,12 @@ int64_t				ft_absolute(int64_t nb);
 size_t				ft_nb_unitlen(int nb);
 int					ft_fibonacci(int index);
 int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
+char				*ft_itoa(int64_t n);
+char				*ft_u_itoa(uint64_t n);
 char				*ft_itoa_base(int64_t n, uint8_t base);
 char				*ft_u_itoa_base(uint64_t n, uint8_t base);
-char				*ft_itoa_base_maj(int64_t n, uint8_t base);
+char				*ft_itoa_base_maj(uint64_t n, uint8_t base);
+char				*ft_ox_itoa_base(uint64_t n, uint8_t base, uint64_t flag);
 double				ft_pow(double x, double y);
 unsigned long		ft_pow_positive(unsigned long x, unsigned long y);
 size_t				ft_uint64_t_len(uint64_t num, uint8_t base);

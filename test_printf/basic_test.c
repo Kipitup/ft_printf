@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdint.h>
 
 int		main(int ac, char **av)
 {
 	(void)ac;
-	char	*ptr;
-
-	ptr = "1";
+	int64_t oct = 15616165651;
 	/*
 	printf("%#hhhMol%%%\n");
 	printf("%-5%\n");
@@ -55,10 +54,19 @@ int		main(int ac, char **av)
 	/************************************************************************/
 	//test for pointer 
 	/************************************************************************/
-	printf("hh:|%hhp|\n", ptr);
+/*	printf("hh:|%hhp|\n", ptr);
 	printf("h:|%hp|\n", ptr);
 	printf("ll:|%llp|\n", ptr);
 	printf("l:|%lp|\n", ptr);
+*/
+	/************************************************************************/
+	//test for octal 
+	/************************************************************************/
+	printf("octal:|%o|\n", oct);
+	printf("hh:|%hho|\n", oct);
+	printf("h:|%ho|\n", oct);
+	printf("ll:|%llo|\n", oct);
+	printf("l:|%lo|\n", oct);
 
 	return (0);
 }

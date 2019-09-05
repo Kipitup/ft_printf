@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/04 17:04:09 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/05 17:54:59 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,14 @@ void  			init_state_machine(t_state_machine *machine, const char *input);
 t_vector		*conv_to_char(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_string(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_pointer(va_list *args_printf, uint64_t flag);
-t_vector		*conv_to_nbr(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_di(va_list *args_printf, uint64_t flag);
+t_vector		*conv_to_ox(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_u_decimal(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_hexa_maj(va_list *args_printf, uint64_t flag);
 t_vector		*conv_to_float(va_list *args_printf, uint64_t flag);
 
 int64_t			apply_modifier_di(int64_t nbr_conv, uint64_t flag);
-uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint64_t flag);
+int64_t			apply_modifier_oxX(int64_t nbr_conv, uint64_t flag);
 uint64_t		apply_modifier_u(uint64_t nbr_conv, uint64_t flag);
 uint64_t		apply_modifier_s(uint64_t str, uint64_t flag);
 uint64_t		apply_modifier_p(uint64_t str, uint64_t flag);

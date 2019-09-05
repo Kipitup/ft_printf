@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/04 13:29:30 by fkante           ###   ########.fr        #
+#    Updated: 2019/09/05 15:57:31 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -62,7 +62,8 @@ SRCS += check_flag
 SRCS += conv_to_char
 SRCS += conv_to_string
 SRCS += conv_to_ptr
-SRCS += conv_to_nbr
+SRCS += conv_to_di
+SRCS += conv_to_ox
 SRCS += conv_to_u_decimal
 SRCS += conv_to_hexa_maj
 SRCS += conv_to_float
