@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/04 17:36:12 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 17:56:08 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,11 @@ int8_t 			apply_width(t_vector *vector, t_flag *flag);
 int8_t			apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
 t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
 
+t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);
 
 
 void			check_and_cancel_flag(t_state_machine *machine);
+void			cancel_flag_for_numeric_conv(t_flag *flag);
 int8_t			convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf);
 
 enum	e_type_flag

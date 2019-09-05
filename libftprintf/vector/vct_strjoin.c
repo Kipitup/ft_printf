@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 17:34:24 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 16:17:01 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int8_t	vct_strjoin(t_vector *vector, char *str)
 		}
 		if (vector != NULL)
 		{
-			ft_strcpy(vector->str + vector->len, str);
+			ft_memcpy(vector->str + vector->len, str, len);
 			vector->len += len;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/04 18:08:42 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 17:58:42 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 ** width ok
 precision
 */
-
-
 
 int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
@@ -45,7 +43,7 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 	if (nb_itoa->str[0] == '-')
 	{
 		vct_push_char(sign, '-');
-		// vct_pop_from(nb_itoa, 0);
+		vct_pop_from(nb_itoa, 1, 0);
 	}
 	else
 		if (flag->option & FLAG_PLUS)
@@ -67,7 +65,7 @@ int8_t 		apply_width(t_vector *vector, t_flag *flag)
 	{
 		while (flag->width > vector->len)
 		{
-			// if ((vct_add_char_at(vector, ' ', 0)) == FAILURE)
+			if ((vct_add_char_at(vector, ' ', 0)) == FAILURE)
 				break ;
 		}
 	}
@@ -89,7 +87,7 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag)
 	{
 		while (flag->precision > vector->len)
 		{
-			// if ((vct_add_char_at(vector, ' ', 0)) == FAILURE)
+			if ((vct_add_char_at(vector, ' ', 0)) == FAILURE)
 				break ;
 		}
 	}
