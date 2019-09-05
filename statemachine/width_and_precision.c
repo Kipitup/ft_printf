@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 11:05:11 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 11:05:25 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 18:30:45 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ uint64_t	get_numbers(t_state_machine *machine, char *input, size_t *count)
 	{
 		while (ft_isdigit((int)input[*count]) == TRUE)
 		{
-			if ((vct_add_char(vector, input[*count])) == FAILURE)
+			if ((vct_push_char(vector, input[*count])) == FAILURE)
 			{
 				machine->state = ST_END;
 				break ;
