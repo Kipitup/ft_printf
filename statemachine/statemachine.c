@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/04 16:33:18 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/06 15:33:55 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ int8_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
 		cur_state = machine->state;
 		if ((scale = parser[machine->state](machine, input, args_printf)) != FAILURE)
 		{
-			debug(machine, input, scale, cur_state); //  DEBUG
+			// debug(machine, input, scale, cur_state); //  DEBUG
 			input += scale;
 		}
 	}
-	printf("\nlen is : %lu \nNotre Printf:\t|%s|\n", machine->p_output->len, machine->p_output->str);
+	printf("\nNotre Printf \t|%s|\t\tlen is : %lu \n", machine->p_output->str, machine->p_output->len);
 	return (-5);
 }
