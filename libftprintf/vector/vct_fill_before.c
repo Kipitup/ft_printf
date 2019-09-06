@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 09:29:07 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/06 09:42:54 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/06 09:57:16 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ t_vector	*vct_fill_before(t_vector *vector, char c, size_t size)
 	size_t	start;
 
 	start = 0;
-	if (size < 0)
-		size = 0;
 	if (vector != NULL && vector->str != NULL)
 	{
 		if (vector->len + 1 >= vector->size)
