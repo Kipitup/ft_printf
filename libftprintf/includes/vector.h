@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 18:06:51 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/06 09:36:08 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,7 @@ void			vct_pop_from(t_vector *vector, size_t len, size_t index);
 t_vector		*vct_join(t_vector *dest, t_vector *src);
 t_vector		*vct_join_free(t_vector *dest, t_vector *src,
 							int first_or_second_or_both);
+t_vector		*vct_fill_after(t_vector *vector, char c, size_t nbr);
+t_vector		*vct_fill_before(t_vector *vector, char c, size_t nbr);
 
 #endif

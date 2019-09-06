@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 18:19:23 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 18:37:56 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 
 	ft_printf(av[1], atoll(av[2]));
 	printf("------------\n");
-	printf("LE Printf:\t|");
+	printf("LE Printf:\t");
 	printf(av[1], atoll(av[2]));
 	/*
 	ft_printf("ft_printf: |%c|\n", 'Q');

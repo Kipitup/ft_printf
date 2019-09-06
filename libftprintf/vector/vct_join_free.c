@@ -6,11 +6,12 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:14:53 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 14:56:46 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/05 19:02:09 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
+#include <stdio.h>
 
 /*
 **	Join 2 vector string together. Return the new joined vector. If one of the
