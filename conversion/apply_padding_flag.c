@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/06 15:37:32 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/06 16:49:01 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 		vct_del(&vector);
 	if ((apply_precision(vector, flag)) == FAILURE)
 		vct_del(&vector);
+	 if (apply_hashtag(vector, flag) == FAILURE)
+	 	vct_del(&vector);
 	if (sign->len > 0 && ((flag->option & FLAG_ZERO) == FALSE))
 		vct_add_char_at(vector, sign->str[0], START);
 	if ((apply_width(vector, flag)) == FAILURE)
 		vct_del(&vector);
 	if (sign->len > 0 && flag->option & FLAG_ZERO)
 		vct_add_char_at(vector, sign->str[0], START);
-	// if (apply_hashtag(vector, flag) == FAILURE)
-	// 	vct_del(&vector);
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
 
@@ -108,7 +108,6 @@ int8_t          apply_hashtag(t_vector *vector, t_flag *flag)
 	   vct_add_char_at(vector, '0', START);
    }
    else if (flag->option & CONV_O)
-   {
-   }
-	return (vector == NULL ? FAILURE : SUCCESS);
+	   vct_add_char_at(vector, '0', START);
+   return (vector == NULL ? FAILURE : SUCCESS);
 }
