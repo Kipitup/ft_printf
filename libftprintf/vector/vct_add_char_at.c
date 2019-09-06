@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 10:43:28 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 14:43:49 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/06 12:04:26 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 int8_t			vct_add_char_at(t_vector *vector, char c, size_t index)
 {
-	t_vector	*tmp;
-
 	if (vector != NULL && vector->str != NULL)
 	{
 		if (vector->len + 1 >= vector->size)
@@ -31,14 +29,11 @@ int8_t			vct_add_char_at(t_vector *vector, char c, size_t index)
 				vct_push_char(vector, c);
 			else
 			{
-				if ((tmp = vct_dup(vector)) != NULL)
-				{
-					vector->str[index] = c;
-					ft_memmove(vector->str + index + 1, tmp->str + index,
-						tmp->len - index);
-					vector->len++;
-					vector->str[vector->len] = '\0';
-				}
+				ft_memmove(vector->str + index + 1, vector->str + index,
+					vector->len - index);
+				vector->str[index] = c;
+				vector->len++;
+				vector->str[vector->len] = '\0';
 			}
 		}
 	}
