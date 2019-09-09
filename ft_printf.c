@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 17:12:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/03 11:06:18 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/09 14:22:34 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 int				ft_printf(const char *input, ...)
 {
 	t_state_machine		machine;
-	va_list	args_printf;
+	va_list				args_printf;
+	size_t				len;
 
 	init_state_machine(&machine, input);
 	va_start(args_printf, input);
-	parser(&machine, (char *)input, &args_printf);
+	len = parser(&machine, (char *)input, &args_printf);
 	va_end(args_printf);
-	return (SUCCESS);
+	return (len);
 }

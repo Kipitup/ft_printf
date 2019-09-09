@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/09 12:04:05 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/09 14:18:59 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,7 +132,7 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+	# echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
 
 clean:

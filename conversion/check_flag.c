@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:22:33 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 18:28:55 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/09 17:18:09 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,18 @@ void	cancel_flag_for_numeric_conv(t_flag *flag)
 		flag->option &= ~FLAG_ZERO;
 }
 
+void	cancel_flag_for_none_conv(t_flag *flag)
+{
+	if (flag->option & FLAG_ZERO && flag->option & FLAG_POINT)
+		flag->option &= ~FLAG_ZERO;
+	if (flag->option & FLAG_SPACE)
+		flag->option &= ~FLAG_SPACE;
+}
+
 void	check_and_cancel_flag(t_state_machine *machine)
 {
 	if (machine->option & FLAG_PLUS && machine->option & FLAG_SPACE)
 		machine->option &= ~FLAG_SPACE;
 	if (machine->option & FLAG_MINUS && machine->option & FLAG_ZERO)
 		machine->option &= ~FLAG_ZERO;
-}
-
-int8_t	convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf)
-{
-	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char,
-							conv_to_string, conv_to_pointer, conv_to_di,
-							conv_to_di, conv_to_ox, conv_to_u_decimal,
-							conv_to_ox, conv_to_hexa_maj, conv_to_float};
-	t_vector				*local;
-	uint8_t					i;
-
-	(void)input;
-	i = 0;
-	while (i < NB_OF_CONVS)
-	{
-		if (machine->option & ((1 << i) << SHIFT_TO_CONVS))
-		{
-			if ((local = func_ptr[i](args_printf, flag)) == NULL)
-					return (FAILURE);
-			if (vct_strjoin(machine->p_output, local->str) == FAILURE)
-				return (FAILURE);
-			vct_del(&local);
-			break ;
-		}
-		i++;
-	}
-	return (SUCCESS);
 }

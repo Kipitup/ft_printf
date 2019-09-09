@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/06 15:33:55 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/09 17:01:23 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		debug(t_state_machine *machine, char *input, int8_t scale,
 				scale == 0 ? 1 : scale, input, state_str[state], machine->option, machine->width, machine->precision);
 }
 
-int8_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
+size_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
 {
 	static t_statefunc	parser[5] = {string, flags, conversion, buffer, end};
 	enum e_main_states	cur_state;
@@ -41,6 +41,6 @@ int8_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
 			input += scale;
 		}
 	}
-	printf("\nNotre Printf \t|%s|\t\tlen is : %lu \n", machine->p_output->str, machine->p_output->len);
-	return (-5);
+	// printf("\nNotre Printf \t|%s|\t\tlen is : %lu \n", machine->p_output->str, machine->p_output->len);
+	return (machine->p_output->len);
 }

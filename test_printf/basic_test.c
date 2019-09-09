@@ -7,7 +7,7 @@ int		main(int ac, char **av)
 	(void)ac;
 
 	// printf("%#hhhMol%%%\n");
-	// printf("%-5%\n");
+	// printf("% w%\n");
 	//
 	// printf("4567 |%-10]hello5d| plip\n", 12);
 	// printf("4567 |%10]5d| plip\n", 12);
@@ -15,8 +15,8 @@ int		main(int ac, char **av)
 	// printf("|%5.2d|\n", -125368561);
 	// printf("|% d|\n", 12);
 	// printf("|%0.10d|\n", -12);
-	printf("|%-10.5d|\n", -12);
-	printf("|%010d|\n", -12);
+	// printf("|%-10.5d|\n", -12);
+	// printf("|%010d|\n", -12);
 	// printf("|% d|\n", 12);
 	// printf("|% +d|\n", 12);
 	// printf("|%-010.5.3d|\n", -12);
@@ -67,6 +67,16 @@ int		main(int ac, char **av)
 	//test for octal
 	/************************************************************************/
 	// printf("octal:|%o|\n", oct);
+	// printf("hh:|%hho|\n", oct);
+	// printf("h:|%ho|\n", oct);
+	// printf("ll:|%llo|\n", oct);
+	// printf("l:|%lo|\n", oct);
+
+	/************************************************************************/
+	//test for hexa
+	/************************************************************************/
+	printf("x:|%#8.5x|\n", 15);
+	printf("x:|%#8.5x|\n", 0);
 	// printf("hh:|%hho|\n", oct);
 	// printf("h:|%ho|\n", oct);
 	// printf("ll:|%llo|\n", oct);

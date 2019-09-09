@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/06 15:34:00 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/09 18:42:35 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,221 @@
 
 int		main(int ac, char **av)
 {
-	//if (ac <= 2)
-	//	return (0);
-	//char *str;
 	(void)ac;
 
-	//str = NULL;
-	/*
-	ft_printf(av[1], av[2], ac <= 3 ? NULL : av[3],
-						ac <= 4 ? NULL : av[4], ac <= 5 ? NULL : av[5]);
-	printf("\n------------\n");
-	printf("printf:\t\t");
-	printf(av[1], av[2], ac <= 3 ? NULL : av[3],
-						ac <= 4 ? NULL : av[4], ac <= 5 ? NULL : av[5]);
-*/
-	ft_printf(av[1], atoll(av[2]));
-	printf("------------\n");
-	printf("LE Printf    \t|");
-	printf(av[1], atoll(av[2]));
-	printf("|\n");
-	/*
-	ft_printf("ft_printf: |%c|\n", 'Q');
-	printf("printf: |%c|\n", 'Q');
-	printf("------------\n");
-	ft_printf("ft_printf: |%hhc|\n", 'Q');
-	printf("printf: |%hhc|\n", 'Q');
-	printf("------------\n");
-	ft_printf("ft_printf: |%llc|\n", 'Q');
-	printf("printf: |%llc|\n", 'Q');
-	printf("------------\n");
-	ft_printf("ft_printf: |%hc|\n", 'Q');
-	printf("printf: |%hc|\n", 'Q');
-	printf("------------\n");
-	ft_printf("ft_printf: |%hhp|\n", 'Q');
-	printf("printf: |%hhp|\n", 'Q');
-*/
+	// ft_printf("%x", 4294967296);
+	// printf("\n");
+	// printf("%x", 4294967296);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%X", 4294967296);
+	// printf("\n");
+	// printf("%X", 4294967296);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%lx", 4294967296);
+	// printf("\n");
+	// printf("%lx", 4294967296);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%llX", 4294967296);
+	// printf("\n");
+	// printf("%llX", 4294967296);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%llx", 9223372036854775807);
+	// printf("\n");
+	// printf("%llx", 9223372036854775807);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%llx", 9223372036854775808);
+	// printf("\n");
+	// printf("%llx", 9223372036854775808);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%#llx", 9223372036854775807);
+	// printf("\n");
+	// printf("%#llx", 9223372036854775807);
+	// printf("\n------------------------------------\n");
+	// ft_printf("%#08x", 42);
+	// printf("\n");
+	// printf("%#08x", 42);
+	// printf("\n------------------------------------\n");
+	// ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	// printf("\n");
+	// printf("@moulitest: %#.x %#.0x", 0, 0);
+	// printf("\n------------------------------------\n");
+	// ft_printf("@moulitest: %.x %.0x", 0, 0);
+	// printf("\n");
+	// printf("@moulitest: %.x %.0x", 0, 0);
+	// printf("\n------------------------------------\n");
+	// ft_printf("@moulitest: %5.x %5.0x", 0, 0);
+	// printf("\n");
+	// printf("@moulitest: %5.x %5.0x", 0, 0);
+	// printf("\n------------------------------------\n");
+	ft_printf("%10s is a string", "this");
+	printf("\n");
+	printf("%10s is a string", "this");
+	printf("\n------------------------------------\n");
+	ft_printf("%.2s is a string", "this");
+	printf("\n");
+	printf("%.2s is a string", "this");
+	printf("\n------------------------------------\n");
+	ft_printf("%5.2s is a string", "this");
+	printf("\n");
+	printf("%5.2s is a string", "this");
+	printf("\n------------------------------------\n");
+	ft_printf("%10s is a string", "");
+	printf("\n");
+	printf("%10s is a string", "");
+	printf("\n------------------------------------\n");
+	ft_printf("%5.2s is a string", "");
+	printf("\n");
+	printf("%5.2s is a string", "");
+	printf("\n------------------------------------\n");
+	ft_printf("%-10s is a string", "this");
+	printf("\n");
+	printf("%-10s is a string", "this");
+	printf("\n------------------------------------\n");
+	ft_printf("%-.2s is a string", "this");
+	printf("\n");
+	printf("%-.2s is a string", "this");
+	printf("\n------------------------------------\n");
+	ft_printf("%-5.2s is a string", "this");
+	printf("\n");
+	printf("%-5.2s is a string", "this");
+	printf("\n------------------------------------\n");
+	ft_printf("%-10s is a string", "");
+	printf("\n");
+	printf("%-10s is a string", "");
+	printf("\n------------------------------------\n");
+	ft_printf("%-5.2s is a string", "");
+	printf("\n");
+	printf("%-5.2s is a string", "");
+	printf("\n------------------------------------\n");
+/*	ft_printf("@moulitest: %s", NULL);
+	printf("\n");
+	printf("@moulitest: %s", NULL);
+	printf("\n------------------------------------\n");
+	ft_printf("%.2c", NULL);
+	printf("\n");
+	printf("%.2c", NULL);
+	printf("\n------------------------------------\n");
+	ft_printf("%s %s", NULL, string);
+	printf("\n");
+	printf("%s %s", NULL, string);
+	printf("\n------------------------------------\n");
+	ft_printf("%5c", 42);
+	printf("\n");
+	printf("%5c", 42);
+	printf("\n------------------------------------\n");
+	ft_printf("%-5c", 42);
+	printf("\n");
+	printf("%-5c", 42);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %c", 0);
+	printf("\n");
+	printf("@moulitest: %c", 0);
+	printf("\n------------------------------------\n");
+	ft_printf("%2c", 0);
+	printf("\n");
+	printf("%2c", 0);
+	printf("\n------------------------------------\n");
+	ft_printf("null %c and text", 0);
+	printf("\n");
+	printf("null %c and text", 0);
+	printf("\n------------------------------------\n");
+	ft_printf("% c", 0);
+	printf("\n");
+	printf("% c", 0);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %.o %.0o", 0, 0);
+	printf("\n");
+	printf("@moulitest: %.o %.0o", 0, 0);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %5.o %5.0o", 0, 0);
+	printf("\n");
+	printf("@moulitest: %5.o %5.0o", 0, 0);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %#.o %#.0o", 0, 0);
+	printf("\n");
+	printf("@moulitest: %#.o %#.0o", 0, 0);
+	printf("\n------------------------------------\n");
+	ft_printf("%lld", -9223372036854775808);
+	printf("\n");
+	printf("%lld", -9223372036854775808);
+	printf("\n------------------------------------\n");
+	ft_printf("%zd", 4294967295);
+	printf("\n");
+	printf("%zd", 4294967295);
+	printf("\n------------------------------------\n");
+	ft_printf("%zd", 4294967296);
+	printf("\n");
+	printf("%zd", 4294967296);
+	printf("\n------------------------------------\n");
+	ft_printf("%zd", -0);
+	printf("\n");
+	printf("%zd", -0);
+	printf("\n------------------------------------\n");
+	ft_printf("%zd", -1);
+	printf("\n");
+	printf("%zd", -1);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %.d %.0d", 0, 0);
+	printf("\n");
+	printf("@moulitest: %.d %.0d", 0, 0);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %5.d %5.0d", 0, 0);
+	printf("\n");
+	printf("@moulitest: %5.d %5.0d", 0, 0);
+	printf("\n------------------------------------\n");
+	ft_printf("%15u", 4294967295);
+	printf("\n");
+	printf("%15u", 4294967295);
+	printf("\n------------------------------------\n");
+	ft_printf("%-15u", 4294967295);
+	printf("\n");
+	printf("%-15u", 4294967295);
+	printf("\n------------------------------------\n");
+	ft_printf("%015u", 4294967295);
+	printf("\n");
+	printf("%015u", 4294967295);
+	printf("\n------------------------------------\n");
+	ft_printf("%U", 4294967295);
+	printf("\n");
+	printf("%U", 4294967295);
+	printf("\n------------------------------------\n");
+	ft_printf("%hU", 4294967296);
+	printf("\n");
+	printf("%hU", 4294967296);
+	printf("\n------------------------------------\n");
+	ft_printf("%U", 4294967296);
+	printf("\n");
+	printf("%U", 4294967296);
+	printf("\n------------------------------------\n");
+	ft_printf("@moulitest: %.5u", 42);
+	printf("\n");
+	printf("@moulitest: %.5u", 42);
+	printf("\n------------------------------------\n"); */
+
+	//number
+	// ft_printf(av[1], atoll(av[2]));
+	// printf("|\n");
+	// printf(av[1], atoll(av[2]));
+	// printf("|\n");
+
+	//char
+	// ft_printf(av[1], av[2][0]);
+	// printf("|\n");
+	// printf(av[1], av[2][0]);
+	// printf("|\n");
+
+	//string
+	// ft_printf(av[1], av[2]);
+	// printf("|\n");
+	// printf(av[1], av[2]);
+	// printf("|\n");
+
+	//none        WARNING functions are inversed
+	// printf(av[1]);
+	// printf("|\n");
+	// ft_printf(av[1]);
+	// printf("|\n");
+
 	return (0);
 }
 
