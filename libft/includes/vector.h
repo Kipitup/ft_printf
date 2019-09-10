@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/06 12:03:38 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/10 14:04:15 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,9 @@ t_vector		*vct_join_free(t_vector *dest, t_vector *src,
 							int first_or_second_or_both);
 int8_t			vct_fill_after(t_vector *vector, char c, size_t nbr);
 int8_t			vct_fill_before(t_vector *vector, char c, size_t nbr);
+
+// change push for add char
+// create push str
+// faire un upcase si X_MAJ
 
 #endif

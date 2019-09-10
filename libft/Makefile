@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/09 14:18:59 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/10 14:34:28 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,6 +93,7 @@ SRCS += ft_pow.c
 SRCS += ft_pow_positive.c
 SRCS += ft_uint64_t_len.c
 SRCS += ft_int64_t_len.c
+SRCS += ft_strcapitalize.c
 
 # vectors
 SRCS += vct_del.c

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 15:42:12 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/09 17:01:13 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/10 13:55:29 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int8_t	convert(t_state_machine *machine, t_flag *flag, char *input, va_list *arg
 	if (i == NB_OF_CONVS && (machine->option & ((1 << i) << SHIFT_TO_CONVS)))
 		if ((local = conv_to_none(*input, flag)) == NULL)
 			return (FAILURE);
-	if (local == NULL || (vct_strjoin(machine->p_output, local->str) == FAILURE))
+	if (local == NULL || (vct_cat(machine->p_output, local) == FAILURE))
 		return (FAILURE);
 	vct_del(&local);
 	return (SUCCESS);

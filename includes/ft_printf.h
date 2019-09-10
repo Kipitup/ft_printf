@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/09 17:18:32 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/10 11:15:44 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, in
 int8_t			convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf);
 void			check_and_cancel_flag(t_state_machine *machine);
 void			cancel_flag_for_numeric_conv(t_flag *flag);
-void			cancel_flag_for_none_conv(t_flag *flag);
+void			cancel_flag_for_other_conv(t_flag *flag);
 
 enum	e_type_flag
 {

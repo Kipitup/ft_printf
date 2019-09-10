@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 16:19:07 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/10 14:34:03 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ char				*ft_strstr(const char *pile, const char *pin);
 char				*ft_strnstr(const char *pil, const char *need, size_t len);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
+char				*ft_strcapitalize(char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_bzero(void *s, size_t n);
