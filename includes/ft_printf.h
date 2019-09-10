@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 18:26:16 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/10 11:15:44 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int				ft_printf(const char *input, ...);// __attribute__
 **  STATE MACHINE	**
 **********************
 */
-int8_t			parser(t_state_machine *machine, char *input, va_list *args_printf);
+size_t			parser(t_state_machine *machine, char *input, va_list *args_printf);
 int8_t			string(t_state_machine *machine, char *input, va_list *args_printf);
 int8_t			conversion(t_state_machine *machine, char *input, va_list *args_printf);
 int8_t			flags(t_state_machine *machine, char *input, va_list *args_printf);
@@ -83,13 +83,15 @@ void			init_flags(t_state_machine *machine, t_flag *flags);
 **********************
 */
 t_vector		*conv_to_char(va_list *args_printf, t_flag *flag);
-t_vector		*conv_to_string(va_list *args_printf, t_flag *flag);
+t_vector		*conv_to_str(va_list *args_printf, t_flag *flag);
 t_vector		*conv_to_pointer(va_list *args_printf, t_flag *flag);
 t_vector		*conv_to_ox(va_list *args_printf, t_flag *flag);
 t_vector		*conv_to_di(va_list *args_printf, t_flag *flag);
 t_vector		*conv_to_u_decimal(va_list *args_printf, t_flag *flag);
 t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag);
 t_vector		*conv_to_float(va_list *args_printf, t_flag *flag);
+t_vector		*conv_to_none(char input, t_flag *flag);
+
 
 int64_t			apply_modifier_di(int64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag);
@@ -100,13 +102,16 @@ int8_t 			apply_precision(t_vector *vector, t_flag *flag);
 int8_t 			apply_width(t_vector *vector, t_flag *flag);
 int8_t			apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
 t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
+int8_t          apply_hashtag(t_vector *vector, t_flag *flag);
+
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);
 
 
+int8_t			convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf);
 void			check_and_cancel_flag(t_state_machine *machine);
 void			cancel_flag_for_numeric_conv(t_flag *flag);
-int8_t			convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf);
+void			cancel_flag_for_other_conv(t_flag *flag);
 
 enum	e_type_flag
 {
@@ -139,43 +144,3 @@ enum	e_type_conv
 };
 
 #endif
-
-/*
-typedef unsigned long t_option
-
-t_option option;
-
-option = 0;
-
-if (input[i] == 'h')
-	option |= FLAG_H;
-
-	option |= (unsigned long)field << 32;
-
-	if ((option & FLAG_H) == FALSE)
-		nb = (char)nb;
-
-{
-00000000
-		01000000
-
-		01000000
-
-		00010000
-		01010000
-
-		00000000
-		}
-
-typedef struct
-{
-	char *output_str;
-}stdout_to_be_print;
-
-
-** State machine EVENT functions
-EVENT_DECLARE(ST_print, end_of_input)
-EVENT_DECLARE(ST_conversion, found_conversion_sign)
-
-** State machine STATE functions
-STATE_DECLARE(ST_STRING, */

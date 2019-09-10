@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 18:30:33 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/09 16:47:12 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int8_t	flags(t_state_machine *machine, char *input, va_list *args_printf)
 		len = i < 2 ? 2 : 1;
 		if (ft_strnequ(flags[i], input, len) == TRUE)
 		{
-			if (i < NB_OF_MODIFIER)//to be DEFINED
+			if (i < NB_OF_MODIFIER)
 				machine->option &= ~ALL_MOD;
 			machine->option |= ft_pow_positive(2, i);
 			return (flags[i] == POINT ? is_precision(machine, input + 1) : len);
@@ -81,9 +81,7 @@ int8_t			buffer(t_state_machine *machine, char *input, va_list *args_printf)
 
 	if (*input == '\0')
 	{
-		printf("\nlen is : %lu\n", machine->p_output->len);
 		write(1, machine->p_output->str, machine->p_output->len);
-		write(1, "\n", 1);
 		machine->state = ST_END;
 		return (0);
 	}
