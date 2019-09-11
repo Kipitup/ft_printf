@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 17:55:03 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/10 14:06:59 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/11 14:53:36 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_vector	*conv_to_char(va_list *args_printf, t_flag *flag)
 	c = apply_modifier_u((int64_t)c, flag->option);
 	to_be_joined = vct_new(0);
 	if (to_be_joined != NULL)
-		if ((vct_push_char(to_be_joined, c)) == FAILURE)
+		if ((vct_add_char(to_be_joined, c)) == FAILURE)
 			vct_del(&to_be_joined);
 	if (to_be_joined != NULL)
 	{

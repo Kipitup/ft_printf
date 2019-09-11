@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/09 16:47:12 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/11 14:54:14 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int8_t	string(t_state_machine *machine, char *input, va_list *args_printf)
 		machine->state = ST_BUFFER;
 		return (0);
 	}
-	else if (vct_push_char(machine->p_output, *input) == FAILURE)
+	else if (vct_add_char(machine->p_output, *input) == FAILURE)
 		machine->state = ST_END;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/10 17:00:26 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/11 14:53:25 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 	sign = vct_new(0);
 	if (nb_itoa->str[0] == '-')
 	{
-		vct_push_char(sign, '-');
+		vct_add_char(sign, '-');
 		vct_pop_from(nb_itoa, 1, 0);
 	}
 	else if (flag->option & FLAG_PLUS)
-		vct_push_char(sign, '+');
+		vct_add_char(sign, '+');
 	else if (flag->option & FLAG_SPACE)
-		vct_push_char(sign, ' ');
+		vct_add_char(sign, ' ');
 	return (sign);
 }
 
