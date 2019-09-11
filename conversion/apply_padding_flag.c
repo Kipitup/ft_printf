@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/11 14:53:25 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:38:33 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,32 +95,12 @@ int8_t 		apply_width(t_vector *vector, t_flag *flag)
 			if ((vct_fill_before(vector, '0', len)) == FAILURE)
 				vct_del(&vector);
 			if (flag->option & CONV_X || flag->option & CONV_X_MAJ)
-				if (apply_hashtag(vector, flag) == FAILURE)
+				if (apply_special_hashtag(vector, flag) == FAILURE)
 			 		vct_del(&vector);
 		}
 		else
 			if ((vct_fill_before(vector, ' ', len)) == FAILURE)
 				vct_del(&vector);
-	}
-	return (vector == NULL ? FAILURE : SUCCESS);
-}
-
-int8_t          apply_hashtag(t_vector *vector, t_flag *flag)
-{
-	if (flag->option & FLAG_HASH)
-	{
-		if ((flag->option & CONV_X || flag->option & CONV_X_MAJ) && vector->str[vct_len(vector) - 1] != '0')
-		{
-			if (ft_strchr(vector->str, 'x') != 0 || ft_strchr(vector->str, 'X') != 0) // la suite est un brouillon/ wait and don't judge
-			{
-				vct_add_char_at(vector, 'x', START);
-				vct_add_char_at(vector, '0', START);
-				if (flag->option & CONV_X_MAJ)
-					ft_strcapitalize(vector->str);
-			}
-		}
-		else if (flag->option & CONV_O)
-			vct_add_char_at(vector, '0', START);
 	}
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
