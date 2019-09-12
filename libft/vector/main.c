@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 11:33:22 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 17:03:22 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/12 18:08:36 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int 	main(int ac, char **av)
 	int			ret;
 	(void)ac;
 	ret = -1;
-	vector1 = vct_new_str("ca hellO ca VA ? cacACa");
+	vector1 = vct_new_str("ca hellO ca VA ? 0 cacACa");
 	ret = vct_apply(vector1, LOWCASE);
 	printf("str : |%s|\t ret : %d\n", vector1->str, ret);
 	printf("len : %zu\tsize : %zu\n\n", vector1->len, vector1->size);
