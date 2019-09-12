@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_dup.c                                          :+:      :+:    :+:   */
+/*   ft_strchr_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 10:56:01 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 17:14:27 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/12 17:05:40 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/12 17:05:56 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "libft.h"
 
-/*
-**	Return a duplicate of the given vector
-*/
-
-t_vector	*vct_dup(t_vector *vector)
+char	*ft_strchr_str(const char *str, char *find)
 {
-	t_vector	*dup;
+	int		i;
+	int		j;
 
-	dup = NULL;
-	if (vector != NULL && vector->str != NULL)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		dup = vct_new(vector->size);
-		if (dup != NULL)
+		j = 0;
+		if (str[i] == find[j])
 		{
-			if ((vct_cat(dup, vector)) == FAILURE)
-				vct_del(&dup);
+			while (find[j] != '\0')
+			{
+				if (str[i] != find[j])
+					break ;
+				i++;
+				j++;
+			}
+			if (find[j] == '\0')
+				return ((char*)str + i - j);
 		}
+		i++;
 	}
-	return (dup);
+	return (NULL);
 }

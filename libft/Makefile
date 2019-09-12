@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/11 14:38:03 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/12 17:06:39 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,6 +98,7 @@ SRCS += ft_strupcase.c
 SRCS += ft_strlowcase.c
 SRCS += ft_strisupcase.c
 SRCS += ft_strislowcase.c
+SRCS += ft_strchr_str.c
 
 # vectors
 SRCS += vct_del.c
@@ -120,6 +121,10 @@ SRCS += vct_fill_after.c
 SRCS += vct_fill_before.c
 SRCS += vct_push_str.c
 SRCS += vct_apply.c
+SRCS += vct_add_char_at_replace.c
+SRCS += vct_replace_char.c
+SRCS += vct_add_str_at.c
+SRCS += vct_replace_str.c
 
 PATH_SRCS += ./vector
 PATH_SRCS += .

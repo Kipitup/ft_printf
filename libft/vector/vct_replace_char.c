@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_dup.c                                          :+:      :+:    :+:   */
+/*   vct_replace_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 10:56:01 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 17:14:27 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/12 11:34:06 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/12 14:44:52 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /*
-**	Return a duplicate of the given vector
+**	Replace all given char of a string to the given replace char.
 */
 
-t_vector	*vct_dup(t_vector *vector)
+int8_t			vct_replace_char(t_vector *vector, char c, char replace)
 {
-	t_vector	*dup;
+	size_t		index;
 
-	dup = NULL;
+	index = 0;
 	if (vector != NULL && vector->str != NULL)
 	{
-		dup = vct_new(vector->size);
-		if (dup != NULL)
+		while (index < vector->len)
 		{
-			if ((vct_cat(dup, vector)) == FAILURE)
-				vct_del(&dup);
+			if (vector->str[index] == c)
+				vector->str[index] = replace;
+			index++;
 		}
 	}
-	return (dup);
+	return (vector == NULL ? FAILURE : SUCCESS);
 }
