@@ -6,11 +6,18 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 11:32:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/11 11:42:04 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/12 17:13:19 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
+
+/*
+**	Add a string at the beginning of the vector string
+**
+**	As for all vectors functions, if the LENGHT of the new string is bigger
+**	than the string SIZE, an equivalent reallocation occurs.
+*/
 
 int8_t			vct_push_str(t_vector *vector, char *str)
 {
