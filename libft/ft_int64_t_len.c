@@ -6,11 +6,12 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 14:09:52 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 11:13:36 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/13 11:31:28 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 size_t		ft_int64_t_len(int64_t num, uint8_t base)
 {
@@ -21,6 +22,8 @@ size_t		ft_int64_t_len(int64_t num, uint8_t base)
 	size = 1;
 	if (num < 0 && base == 10)
 		size++;
+	if (num == LLONG_MIN)
+		return (20);
 	num = ft_absolute(num);
 	while (num > base)
 	{

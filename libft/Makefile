@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/12 17:06:39 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/13 11:34:47 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ AR = ar -rcs
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+#CFLAGS += -fsanitize=address,undefined -g3
 BUILD_DIR = build/
 
 INCLUDES = -I./includes
@@ -144,7 +145,7 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	# echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+#	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
 
 clean:
