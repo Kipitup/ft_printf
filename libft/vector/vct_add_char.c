@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:34:15 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/11 11:32:18 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/12 17:12:18 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 /*
 **	Add a char to the end of the string
+**
+**	As for all vectors functions, if the LENGHT of the new string is bigger
+**	than the string SIZE, an equivalent reallocation occurs.
 */
 
 int8_t			vct_add_char(t_vector *vector, char c)

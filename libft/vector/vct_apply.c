@@ -6,11 +6,18 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 11:43:23 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/11 14:38:58 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/12 17:03:08 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
+
+/*
+**	Apply the function that you give as parameter to the vector.
+**	vct_apply was designed to be as modular as possible. You will find a enum in
+**	vector.h, with all the possible function you can use. If you need to use a
+**	different type of prototype, just the function pointer you need as below
+*/
 
 t_char_ptr_func		apply_func(enum e_apply type)
 {

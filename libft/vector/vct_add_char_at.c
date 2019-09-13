@@ -6,14 +6,17 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 10:43:28 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/11 12:07:07 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/12 17:11:53 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
 /*
-**	Add a char at a given index of the string
+**	Add a char at a given index of the vector string
+**
+**	As for all vectors functions, if the LENGHT of the new string is bigger
+**	than the string SIZE, an equivalent reallocation occurs.
 */
 
 int8_t			vct_add_char_at(t_vector *vector, char c, size_t index)

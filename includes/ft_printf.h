@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/10 11:15:44 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/11 17:40:51 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ int8_t 			apply_width(t_vector *vector, t_flag *flag);
 int8_t			apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
 t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
 int8_t          apply_hashtag(t_vector *vector, t_flag *flag);
+int8_t          apply_special_hashtag(t_vector *vector, t_flag *flag);
 
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);

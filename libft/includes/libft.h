@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/11 14:37:47 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/12 17:44:23 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ int					ft_strisupcase(char *str);
 int					ft_strislowcase(char *str);
 char				*ft_strupcase(char *str);
 char				*ft_strlowcase(char *str);
+char				*ft_strchr_str(const char *str, char *find);
 
 /*
 ** ############################################################################
