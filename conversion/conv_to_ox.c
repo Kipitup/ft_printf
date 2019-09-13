@@ -6,28 +6,16 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 14:09:03 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 16:57:09 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+
 int8_t			conv(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
 	if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
 		vct_del(&vector);
-	if (flag->option & FLAG_HASH)
-	{
-		if (flag->option & CONV_X)
-		{
-			if (apply_hashtag_hexa(vector, flag) == FAILURE)
-				vct_del(&vector);
-		}
-		else
-			if (apply_hashtag_octal(vector, flag) == FAILURE)
-				vct_del(&vector);
-	}
-
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
 
@@ -52,6 +40,5 @@ t_vector		*conv_to_ox(va_list *args_printf, t_flag *flag)
 		if ((conv(vector, flag, nb_itoa)) == FAILURE)
 			vct_del(&vector);
 	vct_del(&nb_itoa);
-	// printf("vector is : |%s|\t and len is : %zu\n", vector->str, vector->len);
 	return (vector);
 }

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/13 10:48:12 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 16:17:17 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 		vct_del(&vector);
 	if ((apply_precision(vector, flag)) == FAILURE)
 		vct_del(&vector);
+	if (apply_hashtag(vector, flag) == FAILURE)
+ 		vct_del(&vector);
 	if (vct_len(sign) > 0 && ((flag->option & FLAG_ZERO) == FALSE))
 		vct_add_char_at(vector, sign->str[0], START);
 	if ((apply_width(vector, flag)) == FAILURE)
@@ -97,6 +99,9 @@ int8_t 		apply_width(t_vector *vector, t_flag *flag)
 		{
 			if ((vct_fill_before(vector, '0', len)) == FAILURE)
 				vct_del(&vector);
+			if (flag->option & CONV_X || flag->option & CONV_X_MAJ)
+				if (apply_special_hashtag(vector, flag) == FAILURE)
+			 		vct_del(&vector);
 		}
 		else
 			if ((vct_fill_before(vector, ' ', len)) == FAILURE)

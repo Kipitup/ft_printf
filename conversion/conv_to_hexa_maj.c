@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:12:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 14:35:50 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 16:56:58 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@ int8_t			conv_maj(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
 	if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
 		vct_del(&vector);
-	if (flag->option & FLAG_HASH)
-	{
-		if (apply_hashtag_hexa(vector, flag) == FAILURE)
- 			vct_del(&vector);
-		ft_strupcase(vector->str);
-	}
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
 
