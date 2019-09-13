@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:47:42 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 17:13:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 17:28:26 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_vector		*conv_to_u_decimal(va_list *args_printf, t_flag *flag)
 	nbr = (uint64_t)va_arg(*args_printf, uint64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
-	cancel_flag_for_numeric_conv(flag);
+	cancel_flag_for_u_conv(flag);
 	nbr = apply_modifier_u(nbr, flag->option);
 	if (nb_itoa != NULL)
 			if ((vct_strjoin(nb_itoa, ft_u_itoa(nbr))) == FAILURE)

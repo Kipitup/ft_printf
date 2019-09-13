@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 17:14:33 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 17:23:34 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,22 @@ int		main(int ac, char **av)
 	// printf("\n");
 	// printf("%zd", 4294967296);
 	// printf("\n------------------------------\n");
-	ft_printf("%-15u", 4294967295);
+	ft_printf("%+u", 4294967295);
 	printf("\n");
-	printf("%-15u", 4294967295);
+	printf("%+u", 4294967295);
 	printf("\n------------------------------\n");
-	ft_printf("%015u", 4294967295);
+	ft_printf("% u", 4294967295);
 	printf("\n");
-	printf("%015u", 4294967295);
-	// printf("\n------------------------------\n");
+	printf("% u", 4294967295);
+	printf("\n------------------------------\n");
+	ft_printf("%+u", 42);
+	printf("\n");
+	printf("%+u", 42);
+	printf("\n------------------------------\n");
+	ft_printf("% u", 42);
+	printf("\n");
+	printf("% u", 42);
+	printf("\n------------------------------\n");
 	// ft_printf("%ju", 4999999999);
 	// printf("\n");
 	// printf("%ju", 4999999999);
@@ -61,10 +69,6 @@ int		main(int ac, char **av)
 	// printf("\n");
 	// printf("%ju", 4294967296);
 	// printf("\n------------------------------\n");
-	ft_printf("@moulitest: %.5u", 42);
-	printf("\n");
-	printf("@moulitest: %.5u", 42);
-	printf("\n------------------------------\n");
 
 	//number
 	// ft_printf(av[1], atoll(av[2]));

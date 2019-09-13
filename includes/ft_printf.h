@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/13 16:19:06 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 17:28:20 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ int8_t			convert(t_state_machine *machine, t_flag *flag, char *input, va_list *a
 void			check_and_cancel_flag(t_state_machine *machine);
 void			cancel_flag_for_numeric_conv(t_flag *flag);
 void			cancel_flag_for_other_conv(t_flag *flag);
+void			cancel_flag_for_u_conv(t_flag *flag);
 
 enum	e_type_flag
 {
