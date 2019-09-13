@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 18:06:03 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 13:44:43 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@
 # define SECOND					2
 # define BOTH					3
 # define NB_OF_APPLY_FUNC		3
-# define NB_OF_TEST_FUNC		2
-# define NB_TOTAL_OF_FUNC		5
+# define NB_OF_TEST_FUNC		3
+# define NB_TOTAL_OF_FUNC		NB_OF_APPLY_FUNC + NB_OF_TEST_FUNC
 
-/* ***************************************************************************
+/* *****************************************************************************
 	size  is the total lenght of str (including the '\0')
 	len	  is the number of characters of the string
 	scale is the number by which the string will be increase for each memory
 	      allocation
 
-	WARNING : you should NEVER dereference a vector directly. Use the appropriate
-			  function or create it.
-**************************************************************************** */
+	WARNING : 	you should NEVER dereference a vector directly. Use the
+				appropriate function or create it.
+***************************************************************************** */
 
 typedef struct 	s_vector
 {
@@ -61,6 +61,7 @@ enum e_apply
 	CAPITALIZE,
 	IS_UPCASE,
 	IS_LOWCASE,
+	IS_BLANK,
 	EMPTY,
 };
 
@@ -75,7 +76,7 @@ size_t			vct_len(t_vector *vector);
 int8_t			vct_increase_scale(t_vector *vector, size_t scale);
 void			vct_bzero(t_vector *vector);
 void			vct_del(t_vector **vector);
-char			*vct_get_str_pointer(t_vector *vector);
+char			*vct_get_str(t_vector *vector);
 
 /*
 **********************
@@ -117,9 +118,11 @@ int8_t			vct_fill_before(t_vector *vector, char c, size_t nbr);
 
 /*
 **********************
-**  	REPLACE	    **
+**  	SEARCH	    **
 **********************
 */
+char			*vct_chr(t_vector *vector, char c);
+char			*vct_chr_str(t_vector *vector, char *find);
 int8_t			vct_replace_char(t_vector *vector, char c, char replace);
 int8_t			vct_replace_str(t_vector *vector, char *str, char* replace);
 

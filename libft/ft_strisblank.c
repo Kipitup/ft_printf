@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strisblank.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 12:23:48 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 13:19:42 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/13 13:34:41 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/13 13:58:35 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int		ft_strisblank(char *str)
 {
-	int		i;
+	int		index;
 
-	if (c == 0)
-		return ((char*)s + ft_strlen(s));
-	i = 0;
-	while (s[i])
+	index = 0;
+	while (str[index] != '\0')
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		if (str[index] == ' ' || str[index] == '\t' || str[index] == '\n')
+			index++;
+		else
+			return (FALSE);
 	}
-	return (NULL);
+	return (TRUE);
 }

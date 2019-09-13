@@ -6,11 +6,18 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:12:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 10:01:24 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/13 16:56:58 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int8_t			conv_maj(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
+{
+	if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
+		vct_del(&vector);
+	return (vector == NULL ? FAILURE : SUCCESS);
+}
 
 t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
 {
@@ -30,12 +37,8 @@ t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
 						ft_itoa_base_maj(nbr, base, flag->option))) == FAILURE)
 			vct_del(&nb_itoa);
 	if (nb_itoa != NULL)
-	{
-		if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
+		if ((conv_maj(vector, flag, nb_itoa)) == FAILURE)
 			vct_del(&vector);
-		vct_del(&nb_itoa);
-	}
-	else
-		vct_del(&vector);
+	vct_del(&nb_itoa);
 	return (vector);
 }

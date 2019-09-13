@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/11 17:39:09 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/13 13:50:17 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -112,7 +112,7 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	# echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
 libft: FORCE
 	# echo  "\n$(CYAN)Makefile libft$(END)\n"
