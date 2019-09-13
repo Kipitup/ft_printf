@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr_str.c                                    :+:      :+:    :+:   */
+/*   vct_chr_str.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 17:05:40 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/13 13:24:16 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/13 13:23:12 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/13 13:27:38 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "vector.h"
 
-char	*ft_strchr_str(const char *str, char *find)
+char	*vct_chr_str(t_vector *vector, char *find)
 {
-	size_t		i;
+	size_t		index;
 	size_t		j;
 
-	i = 0;
-	while (str[i] != '\0')
+	index = 0;
+	while (index <= vector->len)
 	{
 		j = 0;
-		if (str[i] == find[j])
+		if (vector->str[index] == find[j])
 		{
 			while (find[j] != '\0')
 			{
-				if (str[i] != find[j])
+				if (vector->str[index] != find[j])
 					break ;
-				i++;
+				index++;
 				j++;
 			}
 			if (find[j] == '\0')
-				return ((char*)str + i - j);
+				return (vector->str + index - j);
 		}
-		i++;
+		index++;
 	}
 	return (NULL);
 }

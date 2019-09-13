@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   vct_chr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/08 12:23:48 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 13:19:42 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/13 11:55:59 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/13 13:28:54 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "vector.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*vct_chr(t_vector *vector, char c)
 {
-	int		i;
+	size_t	index;
 
-	if (c == 0)
-		return ((char*)s + ft_strlen(s));
-	i = 0;
-	while (s[i])
+	index = 0;
+	while (index <= vector->len)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		if (vector->str[index] == c)
+			return (vector->str + index);
+		index++;
 	}
 	return (NULL);
 }

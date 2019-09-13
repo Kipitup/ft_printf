@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/12 17:06:39 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/13 13:50:27 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,6 +99,7 @@ SRCS += ft_strlowcase.c
 SRCS += ft_strisupcase.c
 SRCS += ft_strislowcase.c
 SRCS += ft_strchr_str.c
+SRCS += ft_strisblank.c
 
 # vectors
 SRCS += vct_del.c
@@ -125,6 +126,8 @@ SRCS += vct_add_char_at_replace.c
 SRCS += vct_replace_char.c
 SRCS += vct_add_str_at.c
 SRCS += vct_replace_str.c
+SRCS += vct_chr.c
+SRCS += vct_chr_str.c
 
 PATH_SRCS += ./vector
 PATH_SRCS += .
@@ -144,7 +147,7 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	# echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
 
 clean:

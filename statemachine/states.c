@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 19:07:14 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 14:08:27 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int8_t			buffer(t_state_machine *machine, char *input, va_list *args_printf)
 	else
 		machine->state = ST_STRING;
 	machine->option = 0;
+	machine->width = 0;
+	machine->precision = 0;
 	return (1);
 }
 

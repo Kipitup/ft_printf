@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/12 17:44:23 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 13:42:53 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int					ft_isdigit(int c);
 int					ft_isprint(int c);
 int					ft_strisupcase(char *str);
 int					ft_strislowcase(char *str);
+int					ft_strisblank(char *str);
 char				*ft_strupcase(char *str);
 char				*ft_strlowcase(char *str);
 char				*ft_strchr_str(const char *str, char *find);

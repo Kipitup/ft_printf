@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/12 19:35:20 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 14:29:33 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,46 @@ int		main(int ac, char **av)
 	// printf("\n");
 	// printf("%#llx", 9223372036854775807);
 	// printf("\n------------------------------\n");
-	ft_printf("|%#x|", 0);
+	ft_printf("|%#5.4x|", 42);
 	printf("\n");
-	printf("|%#x|", 0);
+	printf("|%#5.4x|", 42);
 	printf("\n------------------------------\n");
-	ft_printf("|%#5.4X|", 42);
+	ft_printf("|%#5.x|", 42);
 	printf("\n");
-	printf("|%#5.4X|", 42);
+	printf("|%#5.x|", 42);
 	printf("\n------------------------------\n");
-	ft_printf("@moulitest: %#.x %#.0x", 0, 0);
-	printf("\n");
-	printf("@moulitest: %#.x %#.0x", 0, 0);
-	printf("\n------------------------------\n");
+	// ft_printf("|%#4.3x|", 42);
+	// printf("\n");
+	// printf("|%#4.3x|", 42);
+	// printf("\n------------------------------\n");
+	// ft_printf("|%#3.2x|", 42);
+	// printf("\n");
+	// printf("|%#3.2x|", 42);
+	// printf("\n------------------------------\n");
+	// ft_printf("@moulitest: |%#5.x| |%#.0x|", 0, 0);
+	// printf("\n");
+	// printf("@moulitest: |%#5.x| |%#.0x|", 0, 0);
+	// printf("\n------------------------------\n");
+	// ft_printf("|%#2.2x|", 42);
+	// printf("\n");
+	// printf("|%#2.2x|", 42);
+	// printf("\n------------------------------\n");
+	// ft_printf("|%#2.1x|", 42);
+	// printf("\n");
+	// printf("|%#2.1x|", 42);
+	// printf("\n------------------------------\n");
+	// ft_printf("|%#x|", 0);
+	// printf("\n");
+	// printf("|%#x|", 0);
+	// printf("\n------------------------------\n");
+	// ft_printf("@moulitest: %#.o %#.0o", 0, 0);
+	// printf("\n");
+	// printf("@moulitest: %#.o %#.0o", 0, 0);
+	// printf("\n------------------------------\n");
+	// ft_printf("%+d", 0);
+	// printf("\n");
+	// printf("%+d", 0);
+	// printf("\n------------------------------\n");
 	// ft_printf("@moulitest: %.x %.0x", 0, 0);
 	// printf("\n");
 	// printf("@moulitest: %.x %.0x", 0, 0);
@@ -72,14 +100,6 @@ int		main(int ac, char **av)
 	// ft_printf("@moulitest: %5.o %5.0o", 0, 0);
 	// printf("\n");
 	// printf("@moulitest: %5.o %5.0o", 0, 0);
-	// printf("\n------------------------------\n");
-	// ft_printf("@moulitest: %#.o %#.0o", 0, 0);
-	// printf("\n");
-	// printf("@moulitest: %#.o %#.0o", 0, 0);
-	// printf("\n------------------------------\n");
-	// ft_printf("%+d", 0);
-	// printf("\n");
-	// printf("%+d", 0);
 	// printf("\n------------------------------\n");
 	// ft_printf("%hd", -32768);
 	// printf("\n");
