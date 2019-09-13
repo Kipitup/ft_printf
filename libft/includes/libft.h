@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 13:42:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/13 14:33:35 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ char				*ft_itoa(int64_t n);
 char				*ft_u_itoa(uint64_t n);
 char				*ft_itoa_base(int64_t n, uint8_t base);
 char				*ft_u_itoa_base(uint64_t n, uint8_t base);
-char				*ft_itoa_base_maj(uint64_t n, uint8_t base);
+char				*ft_itoa_base_maj(uint64_t n, uint8_t base, uint64_t flag);
 char				*ft_ox_itoa_base(uint64_t n, uint8_t base, uint64_t flag);
 double				ft_pow(double x, double y);
 unsigned long		ft_pow_positive(unsigned long x, unsigned long y);

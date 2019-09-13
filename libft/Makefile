@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/13 13:50:27 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/13 14:35:43 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ AR = ar -rcs
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+#CFLAGS += -fsanitize=address,undefined -g3
 BUILD_DIR = build/
 
 INCLUDES = -I./includes

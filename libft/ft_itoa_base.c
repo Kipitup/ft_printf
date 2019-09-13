@@ -6,25 +6,26 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 17:06:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/12 11:04:40 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/13 11:33:31 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "define.h"
-#include <stdio.h>
 
-void	itoa_exception(uint64_t value, char *ptr, uint64_t flag)
+static void	itoa_exception(uint64_t value, char *ptr, uint64_t flag)
 {
-		if (value == 0)
-			ptr[0] = '0';
-		else if ((value == 4294967296) && (flag & FLAG_L))
-			ft_strcpy(ptr,"100000000");
-		else if ((value == 4294967296) && (flag & FLAG_LL) && flag & CONV_X_MAJ)
-			ft_strcpy(ptr,"100000000");
+	if (value == 0)
+		ptr[0] = '0';
+	else if ((value == 4294967296) && (flag & FLAG_L))
+		ft_strcpy(ptr, "100000000");
+	else if ((value == 4294967296) && flag & FLAG_LL && flag & CONV_X_MAJ)
+		ft_strcpy(ptr, "100000000");
+	else if ((value == 4294967296) && (flag & CONV_X))
+		ft_strcpy(ptr, "0");
 }
 
-char	*ft_u_itoa_base(uint64_t value, uint8_t base)
+char		*ft_u_itoa_base(uint64_t value, uint8_t base)
 {
 	const char	*base_str;
 	char		*ptr;
@@ -48,7 +49,7 @@ char	*ft_u_itoa_base(uint64_t value, uint8_t base)
 	return (ptr);
 }
 
-char	*ft_itoa_base(int64_t value, uint8_t base)
+char		*ft_itoa_base(int64_t value, uint8_t base)
 {
 	const char	*base_str;
 	char		*ptr;
@@ -62,6 +63,8 @@ char	*ft_itoa_base(int64_t value, uint8_t base)
 	nb = ft_absolute(nb);
 	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
+		if (value == LLONG_MIN)
+			return (ft_strcpy(ptr, "-9223372036854775808"));
 		while (nb)
 		{
 			ptr[--len] = base_str[nb % base];
@@ -69,15 +72,13 @@ char	*ft_itoa_base(int64_t value, uint8_t base)
 		}
 		if (value < 0 && base == 10)
 			ptr[0] = '-';
-		if (value == LLONG_MIN)
-			ptr = "-9223372036854775808";
 		if (value == 0)
 			ptr[0] = '0';
 	}
 	return (ptr);
 }
 
-char	*ft_itoa_base_maj(uint64_t value, uint8_t base)
+char		*ft_itoa_base_maj(uint64_t value, uint8_t base, uint64_t flag)
 {
 	const char	*base_str;
 	char		*ptr;
@@ -97,25 +98,27 @@ char	*ft_itoa_base_maj(uint64_t value, uint8_t base)
 			ptr[--len] = base_str[nb % base];
 			nb = nb / base;
 		}
-//		itoa_exception(value, ptr, flag);
+		itoa_exception(value, ptr, flag);
 	}
 	return (ptr);
 }
 
-char	*ft_ox_itoa_base(uint64_t value, uint8_t base, uint64_t flag)
+char		*ft_ox_itoa_base(uint64_t value, uint8_t base, uint64_t flag)
 {
 	const char	*base_str;
 	char		*ptr;
-	uint32_t	nb;
+	uint64_t	nb;
 	size_t		len;
 
 	base_str = "0123456789abcdef";
 	ptr = NULL;
 	nb = value;
-	len = ft_uint64_t_len(nb, base);
-	if (len > 8 && flag & CONV_X)
+	len = ft_uint64_t_len(value, base);
+	if (len > 8 && flag & CONV_X && flag & FLAG_LL)
+		len = 16;
+	else if (len > 8 && flag & CONV_X)
 		len = 8;
-	if (len > 11 && flag & CONV_O)
+	else if (len > 11 && flag & CONV_O)
 		len = 11;
 	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
