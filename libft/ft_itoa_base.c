@@ -6,13 +6,23 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 17:06:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 16:20:11 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/12 11:04:40 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "define.h"
 #include <stdio.h>
+
+void	itoa_exception(uint64_t value, char *ptr, uint64_t flag)
+{
+		if (value == 0)
+			ptr[0] = '0';
+		else if ((value == 4294967296) && (flag & FLAG_L))
+			ft_strcpy(ptr,"100000000");
+		else if ((value == 4294967296) && (flag & FLAG_LL) && flag & CONV_X_MAJ)
+			ft_strcpy(ptr,"100000000");
+}
 
 char	*ft_u_itoa_base(uint64_t value, uint8_t base)
 {
@@ -71,7 +81,7 @@ char	*ft_itoa_base_maj(uint64_t value, uint8_t base)
 {
 	const char	*base_str;
 	char		*ptr;
-	uint64_t	nb;
+	uint32_t	nb;
 	size_t		len;
 
 	base_str = "0123456789ABCDEF";
@@ -87,8 +97,7 @@ char	*ft_itoa_base_maj(uint64_t value, uint8_t base)
 			ptr[--len] = base_str[nb % base];
 			nb = nb / base;
 		}
-		if (value == 0)
-			ptr[0] = '0';
+//		itoa_exception(value, ptr, flag);
 	}
 	return (ptr);
 }
@@ -97,7 +106,7 @@ char	*ft_ox_itoa_base(uint64_t value, uint8_t base, uint64_t flag)
 {
 	const char	*base_str;
 	char		*ptr;
-	uint64_t	nb;
+	uint32_t	nb;
 	size_t		len;
 
 	base_str = "0123456789abcdef";
@@ -115,8 +124,7 @@ char	*ft_ox_itoa_base(uint64_t value, uint8_t base, uint64_t flag)
 			ptr[--len] = base_str[nb % base];
 			nb = nb / base;
 		}
-		if (value == 0)
-			ptr[0] = '0';
+		itoa_exception(value, ptr, flag);
 	}
 	return (ptr);
 }
