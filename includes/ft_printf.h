@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 16:08:54 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 20:50:10 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ uint64_t		apply_modifier_u(uint64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_s(uint64_t str, uint64_t flag);
 uint64_t		apply_modifier_p(uint64_t str, uint64_t flag);
 int64_t			apply_modifier_zj(int64_t nbr_conv, uint32_t flag);
-int8_t 			apply_precision(t_vector *vector, t_flag *flag);
+int8_t 			apply_precision(t_vector *vector, t_flag *flag, size_t is_sign);
 int8_t 			apply_width(t_vector *vector, t_flag *flag);
 int8_t			apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
 t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
@@ -107,7 +107,7 @@ t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
 // int8_t          apply_hashtag_octal(t_vector *vector, t_flag *flag);
 int8_t          apply_hashtag(t_vector *vector, t_flag *flag);
 int8_t          apply_special_hashtag(t_vector *vector, t_flag *flag);
-int8_t			apply_precision_float(t_vector *vector, t_flag *flag);
+int8_t			apply_precision_float(t_vector *vector, t_flag *flag, size_t is_sign);
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);
 

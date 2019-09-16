@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 16:48:13 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 20:50:30 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	vct_cat(vector, nb_itoa);
 	if (vector == NULL)
 		vct_del(&vector);
-	if ((apply_precision(vector, flag)) == FAILURE)
+	if ((apply_precision(vector, flag, vct_len(sign))) == FAILURE)
 		vct_del(&vector);
 	if (apply_hashtag(vector, flag) == FAILURE)
  		vct_del(&vector);
@@ -57,7 +57,7 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 	return (sign);
 }
 
-int8_t 		apply_precision(t_vector *vector, t_flag *flag)
+int8_t 		apply_precision(t_vector *vector, t_flag *flag, size_t is_sign)
 {
 	uint64_t	len;
 
@@ -66,7 +66,7 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag)
 			vct_pop(vector, (vct_len(vector) - (size_t)flag->precision));
 	if (flag->option & CONV_F)
 	{
-		if ((apply_precision_float(vector, flag)) == FAILURE)
+		if ((apply_precision_float(vector, flag, is_sign)) == FAILURE)
 			vct_del(&vector);
 	}
 	else
