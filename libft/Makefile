@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/13 14:35:43 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/16 11:06:47 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,7 @@ SRCS += ft_strisupcase.c
 SRCS += ft_strislowcase.c
 SRCS += ft_strchr_str.c
 SRCS += ft_strisblank.c
+SRCS += ft_len_printf.c
 
 # vectors
 SRCS += vct_del.c
@@ -148,7 +149,7 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+#	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
 
 clean:

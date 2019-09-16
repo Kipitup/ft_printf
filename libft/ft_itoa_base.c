@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 17:06:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 11:33:31 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/16 16:12:58 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void	itoa_exception(uint64_t value, char *ptr, uint64_t flag)
 		ptr[0] = '0';
 	else if ((value == 4294967296) && (flag & FLAG_L))
 		ft_strcpy(ptr, "100000000");
-	else if ((value == 4294967296) && flag & FLAG_LL && flag & CONV_X_MAJ)
+	else if ((value == 4294967296) && ((flag & FLAG_LL && flag & CONV_X_MAJ)
+				|| (flag & CONV_X && flag & FLAG_J)))
 		ft_strcpy(ptr, "100000000");
 	else if ((value == 4294967296) && (flag & CONV_X))
 		ft_strcpy(ptr, "0");
@@ -113,13 +114,10 @@ char		*ft_ox_itoa_base(uint64_t value, uint8_t base, uint64_t flag)
 	base_str = "0123456789abcdef";
 	ptr = NULL;
 	nb = value;
-	len = ft_uint64_t_len(value, base);
-	if (len > 8 && flag & CONV_X && flag & FLAG_LL)
-		len = 16;
-	else if (len > 8 && flag & CONV_X)
-		len = 8;
-	else if (len > 11 && flag & CONV_O)
-		len = 11;
+	len = ft_uint64_t_len(nb, base);
+//	printf("value: %lld\n", value);
+	len = ft_len_printf(value, flag, len);
+	//printf("len is: %zu\n", len);
 	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
 		while (len > 0)
