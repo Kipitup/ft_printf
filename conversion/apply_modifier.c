@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 17:33:08 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/13 14:52:35 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/16 16:12:55 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag)
 		nbr_conv = (unsigned long)nbr_conv;
 	else if (flag & FLAG_LL)
 		nbr_conv = (uint64_t)nbr_conv;
-	else
-		nbr_conv = (long)nbr_conv;
+	else 
+		nbr_conv = (uint32_t)nbr_conv;
 	return (nbr_conv);
 }
 

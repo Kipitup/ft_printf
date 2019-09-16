@@ -6,22 +6,31 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/10 16:33:00 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 08:41:14 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
+# include <stdio.h> //warning
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
 # include <stdarg.h>
+# include <math.h>
 # include <inttypes.h>
 # include "libft.h"
 
-# define NB_OF_FLAGS		11
+# define FALSE				0
+# define TRUE				1
+# define FAILURE			-1
+# define SUCCESS			0
+# define ON					1
+# define OFF				0
+# define START				0
+
+# define NB_OF_FLAGS		13
 # define NB_OF_CONVS		10
 # define NB_OF_MODIFIER		5
 
@@ -50,6 +59,8 @@
 # define X					"x"
 # define X_MAJ				"X"
 # define F					"f"
+# define J					"j"
+# define Z					"z"
 
 # define FLAG_HH			0x00000001
 # define FLAG_LL			0x00000002
@@ -62,6 +73,8 @@
 # define FLAG_ZERO			0x00000100
 # define FLAG_SPACE			0x00000200
 # define FLAG_POINT			0x00000400
+# define FLAG_J				0x00000800
+# define FLAG_Z				0x00001000
 //add wild_card
 
 # define ALL_MOD			0x0000001f
