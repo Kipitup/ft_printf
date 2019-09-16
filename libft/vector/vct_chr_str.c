@@ -6,13 +6,13 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 13:23:12 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/13 13:27:38 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 20:37:33 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-char	*vct_chr_str(t_vector *vector, char *find)
+ssize_t		vct_chr_str(t_vector *vector, char *find)
 {
 	size_t		index;
 	size_t		j;
@@ -31,9 +31,9 @@ char	*vct_chr_str(t_vector *vector, char *find)
 				j++;
 			}
 			if (find[j] == '\0')
-				return (vector->str + index - j);
+				return (index - j);
 		}
 		index++;
 	}
-	return (NULL);
+	return (FAILURE);
 }

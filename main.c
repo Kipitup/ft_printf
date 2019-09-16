@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/16 16:47:44 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 20:42:21 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ int		main(int ac, char **av)
 	// printf("|\n");
 
 	//float
-	// ft_printf("notre printf :|%-15f|\n", 3.9999999999);
-	// printf("   LE printf :|%-15f|\n", 3.9999999999);
-	// printf("------------------------------\n");
+	ft_printf("notre printf :|%15.2f|\n", 3.9999999999);
+	printf("   LE printf :|%15.2f|\n", 3.9999999999);
+	printf("------------------------------\n");
 	// ft_printf("notre printf :%5.4f\n", 0.001);
 	// printf("   LE printf :%5.4f\n", 0.001);
 	// printf("------------------------------\n");
@@ -102,13 +102,13 @@ int		main(int ac, char **av)
 	// printf("   LE printf :%.8f\n", 3.0000139);
 	// printf("------------------------------\n");
 
-	ft_printf("notre printf :%.2s\n", NULL);
-	printf("   LE printf :%.2s\n", NULL);
-	printf("------------------------------\n");
-
-	ft_printf("notre printf :%.2s\n", "salut");
-	printf("   LE printf :%.2s\n", "salut");
-	printf("------------------------------\n");
+	// ft_printf("notre printf :%.2s\n", NULL);
+	// printf("   LE printf :%.2s\n", NULL);
+	// printf("------------------------------\n");
+	//
+	// ft_printf("notre printf :%.2s\n", "salut");
+	// printf("   LE printf :%.2s\n", "salut");
+	// printf("------------------------------\n");
 	//char
 	// ft_printf(av[1], av[2][0]);
 	// printf("|\n");
