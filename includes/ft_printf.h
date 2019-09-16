@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/13 19:18:12 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 16:08:54 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
 // int8_t          apply_hashtag_octal(t_vector *vector, t_flag *flag);
 int8_t          apply_hashtag(t_vector *vector, t_flag *flag);
 int8_t          apply_special_hashtag(t_vector *vector, t_flag *flag);
+int8_t			apply_precision_float(t_vector *vector, t_flag *flag);
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);
 

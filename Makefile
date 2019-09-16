@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/13 17:37:21 by fkante           ###   ########.fr        #
+#    Updated: 2019/09/16 16:09:31 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -75,6 +75,7 @@ SRCS += apply_modifier
 SRCS += apply_modifier_zj
 SRCS += apply_padding_flag
 SRCS += apply_hash_flag
+SRCS += apply_precision_float
 
                      ####################################
                      #                   				#

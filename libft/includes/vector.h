@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/13 19:16:06 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/16 15:17:31 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int8_t			vct_increase_scale(t_vector *vector, size_t scale);
 void			vct_bzero(t_vector *vector);
 void			vct_del(t_vector **vector);
 char			*vct_get_str(t_vector *vector);
+char			vct_get_char_at(t_vector *vector, size_t index);
 
 /*
 **********************
@@ -85,7 +86,7 @@ char			*vct_get_str(t_vector *vector);
 */
 int8_t			vct_add_char(t_vector *vector, char c);
 int8_t			vct_add_char_at(t_vector *vector, char c, size_t index);
-int8_t			vct_add_char_at_replace(t_vector *vector, char c, size_t index);
+void			vct_add_char_at_replace(t_vector *vector, char c, size_t index);
 int8_t			vct_push_str(t_vector *vector, char *str);
 int8_t			vct_add_str_at(t_vector *vector, char *str, size_t index);
 
@@ -134,7 +135,7 @@ int8_t			vct_replace_str(t_vector *vector, char *str, char* replace);
 int				vct_apply(t_vector *vector, enum e_apply type);
 
 
-// vct_printf
+// vct_print
 // vct_ndup
 // vct_trim
 // vct_split
