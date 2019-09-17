@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/16 16:19:05 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/17 18:22:29 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 /*
 ** # for linux set-up #
 */
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 /*
 ** ############################################################################
 ** ############################## STRUCTURES ##################################
@@ -138,7 +138,7 @@ double				ft_pow(double x, double y);
 unsigned long		ft_pow_positive(unsigned long x, unsigned long y);
 size_t				ft_uint64_t_len(uint64_t num, uint8_t base);
 size_t				ft_int64_t_len(int64_t num, uint8_t base);
-char				*ft_ftoa(double value, uint64_t precision, uint32_t option);
+t_vector			*ft_ftoa(double value, uint64_t precision, uint32_t option);
 size_t				ft_len_printf(uint64_t value, uint64_t flag, size_t len);
 
 /*

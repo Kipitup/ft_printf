@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 13:34:25 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/17 15:58:40 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag, size_t is_sign)
 	int8_t		ret;
 
 	ret = SUCCESS;
-	if (flag->option & CONV_F)
-		ret = apply_precision_float(vector, flag, is_sign);
+	(void)is_sign;
+	// if (flag->option & CONV_F)
+	// 	ret = apply_precision_float(vector, flag, is_sign);
 	if ((flag->option & CONV_S || flag->option & CONV_C) && (flag->option & FLAG_POINT))
 	{
 		if (flag->precision < vct_len(vector))

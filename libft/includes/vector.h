@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 20:37:06 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/17 18:26:22 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft.h"
 
 # define FALSE					0
 # define TRUE					1
@@ -50,6 +49,8 @@ typedef struct 	s_vector
 	size_t		len;
 	size_t		scale;
 }				t_vector;
+
+# include "libft.h"
 
 typedef int		(*t_int_func)(char *);
 typedef char 	*(*t_char_ptr_func)(char *);

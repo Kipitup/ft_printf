@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 20:50:10 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/17 16:18:49 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ enum	e_main_states
 
 typedef struct	s_state_machine
 {
-	char				*p_cursor;
 	t_vector			*p_output;
 	uint64_t			width;
 	uint64_t			precision;
@@ -74,7 +73,7 @@ uint64_t		get_numbers(t_state_machine *machine, char *input, size_t *count);
 **  	 INIT	    **
 **********************
 */
-void  			init_state_machine(t_state_machine *machine, const char *input);
+void  			init_state_machine(t_state_machine *machine);
 void			init_flags(t_state_machine *machine, t_flag *flags);
 
 /*

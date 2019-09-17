@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 15:28:28 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 13:44:49 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/17 16:26:56 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	vct_pop_from(t_vector *vector, size_t len, size_t index)
 					tmp->len - index - len);
 				vector->len -= len;
 				vector->str[vector->len] = '\0';
+				vct_del(&tmp);
 			}
 		}
 	}
