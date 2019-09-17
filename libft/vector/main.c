@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 11:33:22 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/12 18:08:36 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/17 15:39:03 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,26 @@ int 	main(int ac, char **av)
 	int			ret;
 	(void)ac;
 	ret = -1;
-	vector1 = vct_new_str("ca hellO ca VA ? 0 cacACa");
-	ret = vct_apply(vector1, LOWCASE);
+	vector1 = vct_new_str(0);
+//	vct_add_char(vector1, 0);
+//	vct_add_char(vector1, 0);
+//	vct_add_char(vector1, 0);
+//	vct_add_char(vector1, 0);
+vct_add_char(vector1, 'a');
+	printf("%s\n", vector1->str);
+	
+/*	ret = vct_apply(vector1, LOWCASE);
 	printf("str : |%s|\t ret : %d\n", vector1->str, ret);
 	printf("len : %zu\tsize : %zu\n\n", vector1->len, vector1->size);
 	ret = vct_replace_str(vector1, "cacaca", "woah");
 	printf("str : |%s|\t ret : %d\n", vector1->str, ret);
 	printf("len : %zu\tsize : %zu\n\n", vector1->len, vector1->size);
-	// 	vector2 = vct_dup(vector1);
+*/	// 	vector2 = vct_dup(vector1);
 	// printf("str : |%s|\n", vector1->str);
 	// printf("len : %zu\tsize : %zu\n\n", vector1->len, vector1->size);
 	// vct_fill_before(vector1, av[2][0], atoi(av[3]));
 	// printf("%s\n", vector1->str);
 	// printf("%zu\n", vector1->len);
-	// vct_add_char_at(vector1, 'A', 0);
 	// printf("str : |%s|\n", vector1->str);
 	// printf("len : %zu\tsize : %zu\n\n", vector1->len, vector1->size);
 	// vct_del(&vector1);
