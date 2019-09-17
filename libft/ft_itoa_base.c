@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 17:06:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/16 16:12:58 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/17 11:39:56 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,13 @@ char		*ft_itoa_base_maj(uint64_t value, uint8_t base, uint64_t flag)
 {
 	const char	*base_str;
 	char		*ptr;
-	uint32_t	nb;
+	uint64_t	nb;
 	size_t		len;
 
 	base_str = "0123456789ABCDEF";
 	ptr = NULL;
 	nb = value;
 	len = ft_uint64_t_len(nb, base);
-	if (len > 8)
-		len = 8;
 	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
 		while (len > 0)
@@ -115,9 +113,7 @@ char		*ft_ox_itoa_base(uint64_t value, uint8_t base, uint64_t flag)
 	ptr = NULL;
 	nb = value;
 	len = ft_uint64_t_len(nb, base);
-//	printf("value: %lld\n", value);
-	len = ft_len_printf(value, flag, len);
-	//printf("len is: %zu\n", len);
+//	len = ft_len_printf(value, flag, len);
 	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
 		while (len > 0)

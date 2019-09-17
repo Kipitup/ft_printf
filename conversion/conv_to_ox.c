@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/16 13:22:36 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/17 11:39:56 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ t_vector		*conv_to_ox(va_list *args_printf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
-	int64_t		nbr;
+	uint64_t	nbr;
 	uint8_t		base;
 	
 	base = (flag->option & CONV_O ? 8 : 16);
-	nbr = va_arg(*args_printf, int64_t);
+	nbr = va_arg(*args_printf, uint64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	cancel_flag_for_numeric_conv(flag);

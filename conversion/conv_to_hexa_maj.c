@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:12:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/16 11:12:46 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/17 11:39:55 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
 	t_vector	*vector;
 	t_vector	*nb_itoa;
 	uint8_t		base;
-	int64_t		nbr;
+	uint64_t	nbr;
 
 	base = 16;
-	nbr = va_arg(*args_printf, int64_t);
+	nbr = va_arg(*args_printf, uint64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	cancel_flag_for_numeric_conv(flag);

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 20:50:30 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/17 13:34:25 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,15 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 int8_t 		apply_precision(t_vector *vector, t_flag *flag, size_t is_sign)
 {
 	uint64_t	len;
+	int8_t		ret;
 
-	if (flag->option & CONV_S || flag->option & CONV_C)
+	ret = SUCCESS;
+	if (flag->option & CONV_F)
+		ret = apply_precision_float(vector, flag, is_sign);
+	if ((flag->option & CONV_S || flag->option & CONV_C) && (flag->option & FLAG_POINT))
+	{
 		if (flag->precision < vct_len(vector))
 			vct_pop(vector, (vct_len(vector) - (size_t)flag->precision));
-	if (flag->option & CONV_F)
-	{
-		if ((apply_precision_float(vector, flag, is_sign)) == FAILURE)
-			vct_del(&vector);
 	}
 	else
 	{
@@ -75,14 +76,15 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag, size_t is_sign)
 		if (flag->precision >= vct_len(vector))
 			len = flag->precision - vct_len(vector);
 		if (len == 0 && (flag->option & CONV_D || flag->option & CONV_I
-		|| flag->option & CONV_O || flag->option & CONV_X
-		|| flag->option & CONV_X_MAJ) && vector->len == 1
-		&& *(vct_get_str(vector)) == '0' && flag->option & FLAG_POINT)
+				|| flag->option & CONV_O || flag->option & CONV_X
+				|| flag->option & CONV_X_MAJ) && vector->len == 1
+				&& *(vct_get_str(vector)) == '0' && flag->option & FLAG_POINT)
 			vct_pop(vector, 1);
 		if (flag->option & FLAG_POINT)
-			if ((vct_fill_before(vector, '0', len)) == FAILURE)
-				vct_del(&vector);
+			ret = vct_fill_before(vector, '0', len);
 	}
+	if (ret == FAILURE)
+		vct_del(&vector);
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
 

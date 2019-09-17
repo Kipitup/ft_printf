@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 17:33:08 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/16 16:12:55 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/17 11:39:57 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@ int64_t		apply_modifier_di(int64_t nbr_conv, uint32_t flag)
 	else if (flag & FLAG_H)
 		nbr_conv = (int16_t)nbr_conv;
 	else if (flag & FLAG_L)
-		nbr_conv = (long)nbr_conv;
+		nbr_conv = (int64_t)nbr_conv;
 	else if (flag & FLAG_LL)
 		nbr_conv = (int64_t)nbr_conv;
 	else
-	{
 		nbr_conv = (int32_t)nbr_conv;
-		if (nbr_conv == LLONG_MAX)
-			nbr_conv = -1;
-	}
 	return (nbr_conv);
 }
 
@@ -38,7 +34,7 @@ uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag)
 	else if (flag & FLAG_H)
 		nbr_conv = (uint16_t)nbr_conv;
 	else if (flag & FLAG_L)
-		nbr_conv = (unsigned long)nbr_conv;
+		nbr_conv = (uint64_t)nbr_conv;
 	else if (flag & FLAG_LL)
 		nbr_conv = (uint64_t)nbr_conv;
 	else 
