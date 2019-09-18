@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:11:36 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/17 18:33:42 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/17 18:55:03 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ t_vector		*conv_to_float(va_list *args_printf, t_flag *flag)
 	vector = vct_new(flag->width);
 	nb_ftoa = NULL;
 	// nbr = apply_modifier_f(nbr, flag->option);
-	if (nb_ftoa != NULL)
-		nb_ftoa = ft_ftoa(nbr, flag->precision, flag->option);
+	nb_ftoa = ft_ftoa(nbr, flag->precision, flag->option);
 	if (nb_ftoa != NULL)
 	{
 		if ((apply_padding_flag(vector, flag, nb_ftoa)) == FAILURE)
