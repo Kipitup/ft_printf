@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/17 11:39:56 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 14:08:41 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_vector		*conv_to_ox(va_list *args_printf, t_flag *flag)
 	t_vector	*nb_itoa;
 	uint64_t	nbr;
 	uint8_t		base;
-	
+
 	base = (flag->option & CONV_O ? 8 : 16);
 	nbr = va_arg(*args_printf, uint64_t);
 	vector = vct_new(flag->width);

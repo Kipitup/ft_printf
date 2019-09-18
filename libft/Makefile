@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/16 16:18:42 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/18 13:31:28 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -144,6 +144,7 @@ OBJS += $(patsubst %.c, $(BUILD_DIR)%.o, $(SRCS))
 all: $(NAME)
 
 $(NAME): $(BUILD_DIR) $(OBJS)
+	echo  "\n$(CYAN)Makefile libft$(END)\n"
 	$(AR) $@ $(OBJS)
 
 $(BUILD_DIR):
@@ -151,7 +152,7 @@ $(BUILD_DIR):
 
 $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-#	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
 
 clean:
@@ -163,7 +164,7 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean re
-.SILENT:
+.SILENT: $(NAME) $(OBJS) $(BUILD_DIR) clean fclean re
 
 RED = \x1b[31m
 GREEN = \x1b[32m

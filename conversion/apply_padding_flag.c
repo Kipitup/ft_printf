@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 18:39:22 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:12:34 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	vct_cat(vector, nb_itoa);
 	if (vector == NULL)
 		vct_del(&vector);
-	if ((apply_precision(vector, flag, vct_len(sign))) == FAILURE)
+	if ((apply_precision(vector, flag)) == FAILURE)
 		vct_del(&vector);
-	if (apply_hashtag(vector, flag) == FAILURE)
+	if (apply_hash(vector, flag) == FAILURE)
  		vct_del(&vector);
 	if (vct_len(sign) > 0 && ((flag->option & FLAG_ZERO) == FALSE))
 		vct_add_char_at(vector, sign->str[0], START);
@@ -57,16 +57,14 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 	return (sign);
 }
 
-int8_t 		apply_precision(t_vector *vector, t_flag *flag, size_t is_sign)
+int8_t 		apply_precision(t_vector *vector, t_flag *flag)
 {
 	uint64_t	len;
 	int8_t		ret;
 
 	ret = SUCCESS;
-	(void)is_sign;
-	// if (flag->option & CONV_F)
-	// 	ret = apply_precision_float(vector, flag, is_sign);
-	if ((flag->option & CONV_S || flag->option & CONV_C) && (flag->option & FLAG_POINT))
+	if ((flag->option & CONV_S || flag->option & CONV_C)
+			&& (flag->option & FLAG_POINT))
 	{
 		if (flag->precision < vct_len(vector))
 			vct_pop(vector, (vct_len(vector) - (size_t)flag->precision));
@@ -75,14 +73,13 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag, size_t is_sign)
 	{
 		len = 0;
 		if (flag->precision >= vct_len(vector))
+		{
 			len = flag->precision - vct_len(vector);
-		if (len == 0 && (flag->option & CONV_D || flag->option & CONV_I
-				|| flag->option & CONV_O || flag->option & CONV_X || flag->option & CONV_U || flag->option & CONV_P
-				|| flag->option & CONV_X_MAJ) && vector->len == 1
-				&& *(vct_get_str(vector)) == '0' && flag->option & FLAG_POINT)
-			vct_pop(vector, 1);
-		if (flag->option & FLAG_POINT)
-			ret = vct_fill_before(vector, '0', len);
+			if (flag->option & FLAG_POINT)
+				ret = vct_fill_before(vector, '0', len);
+		}
+		else
+			apply_hash_special_case(vector, flag);
 	}
 	if (ret == FAILURE)
 		vct_del(&vector);
@@ -106,7 +103,7 @@ int8_t 		apply_width(t_vector *vector, t_flag *flag)
 			if ((vct_fill_before(vector, '0', len)) == FAILURE)
 				vct_del(&vector);
 			if (flag->option & CONV_X || flag->option & CONV_X_MAJ)
-				if (apply_special_hashtag(vector, flag) == FAILURE)
+				if (apply_hash_flag_zero(vector, flag) == FAILURE)
 			 		vct_del(&vector);
 		}
 		else

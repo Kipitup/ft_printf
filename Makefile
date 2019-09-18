@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/16 16:09:31 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/18 13:31:40 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -105,9 +105,9 @@ ALLOBJS += $(LIB_DIR)$(BUILD_DIR)*.o
                      ####################################
 all: $(NAME)
 
-$(NAME): $(BUILD_DIR) $(OBJS) libft
+$(NAME): $(BUILD_DIR) $(OBJS) $(LIB_PATH)
 	$(AR) $@ $(ALLOBJS)
-	# echo "\n$(CYAN)MAKE COMPLETE$(END)"
+	echo "\n$(CYAN)MAKE COMPLETE$(END)"
 
 $(BUILD_DIR):
 	mkdir $@
@@ -116,8 +116,7 @@ $(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
 
-libft: FORCE
-	# echo  "\n$(CYAN)Makefile libft$(END)\n"
+$(LIB_PATH): FORCE
 	make -C $(LIB_DIR)
 
 t: all $(VAL)
@@ -126,41 +125,20 @@ t: all $(VAL)
 clean:
 	rm -f $(OBJS)
 	rm -rf ./build
-	# echo "$(YELLOW)OBJS$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
+	echo "$(YELLOW)OBJS$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
 	$(MAKE) clean -C $(LIB_DIR)
 
 fclean: clean
 	rm -rf $(NAME)
-	# echo "$(YELLOW)$(NAME)$(END) \t were \t $(GREEN)clean$(END)\n"
+	echo "$(YELLOW)$(NAME)$(END) \t were \t $(GREEN)clean$(END)\n"
 	$(MAKE) fclean -C $(LIB_DIR)
 
 re: fclean all
 
-.PHONY: clean fclean all re libft t FORCE git
-.SILENT:
+.PHONY: clean fclean all re t FORCE git
+.SILENT: $(NAME) $(OBJS) $(BUILD_DIR) clean fclean re t FORCE
 FORCE:
 
-					 ####################################
-					 #                   				#
-					 #       	  	IFEQ	   			#
-					 #                   				#
-					 ####################################
-# FLAGS
-ifeq ($(f), no)
-CFLAGS = -g
-else ifeq ($(f), f)
-CFLAGS = $(DFLAGS)
-endif
-
-# VALGRIND
-$(VAL):
-ifeq ($(VAL), no)
-VALGRIND =
-else
-CFLAGS += -g
-SHOW_LEAK = --show-leak-kinds=definite
-VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
-endif
 
                      ####################################
                      #                   				#
