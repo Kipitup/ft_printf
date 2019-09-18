@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/14 12:03:21 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 14:00:15 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define SHIFT_TO_CONVS		16
 
 # define CONVERSION_SIGN	'%'
+# define WILDCARD_SIGN		'*'
 
 # define HH 				"hh"
 # define LL 				"ll"
@@ -76,7 +77,6 @@
 # define FLAG_POINT			0x00000400
 # define FLAG_J				0x00000800
 # define FLAG_Z				0x00001000
-//add wild_card
 
 # define ALL_MOD			0x0000001f
 
