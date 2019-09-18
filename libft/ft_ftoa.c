@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:42:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 18:25:15 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 11:21:50 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@
 
 int8_t		round_up(t_vector *vector, uint64_t accuracy)
 {
-	char c;
+	char 		c;
 
 	c = vct_get_char_at(vector, accuracy);
-	if (c % 2 == 0)
-		vct_add_char_at_replace(vector, c, accuracy);
-	if (c % 2 == 1)
+	if (c >= '0' && c <= '9')
 		vct_add_char_at_replace(vector, c + 1, accuracy);
 	if (c == '9' || c == '.')
 	{
@@ -34,6 +32,27 @@ int8_t		round_up(t_vector *vector, uint64_t accuracy)
 		}
 	}
 	return (SUCCESS);
+}
+
+int8_t		check_for_rounding_up(t_vector *vector, double value, int64_t cast)
+{
+	uint64_t 	accuracy;
+	int64_t		tmp;
+
+	value *= 10;
+	cast = (int64_t)value;
+	value -= (double)cast;
+	tmp = (int64_t)(value * 10);
+	if (tmp > 0)
+		cast++;
+	accuracy = (uint64_t)vct_len(vector) - 1;
+	if ((cast == 5 && (vct_get_char_at(vector, accuracy) % 2 == 0)) == FALSE)
+	{
+		if (cast > 4)
+			if ((round_up(vector, accuracy)) == FAILURE)
+				vct_del(&vector);
+	}
+	return (vector == NULL ? FAILURE : SUCCESS);
 }
 
 int8_t		nb_to_string(t_vector *vector, double value, int64_t cast,
@@ -53,11 +72,8 @@ int8_t		nb_to_string(t_vector *vector, double value, int64_t cast,
 			vct_del(&vector);
 		i--;
 	}
-	cast = (int64_t)(value * 10);
-	accuracy = (uint64_t)vct_len(vector) - 1;
-	if (cast > 4)
-		if ((round_up(vector, accuracy)) == FAILURE)
-			vct_del(&vector);
+	if ((check_for_rounding_up(vector, value, cast)) == FAILURE)
+		vct_del(&vector);
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
 
@@ -88,45 +104,3 @@ t_vector	*ft_ftoa(double value, uint64_t precision, uint32_t option)
 	}
 	return (vector);
 }
-
-// int8_t	handle_decimal(double value, int64_t cast, t_vector *vector,
-// 	uint64_t accuracy)
-// {
-// 	if (accuracy > 0)
-// 		if ((vct_add_char(vector, '.')) == FAILURE)
-// 			vct_del(&vector);
-// 	if (vector != NULL)
-// 		if ((nb_to_string(vector, value, cast, accuracy)) == FAILURE)
-// 			vct_del(&vector);
-// 	return (vector == NULL ? FAILURE : SUCCESS);
-// }
-//
-// char	*ft_ftoa(double value, uint64_t precision, uint32_t option)
-// {
-// 	t_vector	*vector;
-// 	char		*str;
-// 	int64_t		cast;
-// 	uint64_t	accuracy;
-//
-// 	str = NULL;
-// 	if ((vector = vct_new(0)) != NULL)
-// 	{
-// 		cast = (int64_t)value;
-// 		value -= (double)cast;
-// 		if ((str = ft_itoa(cast)) == NULL)
-// 			vct_del(&vector);
-// 		if ((vct_strjoin(vector, str)) == FAILURE)
-// 			vct_del(&vector);
-// 		value = value < 0 ? -value : value;
-// 		accuracy = (option & FLAG_POINT) ? precision : 6;
-// 		if ((handle_decimal(value, cast, vector, accuracy)) == FAILURE)
-// 			vct_del(&vector);
-// 		if (vector != NULL)
-// 		{
-// 			ft_strdel(&str);
-// 			str = vct_get_str(vector);
-// 		}
-// 		vct_del(&vector);
-// 	}
-// 	return (str);
-// }
