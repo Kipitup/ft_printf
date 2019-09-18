@@ -6,29 +6,50 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 11:05:11 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/11 14:54:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:15:40 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-uint8_t	is_width(t_state_machine *machine, char *input)
+uint8_t	is_width(t_state_machine *machine, char *input, va_list *arg_pf)
 {
-	size_t	nb;
+	int64_t	neg_prot;
+	size_t		nb;
 
+	neg_prot = 0;
 	nb = 0;
 	if (ft_isdigit((int)input[0]) == TRUE)
 		machine->width = get_numbers(machine, input, &nb);
+	else if (input[0] == WILDCARD_SIGN)
+	{
+		if ((neg_prot = va_arg(*arg_pf, int64_t)) < 0)
+		{
+			neg_prot = ft_absolute(neg_prot);
+			machine->option &= FLAG_MINUS;
+		}
+		machine->precision = neg_prot;
+		nb++;
+	}
 	return (nb);
 }
 
-uint8_t	is_precision(t_state_machine *machine, char *input)
+uint8_t	is_precision(t_state_machine *machine, char *input, va_list *arg_pf)
 {
+	int64_t	neg_prot;
 	size_t	nb;
 
+	neg_prot = 0;
 	nb = 0;
 	if (ft_isdigit((int)input[0]) == TRUE)
 		machine->precision = get_numbers(machine, input, &nb);
+	else if (input[0] == WILDCARD_SIGN)
+	{
+		if ((neg_prot = va_arg(*arg_pf, int64_t)) <= 0)
+			neg_prot = 0;
+		machine->precision = neg_prot;
+		nb++;
+	}
 	return (nb + 1);
 }
 

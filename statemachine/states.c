@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 17:47:43 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 14:08:40 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ int8_t	flags(t_state_machine *machine, char *input, va_list *args_printf)
 			if (i < NB_OF_MODIFIER)
 				machine->option &= ~ALL_MOD;
 			machine->option |= ft_pow_positive(2, i);
-			return (flags[i] == POINT ? is_precision(machine, input + 1) : len);
+			return (flags[i] == POINT ? is_precision(machine, input + 1, args_printf) : len);
 		}
 		i++;
 	}
-	if ((len = is_width(machine, input)) > 0)
+	if ((len = is_width(machine, input, args_printf)) > 0)
 		return ((int8_t)len);
 	machine->state = ST_CONVERSION;
 	return (FAILURE);
