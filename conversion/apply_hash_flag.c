@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 17:38:25 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 15:15:31 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 16:28:19 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ int8_t	apply_hash(t_vector *vector, t_flag *flag)
 		}
 		else if (flag->option & CONV_O)
 		{
-			if ((vct_len(vector) == 1
-					&& vct_get_char_at(vector, START) == '0') == FALSE)
-			vct_add_char_at(vector, '0', START);
+			if (vct_get_char_at(vector, START) != '0')
+				vct_add_char_at(vector, '0', START);
 		}
 	}
 	return (vector == NULL ? FAILURE : SUCCESS);

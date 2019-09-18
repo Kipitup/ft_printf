@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 14:08:40 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 17:14:37 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int8_t			buffer(t_state_machine *machine, char *input, va_list *args_printf)
 
 	if (*input == '\0')
 	{
-		write(1, machine->p_output->str, machine->p_output->len);
+		write(1, vct_get_str(machine->p_output), vct_len(machine->p_output));
 		machine->state = ST_END;
 		return (0);
 	}

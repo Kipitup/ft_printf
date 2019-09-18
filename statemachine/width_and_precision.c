@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 11:05:11 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 15:15:40 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 17:20:51 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 uint8_t	is_width(t_state_machine *machine, char *input, va_list *arg_pf)
 {
-	int64_t	neg_prot;
-	size_t		nb;
+	int32_t	neg_prot;
+	size_t	nb;
 
 	neg_prot = 0;
 	nb = 0;
@@ -26,9 +26,9 @@ uint8_t	is_width(t_state_machine *machine, char *input, va_list *arg_pf)
 		if ((neg_prot = va_arg(*arg_pf, int64_t)) < 0)
 		{
 			neg_prot = ft_absolute(neg_prot);
-			machine->option &= FLAG_MINUS;
+			machine->option |= FLAG_MINUS;
 		}
-		machine->precision = neg_prot;
+		machine->width = neg_prot;
 		nb++;
 	}
 	return (nb);
@@ -36,7 +36,7 @@ uint8_t	is_width(t_state_machine *machine, char *input, va_list *arg_pf)
 
 uint8_t	is_precision(t_state_machine *machine, char *input, va_list *arg_pf)
 {
-	int64_t	neg_prot;
+	int32_t	neg_prot;
 	size_t	nb;
 
 	neg_prot = 0;
@@ -45,8 +45,11 @@ uint8_t	is_precision(t_state_machine *machine, char *input, va_list *arg_pf)
 		machine->precision = get_numbers(machine, input, &nb);
 	else if (input[0] == WILDCARD_SIGN)
 	{
-		if ((neg_prot = va_arg(*arg_pf, int64_t)) <= 0)
+		if ((neg_prot = va_arg(*arg_pf, int64_t)) < 0)
+		{
 			neg_prot = 0;
+			machine->option &= ~FLAG_POINT;
+		}
 		machine->precision = neg_prot;
 		nb++;
 	}

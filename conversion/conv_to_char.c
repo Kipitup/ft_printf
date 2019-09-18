@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 17:55:03 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/17 15:59:27 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 16:15:53 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ t_vector	*conv_to_char(va_list *args_printf, t_flag *flag)
 	}
 	else
 		vct_del(&vector);
-
 	vct_del(&to_be_joined);
 	return (vector);
 }

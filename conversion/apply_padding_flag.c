@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 15:19:33 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 16:14:50 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,12 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag)
 	int8_t		ret;
 
 	ret = SUCCESS;
-	if ((flag->option & CONV_S || flag->option & CONV_C)
-			&& (flag->option & FLAG_POINT))
+	if ((flag->option & CONV_S) && (flag->option & FLAG_POINT))
 	{
 		if (flag->precision < vct_len(vector))
 			vct_pop(vector, (vct_len(vector) - (size_t)flag->precision));
 	}
-	else
+	else if ((flag->option & CONV_C) == FALSE)
 	{
 		len = 0;
 		if (flag->precision >= vct_len(vector))

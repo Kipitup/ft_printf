@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 17:37:23 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/18 13:50:18 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 17:15:42 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
 		cur_state = machine->state;
 		if ((scale = parser[machine->state](machine, input, args_printf)) != FAILURE)
 		{
-			debug(machine, input, scale, cur_state); //  DEBUG
+			// debug(machine, input, scale, cur_state); //  DEBUG
 			input += scale;
 		}
 	}
