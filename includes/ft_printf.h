@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 15:19:39 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 18:59:10 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ uint64_t		apply_modifier_u(uint64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_s(uint64_t str, uint64_t flag);
 uint64_t		apply_modifier_p(uint64_t str, uint64_t flag);
 int64_t			apply_modifier_zj(int64_t nbr_conv, uint32_t flag);
+long double		apply_modifier_f(long double nbr, int32_t flag);
 int8_t 			apply_precision(t_vector *vector, t_flag *flag);
 int8_t 			apply_width(t_vector *vector, t_flag *flag);
 int8_t			apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
