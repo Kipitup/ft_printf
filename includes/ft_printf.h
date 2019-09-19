@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 16:06:55 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:28:12 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef t_vector	*(*t_convfunc)(va_list *arg_pf, t_flag *flag);
 int				ft_printf(const char *input, ...);// __attribute__
 //					((format(printf, 1, 2)));
 int				ft_dprintf(int fd, const char *input, ...);// __attribute__
+//					((format(dprintf, 1, 2, 3)));
+int				ft_asprintf(char **str, const char *input, ...);// __attribute__
 //					((format(dprintf, 1, 2, 3)));
 
 

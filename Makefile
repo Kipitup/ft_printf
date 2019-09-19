@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/19 16:07:22 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/19 16:27:33 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -49,6 +49,7 @@ vpath %.c $(PATH_SRC)
 # main
 SRCS += ft_printf
 SRCS += ft_dprintf
+SRCS += ft_asprintf
 
 # initialize
 SRCS += init_printf

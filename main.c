@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 16:12:08 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:30:49 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@ int		main(int ac, char **av)
 	(void)ac;
 
 
-	char **exemple;
+	char *exemple;
+	char *monexemple;
 
 
 	// ft_dprintf(1, "salut \n");
 	// dprintf(1, "salut \n");
 
-	asprintf(exemple, "salut mon gars\n");
+	asprintf(&exemple, "salut mon gars\n");
+	ft_asprintf(&monexemple, "salut mon gars\n");
 
-	printf("du coup : %s\n", *exemple);
+	printf("du coup : %s\n", exemple);
+	printf("du coup : %s\n", monexemple);
 
 
 
