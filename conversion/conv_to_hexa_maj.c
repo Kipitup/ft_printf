@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:12:10 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/17 11:39:55 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/19 09:41:13 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	cancel_flag_for_numeric_conv(flag);
-	nbr = apply_modifier_oxX(nbr, flag->option);
 	if (flag->option & FLAG_Z || flag->option & FLAG_J)
 		nbr = apply_modifier_zj(nbr, flag->option);
+	else
+		nbr = apply_modifier_oxX(nbr, flag->option);
 	if (nb_itoa != NULL)
 		if ((vct_strjoin(nb_itoa,
 						ft_itoa_base_maj(nbr, base, flag->option))) == FAILURE)
