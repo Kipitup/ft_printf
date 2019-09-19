@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 09:29:07 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/12 17:15:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 19:40:34 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,25 @@
 int8_t		vct_fill_before(t_vector *vector, char c, size_t size)
 {
 	size_t	start;
+	int8_t	ret;
 
+	ret = FAILURE;
 	start = 0;
 	if (vector != NULL && vector->str != NULL)
 	{
+		ret = SUCCESS;
 		if (vector->len + size >= vector->size)
-			if (vct_increase_scale(vector, size) == FAILURE)
-				vct_del(&vector);
-		if (vector != NULL)
+			ret = vct_increase_scale(vector, size);
+		if (ret == SUCCESS)
 		{
 			while (size > 0)
 			{
-				if ((vct_add_char_at(vector, c, start)) == FAILURE)
-				{
-					vct_del(&vector);
+				ret = vct_add_char_at(vector, c, start);
+				if (ret == FAILURE)
 					break ;
-				}
 				size--;
 			}
 		}
 	}
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret);
 }

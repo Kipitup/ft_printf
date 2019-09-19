@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/05 16:17:01 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 19:54:41 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@
 int8_t	vct_strjoin(t_vector *vector, char *str)
 {
 	size_t len;
+	int8_t	ret;
 
+	ret = FAILURE;
 	if (vector != NULL && vector->str != NULL && str != NULL)
 	{
+		ret = SUCCESS;
 		len = ft_strlen(str);
 		if (len + vector->len >= vector->size)
-		{
-			if (vct_increase_scale(vector, len + DEFAULT_VCT_SCALE) == FAILURE)
-				vct_del(&vector);
-		}
-		if (vector != NULL)
+			ret = vct_increase_scale(vector, len + DEFAULT_VCT_SCALE);
+		if (ret == SUCCESS)
 		{
 			ft_memcpy(vector->str + vector->len, str, len);
 			vector->len += len;
 		}
 	}
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 17:34:15 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 15:59:29 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/18 19:30:38 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,20 @@
 
 int8_t			vct_add_char(t_vector *vector, char c)
 {
+	int8_t		ret;
+
+	ret = FAILURE;
 	if (vector != NULL && vector->str != NULL)
 	{
+		ret = SUCCESS;
 		if (vector->len + 1 >= vector->size)
-			if (vct_increase_scale(vector, 0) == FAILURE)
-				vct_del(&vector);
-		if (vector != NULL)
+			ret = vct_increase_scale(vector, 0);
+		if (ret == SUCCESS)
 		{
 			vector->str[vector->len] = c;
 			vector->str[vector->len + 1] = '\0';
 			vector->len += 1;
 		}
 	}
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret);
 }

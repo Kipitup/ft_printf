@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 15:19:39 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 20:07:31 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ enum	e_main_states
 	ST_FLAGS,
 	ST_CONVERSION,
 	ST_BUFFER,
+	ST_ERROR,
 	ST_END
 };
 
@@ -56,7 +57,7 @@ int				ft_printf(const char *input, ...);// __attribute__
 **  STATE MACHINE	**
 **********************
 */
-size_t			parser(t_state_machine *machine, char *input, va_list *args_printf);
+ssize_t			parser(t_state_machine *machine, char *input, va_list *args_printf);
 int8_t			string(t_state_machine *machine, char *input, va_list *args_printf);
 int8_t			conversion(t_state_machine *machine, char *input, va_list *args_printf);
 int8_t			flags(t_state_machine *machine, char *input, va_list *args_printf);
@@ -73,7 +74,7 @@ uint64_t		get_numbers(t_state_machine *machine, char *input, size_t *count);
 **  	 INIT	    **
 **********************
 */
-void  			init_state_machine(t_state_machine *machine);
+int8_t 			init_state_machine(t_state_machine *machine);
 void			init_flags(t_state_machine *machine, t_flag *flags);
 
 /*

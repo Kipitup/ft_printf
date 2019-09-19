@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 18:26:22 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/18 19:49:56 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ t_vector		*vct_dup(t_vector *vector);
 int8_t			vct_strjoin(t_vector *vector, char *str);
 int8_t			vct_cat(t_vector *dest, t_vector *src);
 t_vector		*vct_join(t_vector *dest, t_vector *src);
-t_vector		*vct_join_free(t_vector *dest, t_vector *src,
+t_vector		*vct_join_free(t_vector **dest, t_vector **src,
 							int first_or_second_or_both);
 /*
 **********************
