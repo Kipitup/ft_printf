@@ -22,14 +22,14 @@ int8_t			conv_di(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	return (ret);
 }
 
-t_vector		*conv_to_di(va_list *args_printf, t_flag *flag)
+t_vector		*conv_to_di(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
 	char		*str_itoa;
 	int64_t		nbr;
 
-	nbr = va_arg(*args_printf, int64_t);
+	nbr = va_arg(*arg_pf, int64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	str_itoa = NULL;

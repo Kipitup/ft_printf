@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void		debug(t_state_machine *machine, char *input, int8_t scale,
+void		debug(t_state_machine *ptf, char *input, int8_t scale,
 					enum e_main_states state)
 {
 	static const char  *state_str[] = {"\033[31mSTR", "\033[32mFLAG",
@@ -23,23 +23,23 @@ void		debug(t_state_machine *machine, char *input, int8_t scale,
 					state_str[state]);
 	else if (*input != '\0')
 		printf("input: %.*s\tstate:%s\033[0m\toption: 0x%8x\t width: %llu\t precision: %llu\n",
-				scale == 0 ? 1 : scale, input, state_str[state], machine->option, machine->width, machine->precision);
+				scale == 0 ? 1 : scale, input, state_str[state], ptf->option, ptf->width, ptf->precision);
 }
 
-ssize_t		parser(t_state_machine *machine, char *input, va_list *args_printf)
+ssize_t		parser(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	static t_statefunc	parser[4] = {string, flags, conversion, buffer};
 	enum e_main_states	cur_state;
 	int8_t				scale;
 
-	while (machine->state != ST_END && machine->state != ST_ERROR)
+	while (ptf->state != ST_END && ptf->state != ST_ERROR)
 	{
-		cur_state = machine->state;
-		if ((scale = parser[machine->state](machine, input, args_printf)) != FAILURE)
+		cur_state = ptf->state;
+		if ((scale = parser[ptf->state](ptf, input, arg_pf)) != FAILURE)
 		{
-			// debug(machine, input, scale, cur_state); //  DEBUG
+			// debug(ptf, input, scale, cur_state); //  DEBUG
 			input += scale;
 		}
 	}
-	return (machine->state == ST_ERROR ? FAILURE : vct_len(machine->p_output));
+	return (ptf->state == ST_ERROR ? FAILURE : vct_len(ptf->output));
 }

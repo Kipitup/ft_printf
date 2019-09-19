@@ -12,21 +12,21 @@
 
 #include "ft_printf.h"
 
-int8_t	init_state_machine(t_state_machine *machine)
+int8_t	init_state_machine(t_state_machine *ptf)
 {
-	ft_bzero(machine, sizeof(t_state_machine));
-	machine->state = ST_STRING;
-	machine->fd = 1;
-	machine->p_output = vct_new(0);
-	if (machine->p_output == NULL)
+	ft_bzero(ptf, sizeof(t_state_machine));
+	ptf->state = ST_STRING;
+	ptf->fd = 1;
+	ptf->output = vct_new(0);
+	if (ptf->output == NULL)
 		return (FAILURE);
 	return (SUCCESS);
 }
 
-void	init_flags(t_state_machine *machine, t_flag *flag)
+void	init_flags(t_state_machine *ptf, t_flag *flag)
 {
 	ft_bzero(flag, sizeof(t_flag));
-	flag->width = 		machine->width;
-	flag->precision = 	machine->precision;
-	flag->option =		machine->option;
+	flag->width = 		ptf->width;
+	flag->precision = 	ptf->precision;
+	flag->option =		ptf->option;
 }

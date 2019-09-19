@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-t_vector		*conv_to_float(va_list *args_printf, t_flag *flag)
+t_vector		*conv_to_float(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_ftoa;
 	long double	nbr;
 	
 	if (flag->option & FLAG_L_MAJ)
-		nbr = va_arg(*args_printf, long double);
+		nbr = va_arg(*arg_pf, long double);
 	else
-		nbr = va_arg(*args_printf, double);
+		nbr = va_arg(*arg_pf, double);
 	vector = vct_new(flag->width);
 	nb_ftoa = NULL;
 	//nbr = apply_modifier_f(nbr, flag->option);

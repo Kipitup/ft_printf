@@ -22,14 +22,14 @@ int8_t			conv_u(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-t_vector		*conv_to_u_decimal(va_list *args_printf, t_flag *flag)
+t_vector		*conv_to_u_decimal(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
 	char		*str_itoa;
 	uint64_t	nbr;
 
-	nbr = (uint64_t)va_arg(*args_printf, uint64_t);
+	nbr = (uint64_t)va_arg(*arg_pf, uint64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	str_itoa = NULL;

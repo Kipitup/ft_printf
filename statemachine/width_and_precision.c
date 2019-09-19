@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-uint8_t	is_width(t_state_machine *machine, char *input, va_list *arg_pf)
+uint8_t	is_width(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	int32_t	neg_prot;
 	size_t	nb;
@@ -20,21 +20,21 @@ uint8_t	is_width(t_state_machine *machine, char *input, va_list *arg_pf)
 	neg_prot = 0;
 	nb = 0;
 	if (ft_isdigit((int)input[0]) == TRUE)
-		machine->width = get_numbers(machine, input, &nb);
+		ptf->width = get_numbers(ptf, input, &nb);
 	else if (input[0] == WILDCARD_SIGN)
 	{
 		if ((neg_prot = va_arg(*arg_pf, int64_t)) < 0)
 		{
 			neg_prot = ft_absolute(neg_prot);
-			machine->option |= FLAG_MINUS;
+			ptf->option |= FLAG_MINUS;
 		}
-		machine->width = neg_prot;
+		ptf->width = neg_prot;
 		nb++;
 	}
 	return (nb);
 }
 
-uint8_t	is_precision(t_state_machine *machine, char *input, va_list *arg_pf)
+uint8_t	is_precision(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	int32_t	neg_prot;
 	size_t	nb;
@@ -42,21 +42,21 @@ uint8_t	is_precision(t_state_machine *machine, char *input, va_list *arg_pf)
 	neg_prot = 0;
 	nb = 0;
 	if (ft_isdigit((int)input[0]) == TRUE)
-		machine->precision = get_numbers(machine, input, &nb);
+		ptf->precision = get_numbers(ptf, input, &nb);
 	else if (input[0] == WILDCARD_SIGN)
 	{
 		if ((neg_prot = va_arg(*arg_pf, int64_t)) < 0)
 		{
 			neg_prot = 0;
-			machine->option &= ~FLAG_POINT;
+			ptf->option &= ~FLAG_POINT;
 		}
-		machine->precision = neg_prot;
+		ptf->precision = neg_prot;
 		nb++;
 	}
 	return (nb + 1);
 }
 
-uint64_t	get_numbers(t_state_machine *machine, char *input, size_t *count)
+uint64_t	get_numbers(t_state_machine *ptf, char *input, size_t *count)
 {
 	uint64_t	nb;
 	t_vector	*vector;
@@ -64,14 +64,14 @@ uint64_t	get_numbers(t_state_machine *machine, char *input, size_t *count)
 	nb = 0;
 	vector = vct_new(0);
 	if (vector == NULL)
-		machine->state = ST_ERROR;
+		ptf->state = ST_ERROR;
 	else
 	{
 		while (ft_isdigit((int)input[*count]) == TRUE)
 		{
 			if ((vct_addchar(vector, input[*count])) == FAILURE)
 			{
-				machine->state = ST_ERROR;
+				ptf->state = ST_ERROR;
 				break ;
 			}
 			(*count)++;

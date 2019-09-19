@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-t_vector	*conv_to_str(va_list *args_printf, t_flag *flag)
+t_vector	*conv_to_str(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*to_be_joined;
@@ -20,7 +20,7 @@ t_vector	*conv_to_str(va_list *args_printf, t_flag *flag)
 
 	vector = vct_new(flag->width);
 	cancel_flag_for_other_conv(flag);
-	str = va_arg(*args_printf, char *);
+	str = va_arg(*arg_pf, char *);
 	str = (char*)apply_modifier_s((uint64_t)str, flag->option);
 	if (str == NULL)
 		to_be_joined = vct_newstr("(null)");

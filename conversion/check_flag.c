@@ -37,10 +37,10 @@ void	cancel_flag_for_other_conv(t_flag *flag)
 		flag->option &= ~FLAG_SPACE;
 }
 
-void	check_and_cancel_flag(t_state_machine *machine)
+void	check_and_cancel_flag(t_state_machine *ptf)
 {
-	if (machine->option & FLAG_PLUS && machine->option & FLAG_SPACE)
-		machine->option &= ~FLAG_SPACE;
-	if (machine->option & FLAG_MINUS && machine->option & FLAG_ZERO)
-		machine->option &= ~FLAG_ZERO;
+	if (ptf->option & FLAG_PLUS && ptf->option & FLAG_SPACE)
+		ptf->option &= ~FLAG_SPACE;
+	if (ptf->option & FLAG_MINUS && ptf->option & FLAG_ZERO)
+		ptf->option &= ~FLAG_ZERO;
 }

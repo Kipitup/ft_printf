@@ -22,7 +22,7 @@ int8_t			conv_maj(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
+t_vector		*conv_to_hexa_maj(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
@@ -31,7 +31,7 @@ t_vector		*conv_to_hexa_maj(va_list *args_printf, t_flag *flag)
 	uint64_t	nbr;
 
 	base = 16;
-	nbr = va_arg(*args_printf, uint64_t);
+	nbr = va_arg(*arg_pf, uint64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	str_itoa = NULL;

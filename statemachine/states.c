@@ -6,28 +6,28 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 11:27:09 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:00:30 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int8_t	string(t_state_machine *machine, char *input, va_list *args_printf)
+int8_t	string(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
-	(void)args_printf;
+	(void)arg_pf;
 	if (*input == CONVERSION_SIGN)
-		machine->state = ST_FLAGS;
+		ptf->state = ST_FLAGS;
 	else if (*input == '\0')
 	{
-		machine->state = ST_BUFFER;
+		ptf->state = ST_BUFFER;
 		return (0);
 	}
-	else if (vct_addchar(machine->p_output, *input) == FAILURE)
-		machine->state = ST_ERROR;
+	else if (vct_addchar(ptf->output, *input) == FAILURE)
+		ptf->state = ST_ERROR;
 	return (1);
 }
 
-int8_t	flags(t_state_machine *machine, char *input, va_list *args_printf)
+int8_t	flags(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	static const char	*flags[NB_OF_FLAGS] = 	{	HH, LL, H, L, L_MAJ, PLUS,
 													MINUS, HASH, ZERO, SPACE,
@@ -36,7 +36,7 @@ int8_t	flags(t_state_machine *machine, char *input, va_list *args_printf)
 	size_t				len;
 	uint8_t				i;
 
-	(void)args_printf;
+	(void)arg_pf;
 	i = 0;
 	while (i < NB_OF_FLAGS)
 	{
@@ -44,21 +44,21 @@ int8_t	flags(t_state_machine *machine, char *input, va_list *args_printf)
 		if (ft_strnequ(flags[i], input, len) == TRUE)
 		{
 			if (i < NB_OF_MODIFIER)
-				machine->option &= ~ALL_MOD;
-			machine->option |= ft_pow_positive(2, i);
-			return (flags[i] == POINT ? is_precision(machine, input + 1, args_printf) : len);
+				ptf->option &= ~ALL_MOD;
+			ptf->option |= ft_pow_positive(2, i);
+			return (flags[i] == POINT ? is_precision(ptf, input + 1, arg_pf) : len);
 		}
 		i++;
 	}
-	if ((len = is_width(machine, input, args_printf)) > 0)
+	if ((len = is_width(ptf, input, arg_pf)) > 0)
 		return ((int8_t)len);
-	machine->state = ST_CONVERSION;
+	ptf->state = ST_CONVERSION;
 	return (FAILURE);
 }
 
-int8_t	conversion(t_state_machine *machine, char *input, va_list *args_printf)
+int8_t	conversion(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
-	(void)args_printf;
+	(void)arg_pf;
 	static char *convs[NB_OF_CONVS] = {C, S, P, D, I, O, U, X, X_MAJ, F};
 	uint8_t		i;
 
@@ -69,30 +69,29 @@ int8_t	conversion(t_state_machine *machine, char *input, va_list *args_printf)
 			break ;
 		i++;
 	}
-	machine->option |= ft_pow_positive(2, i) << 16;
-	machine->state = ST_BUFFER;
+	ptf->option |= ft_pow_positive(2, i) << 16;
+	ptf->state = ST_BUFFER;
 	return (0);
 }
 
-int8_t			buffer(t_state_machine *machine, char *input, va_list *args_printf)
+int8_t			buffer(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	t_flag		flag;
 
 	if (*input == '\0')
 	{
-		write(machine->fd, vct_getstr(machine->p_output),
-													vct_len(machine->p_output));
-		machine->state = ST_END;
+		write(ptf->fd, vct_getstr(ptf->output), vct_len(ptf->output));
+		ptf->state = ST_END;
 		return (0);
 	}
-	check_and_cancel_flag(machine);
-	init_flags(machine, &flag);
-	if (convert(machine, &flag, input, args_printf) == FAILURE)
-		machine->state = ST_ERROR;
+	check_and_cancel_flag(ptf);
+	init_flags(ptf, &flag);
+	if (convert(ptf, &flag, input, arg_pf) == FAILURE)
+		ptf->state = ST_ERROR;
 	else
-		machine->state = ST_STRING;
-	machine->option = 0;
-	machine->width = 0;
-	machine->precision = 0;
+		ptf->state = ST_STRING;
+	ptf->option = 0;
+	ptf->width = 0;
+	ptf->precision = 0;
 	return (1);
 }

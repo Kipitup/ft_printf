@@ -38,7 +38,7 @@ int8_t		apply_prefix(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-t_vector	*conv_to_pointer(va_list *args_printf, t_flag *flag)
+t_vector	*conv_to_pointer(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
@@ -46,7 +46,7 @@ t_vector	*conv_to_pointer(va_list *args_printf, t_flag *flag)
 	void		*ptr;
 	char		*str_itoa;
 
-	ptr = va_arg(*args_printf, void *);
+	ptr = va_arg(*arg_pf, void *);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	address = ptr;
