@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:42:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 09:37:42 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 17:00:03 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ t_vector	*ft_ftoa(double value, uint64_t precision, uint32_t option)
 	int64_t		cast;
 	uint64_t	accuracy;
 
+	if (value < (double)LLONG_MIN || value > (double)LLONG_MAX)
+		return (NULL);
 	vector = vct_new(0);
 	if (vector != NULL)
 	{

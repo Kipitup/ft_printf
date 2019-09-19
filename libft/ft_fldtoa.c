@@ -6,7 +6,7 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 15:50:31 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 16:11:40 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/19 17:00:02 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ t_vector	*ft_fldtoa(long double value, uint64_t precision, uint32_t option)
 	uint64_t	accuracy;
 
 	vector = vct_new(0);
+	if (value < (long double)LLONG_MIN || value > (long double)LLONG_MAX)
+		return (NULL);
 	if (vector != NULL)
 	{
 		cast = (int64_t)value;
