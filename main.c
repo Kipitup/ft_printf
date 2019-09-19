@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 11:19:00 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:12:08 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
 int		main(int ac, char **av)
 {
 	(void)ac;
+
+
+	char **exemple;
+
+
+	// ft_dprintf(1, "salut \n");
+	// dprintf(1, "salut \n");
+
+	asprintf(exemple, "salut mon gars\n");
+
+	printf("du coup : %s\n", *exemple);
+
+
+
 
 	//number
 	// ft_printf(av[1], atoll(av[2]));
@@ -51,6 +65,9 @@ int		main(int ac, char **av)
 	//
 	// ft_printf("notre printf : |%###-#0000 33...12..#0+0d|\n", 256);
 	// printf("   LE printf : |%###-#0000 33...12..#0+0d|\n", 256);
+	// printf("------------------------------\n");
+	// ft_printf("notre printf : |%.12.2.8.d|\n", 256);
+	// printf("   LE printf : |%.12.2.8.d|\n", 256);
 	// printf("------------------------------\n");
 
 	// octal
@@ -91,9 +108,9 @@ int		main(int ac, char **av)
 	// printf("------------------------------\n");
 
 	// char
-	ft_printf("\033[31m notre printf \033[0m: |%.c|\n", 0);
-	printf("\033[31m   LE printf \033[0m: |%.c|\n", 0);
-	printf("------------------------------\n");
+	// ft_printf("\033[31m notre printf \033[0m: |%.c|\n", 0);
+	// printf("\033[31m   LE printf \033[0m: |%.c|\n", 0);
+	// printf("------------------------------\n");
 	// ft_printf("notre printf : |%.c|\n", 'a');
 	// printf("   LE printf : |%.c|\n", 'a');
 	// printf("------------------------------\n");
@@ -176,6 +193,7 @@ int		main(int ac, char **av)
 	// printf("|\n");
 	// ft_printf(av[1]);
 	// printf("|\n");
+
 
 	return (0);
 }

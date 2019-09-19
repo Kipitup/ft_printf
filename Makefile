@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/19 10:14:48 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/19 16:07:22 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -48,6 +48,7 @@ vpath %.c $(PATH_SRC)
                      ####################################
 # main
 SRCS += ft_printf
+SRCS += ft_dprintf
 
 # initialize
 SRCS += init_printf
@@ -60,14 +61,14 @@ SRCS += width_and_precision
 # Conversion
 SRCS += convert
 SRCS += check_flag
-SRCS += conv_to_char
+SRCS += conv_to_c
 SRCS += conv_to_str
 SRCS += conv_to_ptr
 SRCS += conv_to_di
 SRCS += conv_to_ox
-SRCS += conv_to_u_decimal
+SRCS += conv_to_u
 SRCS += conv_to_hexa_maj
-SRCS += conv_to_float
+SRCS += conv_to_f
 SRCS += conv_to_none
 
 # Modifier

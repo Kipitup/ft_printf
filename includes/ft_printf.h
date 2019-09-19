@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 14:26:09 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:06:55 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ typedef struct	s_flag
 	uint32_t			option;
 }				t_flag;
 
-typedef int8_t		(*t_statefunc)(t_state_machine *self, char *input, va_list *arg_pf);
+typedef int8_t		(*t_statefunc)(t_state_machine *self, char *input,
+									va_list *arg_pf);
 typedef t_vector	*(*t_convfunc)(va_list *arg_pf, t_flag *flag);
 
 /*
@@ -52,6 +53,9 @@ typedef t_vector	*(*t_convfunc)(va_list *arg_pf, t_flag *flag);
 */
 int				ft_printf(const char *input, ...);// __attribute__
 //					((format(printf, 1, 2)));
+int				ft_dprintf(int fd, const char *input, ...);// __attribute__
+//					((format(dprintf, 1, 2, 3)));
+
 
 /*
 **********************
@@ -66,7 +70,8 @@ int8_t			buffer(t_state_machine *mahcine, char *input, va_list *arg_pf);
 int8_t			error(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			end(t_state_machine *ptf, char *input, va_list *arg_pf);
 uint8_t			is_width(t_state_machine *ptf, char *input, va_list *arg_pf);
-uint8_t			is_precision(t_state_machine *ptf, char *input, va_list *arg_pf);
+uint8_t			is_precision(t_state_machine *ptf, char *input,
+								va_list *arg_pf);
 uint64_t		get_numbers(t_state_machine *ptf, char *input, size_t *count);
 
 
@@ -75,7 +80,7 @@ uint64_t		get_numbers(t_state_machine *ptf, char *input, size_t *count);
 **  	 INIT	    **
 **********************
 */
-int8_t 			init_state_machine(t_state_machine *ptf);
+int8_t 			init_state_machine(t_state_machine *ptf, int fd);
 void			init_flags(t_state_machine *ptf, t_flag *flags);
 
 /*
@@ -83,14 +88,14 @@ void			init_flags(t_state_machine *ptf, t_flag *flags);
 **    CONVERSION	**
 **********************
 */
-t_vector		*conv_to_char(va_list *arg_pf, t_flag *flag);
+t_vector		*conv_to_c(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_str(va_list *arg_pf, t_flag *flag);
-t_vector		*conv_to_pointer(va_list *arg_pf, t_flag *flag);
+t_vector		*conv_to_ptr(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_ox(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_di(va_list *arg_pf, t_flag *flag);
-t_vector		*conv_to_u_decimal(va_list *arg_pf, t_flag *flag);
+t_vector		*conv_to_u(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_hexa_maj(va_list *arg_pf, t_flag *flag);
-t_vector		*conv_to_float(va_list *arg_pf, t_flag *flag);
+t_vector		*conv_to_f(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_none(char input, t_flag *flag);
 
 
@@ -103,18 +108,19 @@ int64_t			apply_modifier_zj(int64_t nbr_conv, uint32_t flag);
 long double		apply_modifier_f(long double nbr, int32_t flag);
 int8_t 			apply_precision(t_vector *vector, t_flag *flag);
 int8_t 			apply_width(t_vector *vector, t_flag *flag);
-int8_t			apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
+int8_t			apply_padding_flag(t_vector *vector, t_flag *flag,
+									t_vector *nb_itoa);
 t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
-// int8_t          apply_hashtag_hexa(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
-// int8_t          apply_hashtag_octal(t_vector *vector, t_flag *flag);
 int8_t          apply_hash(t_vector *vector, t_flag *flag);
 void			apply_hash_flag_zero(t_vector *vector, t_flag *flag);
 void			apply_hash_special_case(t_vector *vector, t_flag *flag);
 
-t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);
+t_vector		*get_converted_number(t_vector	*vector, t_flag *flag,
+										uint8_t base, int64_t nbr);
 
 
-int8_t			convert(t_state_machine *ptf, t_flag *flag, char *input, va_list *arg_pf);
+int8_t			convert(t_state_machine *ptf, t_flag *flag, char *input,
+							va_list *arg_pf);
 void			check_and_cancel_flag(t_state_machine *ptf);
 void			cancel_flag_for_numeric_conv(t_flag *flag);
 void			cancel_flag_for_other_conv(t_flag *flag);

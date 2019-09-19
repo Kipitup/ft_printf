@@ -6,13 +6,13 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 11:05:11 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 20:10:58 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:00:03 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-uint8_t	is_width(t_state_machine *ptf, char *input, va_list *arg_pf)
+uint8_t		is_width(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	int32_t	neg_prot;
 	size_t	nb;
@@ -34,7 +34,7 @@ uint8_t	is_width(t_state_machine *ptf, char *input, va_list *arg_pf)
 	return (nb);
 }
 
-uint8_t	is_precision(t_state_machine *ptf, char *input, va_list *arg_pf)
+uint8_t		is_precision(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	int32_t	neg_prot;
 	size_t	nb;
@@ -53,6 +53,8 @@ uint8_t	is_precision(t_state_machine *ptf, char *input, va_list *arg_pf)
 		ptf->precision = neg_prot;
 		nb++;
 	}
+	else
+		ptf->precision = 0;
 	return (nb + 1);
 }
 

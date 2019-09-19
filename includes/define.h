@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 19:34:58 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/19 16:05:57 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define ON					1
 # define OFF				0
 # define START				0
+# define STD_OUT			1
 
 # define NB_OF_FLAGS		13
 # define NB_OF_CONVS		10

@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 11:54:54 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 11:10:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:37:42 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int8_t		apply_prefix(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-t_vector	*conv_to_pointer(va_list *arg_pf, t_flag *flag)
+t_vector	*conv_to_ptr(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;

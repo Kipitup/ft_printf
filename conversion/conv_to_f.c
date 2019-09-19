@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_to_float.c                                    :+:      :+:    :+:   */
+/*   conv_to_f.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:11:36 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 08:18:43 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/19 15:37:27 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_vector		*conv_to_float(va_list *arg_pf, t_flag *flag)
+t_vector		*conv_to_f(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_ftoa;
 	long double	nbr;
-	
+
 	if (flag->option & FLAG_L_MAJ)
 		nbr = va_arg(*arg_pf, long double);
 	else

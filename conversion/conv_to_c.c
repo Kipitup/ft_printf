@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_to_char.c                                     :+:      :+:    :+:   */
+/*   conv_to_c.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 17:55:03 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/18 16:15:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:37:30 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_vector	*conv_to_char(va_list *arg_pf, t_flag *flag)
+t_vector	*conv_to_c(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*to_be_joined;

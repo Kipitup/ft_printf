@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_to_u_decimal.c                                :+:      :+:    :+:   */
+/*   conv_to_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:47:42 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 10:33:19 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:52:26 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int8_t			conv_u(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
-t_vector		*conv_to_u_decimal(va_list *arg_pf, t_flag *flag)
+t_vector		*conv_to_u(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
@@ -45,5 +45,6 @@ t_vector		*conv_to_u_decimal(va_list *arg_pf, t_flag *flag)
 	ft_strdel(&str_itoa);
 	if ((conv_u(vector, flag, nb_itoa)) == FAILURE)
 		vct_del(&vector);
+	vct_del(&nb_itoa);
 	return (vector);
 }

@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/31 17:12:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 16:06:01 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/19 16:01:21 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/19 16:06:21 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int				ft_printf(const char *input, ...)
+int				ft_dprintf(int fd, const char *input, ...)
 {
 	t_state_machine		ptf;
 	va_list				arg_pf;
 	ssize_t				ret;
 
-	ret = init_state_machine(&ptf, STD_OUT);
+	ret = init_state_machine(&ptf, fd);
 	if (ret == SUCCESS)
 	{
 		va_start(arg_pf, input);

@@ -6,18 +6,18 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 15:42:12 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 11:16:18 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:39:49 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int8_t	convert(t_state_machine *ptf, t_flag *flag, char *input, va_list *arg_pf)
+int8_t	convert(t_state_machine *ptf, t_flag *flag, char *input,
+		va_list *arg_pf)
 {
-	static t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char, conv_to_str,
-							conv_to_pointer, conv_to_di, conv_to_di, conv_to_ox,
-							conv_to_u_decimal, conv_to_ox, conv_to_hexa_maj,
-							conv_to_float};
+	static t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_c, conv_to_str,
+							conv_to_ptr, conv_to_di, conv_to_di, conv_to_ox,
+							conv_to_u, conv_to_ox, conv_to_hexa_maj, conv_to_f};
 	t_vector			*local;
 	uint8_t				i;
 
