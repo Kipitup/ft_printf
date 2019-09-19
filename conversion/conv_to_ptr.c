@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 11:54:54 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/18 18:39:29 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:10:53 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 int8_t		apply_prefix(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
-	if (flag->width >= vct_len(nb_itoa))
+	int 	ret;
+
+	ret = FAILURE;
+	if (vector != NULL && nb_itoa != NULL)
 	{
-		if ((vct_push_str(nb_itoa, "0x")) == FAILURE)
-			vct_del(&nb_itoa);
-		if (nb_itoa != NULL)
+		if (flag->width >= vct_len(nb_itoa))
 		{
-			if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
-				vct_del(&vector);
+			ret = vct_pushstr(nb_itoa, "0x");
+			if (ret == SUCCESS)
+				ret = apply_padding_flag(vector, flag, nb_itoa);
+		}
+		else
+		{
+			if (nb_itoa != NULL)
+			{
+				ret = apply_padding_flag(vector, flag, nb_itoa);
+				if (ret == SUCCESS)
+					ret = vct_pushstr(vector, "0x");
+			}
 		}
 	}
-	else
-	{
-		if (nb_itoa != NULL)
-		{
-			if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
-				vct_del(&vector);
-		if ((vct_push_str(vector, "0x")) == FAILURE)
-			vct_del(&nb_itoa);
-		}
-	}
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret == FAILURE ? FAILURE : SUCCESS);
 }
 
 t_vector	*conv_to_pointer(va_list *args_printf, t_flag *flag)

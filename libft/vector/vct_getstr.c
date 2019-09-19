@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_get_char_at.c                                  :+:      :+:    :+:   */
+/*   vct_getstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/16 13:11:18 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 13:15:23 by amartino         ###   ########.fr       */
+/*   Created: 2019/09/01 15:06:11 by amartino          #+#    #+#             */
+/*   Updated: 2019/09/13 10:47:37 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-char	vct_get_char_at(t_vector *vector, size_t index)
-{
-	char c;
+/*
+**	Return a pointer on the vector string
+*/
 
-	c = 0;
+char	*vct_getstr(t_vector *vector)
+{
+	char	*str;
+
+	str = NULL;
 	if (vector != NULL && vector->str != NULL)
-		c = vector->str[index];
-	return (c);
+		str = vector->str;
+	return (str);
 }

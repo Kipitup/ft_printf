@@ -24,7 +24,7 @@ t_vector	*conv_to_char(va_list *args_printf, t_flag *flag)
 	c = apply_modifier_u((int64_t)c, flag->option);
 	to_be_joined = vct_new(0);
 	if (to_be_joined != NULL)
-		if ((vct_add_char(to_be_joined, c)) == FAILURE)
+		if ((vct_addchar(to_be_joined, c)) == FAILURE)
 			vct_del(&to_be_joined);
 	if (to_be_joined != NULL)
 	{

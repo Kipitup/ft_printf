@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 09:32:36 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:21:49 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_state_machine
 	uint64_t			width;
 	uint64_t			precision;
 	uint32_t			option;
+	int8_t				fd;
 	enum e_main_states	state;
 }				t_state_machine;
 
@@ -107,9 +108,8 @@ t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
 // int8_t          apply_hashtag_hexa(t_vector *vector, t_flag *flag, t_vector *nb_itoa);
 // int8_t          apply_hashtag_octal(t_vector *vector, t_flag *flag);
 int8_t          apply_hash(t_vector *vector, t_flag *flag);
-int8_t          apply_hash_flag_zero(t_vector *vector, t_flag *flag);
+void			apply_hash_flag_zero(t_vector *vector, t_flag *flag);
 void			apply_hash_special_case(t_vector *vector, t_flag *flag);
-int8_t			apply_precision_float(t_vector *vector, t_flag *flag, size_t is_sign);
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag, uint8_t base, int64_t nbr);
 

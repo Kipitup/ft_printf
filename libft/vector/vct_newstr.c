@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_new_str.c                                      :+:      :+:    :+:   */
+/*   vct_newstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -18,7 +18,7 @@
 **	The size parameter is the lenght of the string with the '\0'.
 */
 
-t_vector	*vct_new_str(char *str)
+t_vector	*vct_newstr(char *str)
 {
 	t_vector	*new_vector;
 	size_t		len;

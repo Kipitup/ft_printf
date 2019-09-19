@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 18:57:26 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:16:07 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,30 @@
 int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
 	t_vector	*sign;
+	int8_t		ret;
 
+	ret = SUCCESS;
 	sign = handle_sign(nb_itoa, flag);
 	if (sign == NULL)
-		vct_del(&vector);
-	vct_cat(vector, nb_itoa);
-	if (vector == NULL)
-		vct_del(&vector);
-	if ((apply_precision(vector, flag)) == FAILURE)
-		vct_del(&vector);
-	if (apply_hash(vector, flag) == FAILURE)
- 		vct_del(&vector);
+		ret = FAILURE;
+	if (ret == SUCCESS)
+		ret = vct_cat(vector, nb_itoa);
+	if (ret == SUCCESS)
+		ret = apply_precision(vector, flag);
+	if (ret == SUCCESS)
+		ret = apply_hash(vector, flag);
 	if (vct_len(sign) > 0 && ((flag->option & FLAG_ZERO) == FALSE))
-		vct_add_char_at(vector, sign->str[0], START);
-	if ((apply_width(vector, flag)) == FAILURE)
-		vct_del(&vector);
+		vct_addchar_at(vector, sign->str[0], START);
+	if (ret == SUCCESS)
+		ret = apply_width(vector, flag);
 	if (vct_len(sign) > 0 && flag->option & FLAG_ZERO)
 	{
 		if (vector->str[0] == '0')
 			vct_pop_from(vector, 1, 0);
-		vct_add_char_at(vector, sign->str[0], START);
+		ret = vct_addchar_at(vector, sign->str[0], START);
 	}
 	vct_del(&sign);
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret);
 }
 
 t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
@@ -47,13 +48,13 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 	sign = vct_new(0);
 	if (nb_itoa->str[0] == '-')
 	{
-		vct_add_char(sign, '-');
+		vct_addchar(sign, '-');
 		vct_pop_from(nb_itoa, 1, 0);
 	}
 	else if (flag->option & FLAG_PLUS)
-		vct_add_char(sign, '+');
+		vct_addchar(sign, '+');
 	else if (flag->option & FLAG_SPACE)
-		vct_add_char(sign, ' ');
+		vct_addchar(sign, ' ');
 	return (sign);
 }
 
@@ -80,34 +81,31 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag)
 		else
 			apply_hash_special_case(vector, flag);
 	}
-	if (ret == FAILURE)
-		vct_del(&vector);
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret);
 }
 
 int8_t 		apply_width(t_vector *vector, t_flag *flag)
 {
 	uint64_t	len;
+	int8_t		ret;
 
+	ret = SUCCESS;
 	len = flag->width < vct_len(vector) ? 0 : flag->width - vct_len(vector);
 	if (len > 0)
 	{
 		if (flag->option & FLAG_MINUS)
-		{
-			if ((vct_fill_after(vector, ' ', len)) == FAILURE)
-				vct_del(&vector);
-		}
+			ret = vct_fill_after(vector, ' ', len);
 		else if (flag->option & FLAG_ZERO)
 		{
-			if ((vct_fill_before(vector, '0', len)) == FAILURE)
-				vct_del(&vector);
+			ret = vct_fill_before(vector, '0', len);
 			if (flag->option & CONV_X || flag->option & CONV_X_MAJ)
-				if (apply_hash_flag_zero(vector, flag) == FAILURE)
-			 		vct_del(&vector);
+			{
+				if (ret == SUCCESS)
+					apply_hash_flag_zero(vector, flag);
+			}
 		}
 		else
-			if ((vct_fill_before(vector, ' ', len)) == FAILURE)
-				vct_del(&vector);
+			ret = vct_fill_before(vector, ' ', len);
 	}
-	return (vector == NULL ? FAILURE : SUCCESS);
+	return (ret);
 }

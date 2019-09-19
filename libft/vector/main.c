@@ -21,12 +21,12 @@ int 	main(int ac, char **av)
 	int			ret;
 	(void)ac;
 	ret = -1;
-	vector1 = vct_new_str(0);
-//	vct_add_char(vector1, 0);
-//	vct_add_char(vector1, 0);
-//	vct_add_char(vector1, 0);
-//	vct_add_char(vector1, 0);
-vct_add_char(vector1, 'a');
+	vector1 = vct_newstr(0);
+//	vct_addchar(vector1, 0);
+//	vct_addchar(vector1, 0);
+//	vct_addchar(vector1, 0);
+//	vct_addchar(vector1, 0);
+vct_addchar(vector1, 'a');
 	printf("%s\n", vector1->str);
 	
 /*	ret = vct_apply(vector1, LOWCASE);
@@ -44,7 +44,7 @@ vct_add_char(vector1, 'a');
 	// printf("str : |%s|\n", vector1->str);
 	// printf("len : %zu\tsize : %zu\n\n", vector1->len, vector1->size);
 	// vct_del(&vector1);
-	// vector1 = vct_new_str(" allez c'est parti avec ou sans e ? ");
+	// vector1 = vct_newstr(" allez c'est parti avec ou sans e ? ");
 	// vector3 = vct_join(vector2, vector1);
 	// printf("str : |%s|\n", vector3->str);
 	// printf("len : %zu\tsize : %zu\n\n", vector3->len, vector3->size);

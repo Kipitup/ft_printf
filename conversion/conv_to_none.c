@@ -21,7 +21,7 @@ t_vector		*conv_to_none(char input, t_flag *flag)
 	to_be_joined = vct_new(0);
 	cancel_flag_for_other_conv(flag);
 	if (to_be_joined != NULL)
-		if ((vct_add_char(to_be_joined, input)) == FAILURE)
+		if ((vct_addchar(to_be_joined, input)) == FAILURE)
 			vct_del(&to_be_joined);
 	if (to_be_joined != NULL)
 	{

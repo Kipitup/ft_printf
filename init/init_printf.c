@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 16:29:13 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/18 20:02:03 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:24:42 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int8_t	init_state_machine(t_state_machine *machine)
 {
 	ft_bzero(machine, sizeof(t_state_machine));
 	machine->state = ST_STRING;
+	machine->fd = 1;
 	machine->p_output = vct_new(0);
 	if (machine->p_output == NULL)
 		return (FAILURE);

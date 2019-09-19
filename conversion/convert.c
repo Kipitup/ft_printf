@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 15:42:12 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 15:59:52 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/19 11:16:18 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int8_t	convert(t_state_machine *machine, t_flag *flag, char *input, va_list *args_printf)
 {
-	static		t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char, conv_to_str,
+	static t_convfunc	func_ptr[NB_OF_CONVS] = {conv_to_char, conv_to_str,
 							conv_to_pointer, conv_to_di, conv_to_di, conv_to_ox,
 							conv_to_u_decimal, conv_to_ox, conv_to_hexa_maj,
 							conv_to_float};
-	t_vector				*local;
-	uint8_t					i;
+	t_vector			*local;
+	uint8_t				i;
 
 	i = 0;
 	local = NULL;

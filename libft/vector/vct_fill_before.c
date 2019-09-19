@@ -37,7 +37,7 @@ int8_t		vct_fill_before(t_vector *vector, char c, size_t size)
 		{
 			while (size > 0)
 			{
-				ret = vct_add_char_at(vector, c, start);
+				ret = vct_addchar_at(vector, c, start);
 				if (ret == FAILURE)
 					break ;
 				size--;

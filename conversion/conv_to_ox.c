@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 09:42:19 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/19 11:14:53 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int8_t			conv_ox(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
-	if (nb_itoa != NULL)
-	{
-		if ((apply_padding_flag(vector, flag, nb_itoa)) == FAILURE)
-			vct_del(&vector);
-	}
-	else
-		vct_del(&vector);
-	return (vector == NULL ? FAILURE : SUCCESS);
+	int 	ret;
+
+	ret = FAILURE;
+	if (vector != NULL && nb_itoa != NULL)
+		ret = apply_padding_flag(vector, flag, nb_itoa);
+	return (ret);
 }
 
 t_vector		*conv_to_ox(va_list *args_printf, t_flag *flag)

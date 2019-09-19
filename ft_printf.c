@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 17:12:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 20:00:39 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:01:20 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int				ft_printf(const char *input, ...)
 		va_start(args_printf, input);
 		ret = parser(&machine, (char *)input, &args_printf);
 		vct_del(&(machine.p_output));
-		va_end(args_printf);	
+		va_end(args_printf);
 	}
 	return (ret);
 }

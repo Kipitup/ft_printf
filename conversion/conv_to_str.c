@@ -23,9 +23,9 @@ t_vector	*conv_to_str(va_list *args_printf, t_flag *flag)
 	str = va_arg(*args_printf, char *);
 	str = (char*)apply_modifier_s((uint64_t)str, flag->option);
 	if (str == NULL)
-		to_be_joined = vct_new_str("(null)");
+		to_be_joined = vct_newstr("(null)");
 	else
-		to_be_joined = vct_new_str(str);
+		to_be_joined = vct_newstr(str);
 	if (to_be_joined != NULL)
 	{
 		if ((apply_padding_flag(vector, flag, to_be_joined)) == FAILURE)

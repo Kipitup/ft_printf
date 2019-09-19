@@ -69,7 +69,7 @@ uint64_t	get_numbers(t_state_machine *machine, char *input, size_t *count)
 	{
 		while (ft_isdigit((int)input[*count]) == TRUE)
 		{
-			if ((vct_add_char(vector, input[*count])) == FAILURE)
+			if ((vct_addchar(vector, input[*count])) == FAILURE)
 			{
 				machine->state = ST_ERROR;
 				break ;

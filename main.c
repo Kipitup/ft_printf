@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 09:32:50 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:19:00 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		main(int ac, char **av)
 	// ft_printf("notre printf : |%.*s|\n", 0, "42");
 	// printf("   LE printf : |%.*s|\n", 0, "42");
 	// printf("------------------------------\n");
-
+*/
 	//
 	// ft_printf("notre printf : |%###-#0000 33...12..#0+0d|\n", 256);
 	// printf("   LE printf : |%###-#0000 33...12..#0+0d|\n", 256);
@@ -76,35 +76,35 @@ int		main(int ac, char **av)
 	// printf("   LE printf :|%#.2o|\n", 1);
 	// printf("------------------------------\n");
 
-
-	// hexa
-	ft_printf("notre printf :|%#.2x|\n", 1);
-	printf("   LE printf :|%#.2x|\n", 1);
-	printf("------------------------------\n");
-
+	//
+	// // hexa
+	// ft_printf("notre printf :|%#.2x|\n", 1);
+	// printf("   LE printf :|%#.2x|\n", 1);
+	// printf("------------------------------\n");
+	//
 	// pointeur
-	ft_printf("notre printf : |%p|\n", NULL);
-	printf("   LE printf : |%p|\n", NULL);
-	printf("------------------------------\n");
-	ft_printf("notre printf : |%5p|\n", NULL);
-	printf("   LE printf : |%5p|\n", NULL);
-	printf("------------------------------\n");
+	// ft_printf("notre printf : |%p|\n", NULL);
+	// printf("   LE printf : |%p|\n", NULL);
+	// printf("------------------------------\n");
+	// ft_printf("notre printf : |%5p|\n", NULL);
+	// printf("   LE printf : |%5p|\n", NULL);
+	// printf("------------------------------\n");
 
 	// char
-	ft_printf("notre printf : |%.c|\n", 0);
-	printf("   LE printf : |%.c|\n", 0);
+	ft_printf("\033[31m notre printf \033[0m: |%.c|\n", 0);
+	printf("\033[31m   LE printf \033[0m: |%.c|\n", 0);
 	printf("------------------------------\n");
-	ft_printf("notre printf : |%.c|\n", 'a');
-	printf("   LE printf : |%.c|\n", 'a');
-	printf("------------------------------\n");
-	ft_printf("notre printf : |%.5c|\n", 0);
-	printf("   LE printf : |%.5c|\n", 0);
-	printf("------------------------------\n");
-*/
+	// ft_printf("notre printf : |%.c|\n", 'a');
+	// printf("   LE printf : |%.c|\n", 'a');
+	// printf("------------------------------\n");
+	// ft_printf("notre printf : |%.5c|\n", 0);
+	// printf("   LE printf : |%.5c|\n", 0);
+	// printf("------------------------------\n");
+
 	// float
-	ft_printf("|%f|\n|%lf|\n|%Lf|\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242l);
-	printf("\n------------------------------\n");
-	printf("|%f|\n|%lf|\n|%Lf|\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242l);
+	// ft_printf("|%f|\n|%lf|\n|%Lf|\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242l);
+	// printf("\n------------------------------\n");
+	// printf("|%f|\n|%lf|\n|%Lf|\n", 1444565444646.6465424242242, 1444565444646.6465424242242, 1444565444646.6465424242242l);
 //	ft_printf("|%f|\n|%lf|\n|%Lf|\n", -1444565444646.6465424242242454654, -1444565444646.6465424242242454654, -1444565444646.6465424242242454654l);
 //	printf("\n------------------------------\n");
 //	printf("|%f|\n|%lf|\n|%Lf|\n", -1444565444646.6465424242242454654, -1444565444646.6465424242242454654, -1444565444646.6465424242242454654l);

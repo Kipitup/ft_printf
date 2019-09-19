@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 11:58:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 19:36:22 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 14:16:44 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int8_t			replace_func(t_vector *vector, char *str, char *replace,
 		if (tmp >= 0)
 		{
 			index = (size_t)tmp;
-			state = vct_add_str_at(vector, replace, index);
+			state = vct_addstr_at(vector, replace, index);
 			if (state == SUCCESS)
 			{
 				vct_pop_from(vector, len_str, index + len_replace);

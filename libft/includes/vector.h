@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 19:49:56 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:42:28 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,24 +72,24 @@ enum e_apply
 **********************
 */
 t_vector		*vct_new(size_t size);
-t_vector		*vct_new_str(char *str);
+t_vector		*vct_newstr(char *str);
 size_t			vct_len(t_vector *vector);
 int8_t			vct_increase_scale(t_vector *vector, size_t scale);
 void			vct_bzero(t_vector *vector);
 void			vct_del(t_vector **vector);
-char			*vct_get_str(t_vector *vector);
-char			vct_get_char_at(t_vector *vector, size_t index);
+char			*vct_getstr(t_vector *vector);
+char			vct_getchar_at(t_vector *vector, size_t index);
 
 /*
 **********************
 **  	 ADD	    **
 **********************
 */
-int8_t			vct_add_char(t_vector *vector, char c);
-int8_t			vct_add_char_at(t_vector *vector, char c, size_t index);
-void			vct_add_char_at_replace(t_vector *vector, char c, size_t index);
-int8_t			vct_push_str(t_vector *vector, char *str);
-int8_t			vct_add_str_at(t_vector *vector, char *str, size_t index);
+int8_t			vct_addchar(t_vector *vector, char c);
+int8_t			vct_addchar_at(t_vector *vector, char c, size_t index);
+void			vct_replace_char_at(t_vector *vector, char c, size_t index);
+int8_t			vct_pushstr(t_vector *vector, char *str);
+int8_t			vct_addstr_at(t_vector *vector, char *str, size_t index);
 
 /*
 **********************
@@ -108,7 +108,7 @@ t_vector		*vct_dup(t_vector *vector);
 int8_t			vct_strjoin(t_vector *vector, char *str);
 int8_t			vct_cat(t_vector *dest, t_vector *src);
 t_vector		*vct_join(t_vector *dest, t_vector *src);
-t_vector		*vct_join_free(t_vector **dest, t_vector **src,
+t_vector		*vct_joinfree(t_vector **dest, t_vector **src,
 							int first_or_second_or_both);
 /*
 **********************
