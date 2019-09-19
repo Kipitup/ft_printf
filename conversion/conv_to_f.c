@@ -6,13 +6,13 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:11:36 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 16:18:28 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/19 16:21:15 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int8_t			conv_di(t_vector *vector, t_flag *flag, t_vector *nb_ftoa)
+int8_t			conv_f(t_vector *vector, t_flag *flag, t_vector *nb_ftoa)
 {
 	int 	ret;
 
@@ -41,7 +41,7 @@ t_vector		*conv_to_f(va_list *arg_pf, t_flag *flag)
 		nb_ftoa = ft_ftoa(nbr, flag->precision, flag->option);
 	}
 	vector = vct_new(flag->width);
-	if ((conv_di(vector, flag, nb_ftoa)) == FAILURE)
+	if ((conv_f(vector, flag, nb_ftoa)) == FAILURE)
 		vct_del(&vector);
 	vct_del(&nb_ftoa);
 	return (vector);
