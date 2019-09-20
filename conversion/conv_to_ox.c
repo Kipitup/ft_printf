@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 09:53:01 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:58:18 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_vector		*conv_to_ox(va_list *arg_pf, t_flag *flag)
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	str_itoa = NULL;
-	cancel_flag_for_numeric_conv(flag);
+	cancel_flag_for_other_conv(flag);
 	if (flag->option & FLAG_Z || flag->option & FLAG_J)
 		nbr = apply_modifier_zj(nbr, flag->option);
 	else

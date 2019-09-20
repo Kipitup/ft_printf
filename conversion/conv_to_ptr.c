@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 11:54:54 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 09:49:05 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:43:04 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_vector	*conv_to_ptr(va_list *arg_pf, t_flag *flag)
 	nb_itoa = vct_new(0);
 	address = ptr;
 	str_itoa = NULL;
+	cancel_flag_for_ptr_conv(flag);
 	address = (uint64_t*)apply_modifier_p((uint64_t)address, flag->option);
 	if ((str_itoa = ft_u_itoa_base((uint64_t)address, 16)) == NULL)
 		vct_del(&nb_itoa);

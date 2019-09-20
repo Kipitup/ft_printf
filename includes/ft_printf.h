@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 09:52:35 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 11:29:39 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,8 @@ int8_t			convert(t_state_machine *ptf, t_flag *flag, char *input,
 void			check_and_cancel_flag(t_state_machine *ptf);
 void			cancel_flag_for_numeric_conv(t_flag *flag);
 void			cancel_flag_for_other_conv(t_flag *flag);
-void			cancel_flag_for_u_conv(t_flag *flag);
+void			cancel_flag_for_ptr_conv(t_flag *flag);
+void			cancel_flag_for_none_conv(t_flag *flag);
 
 void			search_color(t_state_machine *ptf, t_vector *vector,
 							char *input, int i);

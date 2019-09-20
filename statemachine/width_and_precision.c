@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 11:05:11 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 16:00:03 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:20:12 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ uint8_t		is_width(t_state_machine *ptf, char *input, va_list *arg_pf)
 	int32_t	neg_prot;
 	size_t	nb;
 
-	neg_prot = 0;
 	nb = 0;
 	if (ft_isdigit((int)input[0]) == TRUE)
 		ptf->width = get_numbers(ptf, input, &nb);
@@ -39,7 +38,6 @@ uint8_t		is_precision(t_state_machine *ptf, char *input, va_list *arg_pf)
 	int32_t	neg_prot;
 	size_t	nb;
 
-	neg_prot = 0;
 	nb = 0;
 	if (ft_isdigit((int)input[0]) == TRUE)
 		ptf->precision = get_numbers(ptf, input, &nb);

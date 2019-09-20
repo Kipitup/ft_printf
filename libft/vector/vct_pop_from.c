@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 15:28:28 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/17 16:26:56 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:19:14 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@
 void	vct_pop_from(t_vector *vector, size_t len, size_t index)
 {
 	t_vector	*tmp;
-	size_t		i;
 
-	i = 0;
 	if (vector != NULL && vector->str != NULL)
 	{
 		if (index > vector->len)

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 08:56:21 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:27:48 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,24 @@ int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_ito)
 	t_vector	*sign;
 	int8_t		ret;
 
-	ret = SUCCESS;
 	sign = handle_sign(nb_ito, flag);
-	if (sign == NULL)
-		ret = FAILURE;
+	ret = sign == NULL ? FAILURE : SUCCESS;
 	if (ret == SUCCESS)
 		ret = vct_cat(vector, nb_ito);
 	if (ret == SUCCESS)
 		ret = apply_precision(vector, flag);
 	if (ret == SUCCESS)
 		ret = apply_hash(vector, flag);
-	if (vct_len(sign) > 0 && ((flag->option & FLAG_ZERO) == FALSE))
-		vct_addchar_at(vector, sign->str[0], START);
+	if (sign != NULL && vct_len(sign) > 0
+			&& ((flag->option & FLAG_ZERO) == FALSE))
+		ret = vct_addchar_at(vector, vct_getchar_at(sign, START), START);
 	if (ret == SUCCESS)
 		ret = apply_width(vector, flag);
-	if (vct_len(sign) > 0 && flag->option & FLAG_ZERO)
+	if (sign != NULL && vct_len(sign) > 0 && flag->option & FLAG_ZERO)
 	{
-		if (vector->str[0] == '0')
+		if (vct_getchar_at(vector, START) == '0')
 			vct_pop_from(vector, 1, 0);
-		ret = vct_addchar_at(vector, sign->str[0], START);
+		ret = vct_addchar_at(vector, vct_getchar_at(sign, START), START);
 	}
 	vct_del(&sign);
 	return (ret);
@@ -71,7 +70,6 @@ int8_t		apply_precision(t_vector *vector, t_flag *flag)
 	}
 	else if ((flag->option & CONV_C) == FALSE)
 	{
-		len = 0;
 		if (flag->precision >= vct_len(vector))
 		{
 			len = flag->precision - vct_len(vector);

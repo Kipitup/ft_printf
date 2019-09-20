@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 17:38:25 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 11:15:59 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 11:49:08 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,16 @@ void	apply_hash_flag_zero(t_vector *vector, t_flag *flag)
 {
 	if (flag->option & FLAG_HASH)
 	{
-		vct_pop_from(vector, 2, START);
-		vct_pushstr(vector, "0x");
-		if (flag->option & CONV_X_MAJ)
-			ft_strupcase(vector->str);
+		if ((flag->option & CONV_X || flag->option & CONV_X_MAJ)
+				&& (flag->option & FLAG_ZERO) == 0
+				&& (vct_getchar_at(vector, vct_len(vector) - 1) != '0')
+				&& (vct_apply(vector, IS_BLANK) == FALSE))
+		{
+			vct_pop_from(vector, 2, START);
+			vct_pushstr(vector, "0x");
+			if (flag->option & CONV_X_MAJ)
+				ft_strupcase(vector->str);
+		}
 	}
 }
 
