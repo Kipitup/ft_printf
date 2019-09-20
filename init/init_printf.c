@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 16:29:13 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 01:25:25 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/20 10:35:51 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int8_t		init_state_machine(t_state_machine *ptf, int fd)
 void		init_flags(t_state_machine *ptf, t_flag *flag)
 {
 	ft_bzero(flag, sizeof(t_flag));
-	flag->width = 		ptf->width;
-	flag->precision = 	ptf->precision;
-	flag->option =		ptf->option;
+	flag->width = ptf->width;
+	flag->precision = ptf->precision;
+	flag->option = ptf->option;
 }
 
 t_vector	*init_colors(void)

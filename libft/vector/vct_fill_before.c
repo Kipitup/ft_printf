@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 09:29:07 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/18 19:40:34 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:15:48 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 **	than the string SIZE, an equivalent reallocation occurs.
 */
 
-
-int8_t		vct_fill_before(t_vector *vector, char c, size_t size)
+int8_t	vct_fill_before(t_vector *vector, char c, size_t size)
 {
 	size_t	start;
 	int8_t	ret;

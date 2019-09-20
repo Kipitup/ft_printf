@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 17:17:56 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 19:54:41 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:21:13 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int8_t	vct_strjoin(t_vector *vector, char *str)
 {
-	size_t len;
+	size_t	len;
 	int8_t	ret;
 
 	ret = FAILURE;

@@ -6,12 +6,11 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 10:24:25 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/05 17:54:55 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:57:57 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_u_itoa(uint64_t value)
 {

@@ -6,14 +6,13 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/16 08:41:14 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:45:01 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
-# include <stdio.h> //warning
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
@@ -29,14 +28,19 @@
 # define ON					1
 # define OFF				0
 # define START				0
+# define STD_OUT			1
 
 # define NB_OF_FLAGS		13
-# define NB_OF_CONVS		10
+# define NB_OF_CONVS		12
 # define NB_OF_MODIFIER		5
 
 # define SHIFT_TO_CONVS		16
 
 # define CONVERSION_SIGN	'%'
+# define WILDCARD_SIGN		'*'
+# define OPEN_BRACKET		'{'
+# define CLOSE_BRACKET		'}'
+# define NB_OF_BRACKET		2
 
 # define HH 				"hh"
 # define LL 				"ll"
@@ -61,6 +65,8 @@
 # define F					"f"
 # define J					"j"
 # define Z					"z"
+# define R					"r"
+# define B					"b"
 
 # define FLAG_HH			0x00000001
 # define FLAG_LL			0x00000002
@@ -75,7 +81,6 @@
 # define FLAG_POINT			0x00000400
 # define FLAG_J				0x00000800
 # define FLAG_Z				0x00001000
-//add wild_card
 
 # define ALL_MOD			0x0000001f
 
@@ -89,7 +94,9 @@
 # define CONV_X				0x00800000
 # define CONV_X_MAJ			0x01000000
 # define CONV_F				0x02000000
-# define CONV_NONE			0x04000000
+# define CONV_R				0x04000000
+# define CONV_B				0x08000000
+# define CONV_NONE			0x10000000
 
 # define C_RED   			\033[31m
 # define C_GREEN			\033[32m
