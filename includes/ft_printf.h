@@ -6,14 +6,15 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 09:52:35 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 11:13:56 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINT_H
-# define FT_PRINT_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "define.h"
+# include "vector.h"
 
 enum	e_main_states
 {
@@ -52,13 +53,14 @@ typedef t_vector	*(*t_convfunc)(va_list *arg_pf, t_flag *flag);
 **     FT_PRINTF    **
 **********************
 */
-int				ft_printf(const char *input, ...);// __attribute__
-//					((format(printf, 1, 2)));
-int				ft_dprintf(int fd, const char *input, ...);// __attribute__
-//					((format(dprintf, 1, 2, 3)));
-int				ft_asprintf(char **str, const char *input, ...);// __attribute__
-//					((format(dprintf, 1, 2, 3)));
+int				ft_printf(const char *input, ...);
 
+/*
+** __attribute__((format(printf, 1, 2)));
+*/
+
+int				ft_dprintf(int fd, const char *input, ...);
+int				ft_asprintf(char **str, const char *input, ...);
 
 /*
 **********************
@@ -78,13 +80,12 @@ uint8_t			is_precision(t_state_machine *ptf, char *input,
 								va_list *arg_pf);
 uint64_t		get_numbers(t_state_machine *ptf, char *input, size_t *count);
 
-
 /*
 **********************
 **  	 INIT	    **
 **********************
 */
-int8_t 			init_state_machine(t_state_machine *ptf, int fd);
+int8_t			init_state_machine(t_state_machine *ptf, int fd);
 void			init_flags(t_state_machine *ptf, t_flag *flags);
 t_vector		*init_colors(void);
 
@@ -104,7 +105,6 @@ t_vector		*conv_to_f(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_b(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_none(char input, t_flag *flag);
 
-
 int64_t			apply_modifier_di(int64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_oxx_maj(int64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_u(uint64_t nbr_conv, uint32_t flag);
@@ -112,18 +112,17 @@ uint64_t		apply_modifier_s(uint64_t str, uint64_t flag);
 uint64_t		apply_modifier_p(uint64_t str, uint64_t flag);
 int64_t			apply_modifier_zj(int64_t nbr_conv, uint32_t flag);
 long double		apply_modifier_f(long double nbr, int32_t flag);
-int8_t 			apply_precision(t_vector *vector, t_flag *flag);
-int8_t 			apply_width(t_vector *vector, t_flag *flag);
+int8_t			apply_precision(t_vector *vector, t_flag *flag);
+int8_t			apply_width(t_vector *vector, t_flag *flag);
 int8_t			apply_padding_flag(t_vector *vector, t_flag *flag,
-									t_vector *nb_itoa);
+		t_vector *nb_itoa);
 t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
-int8_t          apply_hash(t_vector *vector, t_flag *flag);
+int8_t			apply_hash(t_vector *vector, t_flag *flag);
 void			apply_hash_flag_zero(t_vector *vector, t_flag *flag);
 void			apply_hash_special_case(t_vector *vector, t_flag *flag);
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag,
 										uint8_t base, int64_t nbr);
-
 
 int8_t			convert(t_state_machine *ptf, t_flag *flag, char *input,
 							va_list *arg_pf);

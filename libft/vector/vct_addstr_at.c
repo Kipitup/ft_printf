@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:09:14 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 09:06:51 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:31:29 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int8_t			vct_addstr_at(t_vector *vector, char *str, size_t index)
 			ret = vct_increase_scale(vector, len);
 		if (ret == SUCCESS)
 		{
-			ft_memmove(vector->str + index  + len, vector->str + index,
+			ft_memmove(vector->str + index + len, vector->str + index,
 				vector->len - index);
 			ft_memcpy(vector->str + index, str, len);
 			vector->len += len;

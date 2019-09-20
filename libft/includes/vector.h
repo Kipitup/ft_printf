@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 15:25:09 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 11:42:28 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 11:07:54 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "libft.h"
 
-# define FALSE					0
-# define TRUE					1
-# define FAILURE				-1
-# define SUCCESS				0
 # define ON						1
 # define OFF					0
 
@@ -32,17 +29,19 @@
 # define NB_OF_TEST_FUNC		3
 # define NB_TOTAL_OF_FUNC		NB_OF_APPLY_FUNC + NB_OF_TEST_FUNC
 
-/* *****************************************************************************
-	size  is the total lenght of str (including the '\0')
-	len	  is the number of characters of the string
-	scale is the number by which the string will be increase for each memory
-	      allocation
+/*
+*****************************************************************************
+**	size  is the total lenght of str (including the '\0')
+**	len	  is the number of characters of the string
+**	scale is the number by which the string will be increase for each memory
+**	      allocation
+**
+**	WARNING : 	you should NEVER dereference a vector directly. Use the
+**				appropriate function or create it.
+*****************************************************************************
+*/
 
-	WARNING : 	you should NEVER dereference a vector directly. Use the
-				appropriate function or create it.
-***************************************************************************** */
-
-typedef struct 	s_vector
+typedef struct	s_vector
 {
 	char		*str;
 	size_t		size;
@@ -50,12 +49,10 @@ typedef struct 	s_vector
 	size_t		scale;
 }				t_vector;
 
-# include "libft.h"
-
 typedef int		(*t_int_func)(char *);
-typedef char 	*(*t_char_ptr_func)(char *);
+typedef char	*(*t_char_ptr_func)(char *);
 
-enum e_apply
+enum	e_apply
 {
 	UPCASE,
 	LOWCASE,
@@ -126,7 +123,6 @@ int8_t			vct_fill_before(t_vector *vector, char c, size_t nbr);
 ssize_t			vct_chr(t_vector *vector, char c);
 ssize_t			vct_chr_str(t_vector *vector, char *find);
 int8_t			vct_replace_char(t_vector *vector, char c, char replace);
-int8_t			vct_replace_str(t_vector *vector, char *str, char* replace);
 
 /*
 **********************
@@ -135,11 +131,21 @@ int8_t			vct_replace_str(t_vector *vector, char *str, char* replace);
 */
 int				vct_apply(t_vector *vector, enum e_apply type);
 
+/*
+**********************
+**  	CONV	    **
+**********************
+*/
+t_vector		*ft_ftoa(double value, uint64_t precision, uint32_t option);
+t_vector		*ft_fldtoa(long double val, uint64_t preci, uint32_t opt);
 
-// vct_print
-// vct_ndup
-// vct_trim
-// vct_split
-// vct_splitchr
-// vct_read_line
+/*
+** vct_print
+** vct_ndup
+** vct_trim
+** vct_split
+** vct_splitchr
+** vct_read_line
+*/
+
 #endif

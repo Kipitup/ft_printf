@@ -6,13 +6,13 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:42:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 10:01:25 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 11:07:25 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "vector.h"
 #include "libft.h"
 #include "define.h"
-#include <stdio.h>
 
 int8_t		round_up(t_vector *vector, uint64_t accuracy)
 {

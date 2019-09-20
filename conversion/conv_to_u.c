@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:47:42 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 08:56:43 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 11:20:55 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ t_vector		*conv_to_u(va_list *arg_pf, t_flag *flag)
 	nb_itoa = vct_new(0);
 	str_itoa = NULL;
 	cancel_flag_for_u_conv(flag);
-	nbr = apply_modifier_u(nbr, flag->option);
 	if (flag->option & FLAG_Z || flag->option & FLAG_J)
 		nbr = apply_modifier_zj(nbr, flag->option);
+	else
+		nbr = apply_modifier_u(nbr, flag->option);
 	if ((str_itoa = ft_u_itoa_base(nbr, 10)) == NULL)
 		vct_del(&nb_itoa);
 	if (nb_itoa != NULL)

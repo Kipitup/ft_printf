@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/19 15:59:14 by fkante           ###   ########.fr        #
+#    Updated: 2019/09/20 10:47:41 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,7 +129,6 @@ SRCS += vct_apply.c
 SRCS += vct_replace_char_at.c
 SRCS += vct_replace_char.c
 SRCS += vct_addstr_at.c
-SRCS += vct_replace_str.c
 SRCS += vct_chr.c
 SRCS += vct_chr_str.c
 SRCS += vct_getchar_at.c
