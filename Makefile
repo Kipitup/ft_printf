@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/19 16:27:33 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/20 01:38:59 by amartinod        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -38,6 +38,7 @@ LIB_PATH = $(LIB_DIR)/$(LIB)
 PATH_SRC += statemachine/
 PATH_SRC += conversion/
 PATH_SRC += init/
+PATH_SRC += bonus/
 
 vpath %.c $(PATH_SRC)
 
@@ -48,8 +49,6 @@ vpath %.c $(PATH_SRC)
                      ####################################
 # main
 SRCS += ft_printf
-SRCS += ft_dprintf
-SRCS += ft_asprintf
 
 # initialize
 SRCS += init_printf
@@ -77,6 +76,11 @@ SRCS += apply_modifier
 SRCS += apply_modifier_zj
 SRCS += apply_padding_flag
 SRCS += apply_hash_flag
+
+#bonus
+SRCS += search_color
+SRCS += ft_dprintf
+SRCS += ft_asprintf
 
                      ####################################
                      #                   				#

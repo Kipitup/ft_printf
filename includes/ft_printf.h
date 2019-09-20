@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 16:28:12 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 02:40:51 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ enum	e_main_states
 	ST_FLAGS,
 	ST_CONVERSION,
 	ST_BUFFER,
+	ST_COLOR,
 	ST_ERROR,
 	ST_END
 };
@@ -69,6 +70,7 @@ int8_t			string(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			conversion(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			flags(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			buffer(t_state_machine *mahcine, char *input, va_list *arg_pf);
+int8_t			color(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			error(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			end(t_state_machine *ptf, char *input, va_list *arg_pf);
 uint8_t			is_width(t_state_machine *ptf, char *input, va_list *arg_pf);
@@ -84,6 +86,7 @@ uint64_t		get_numbers(t_state_machine *ptf, char *input, size_t *count);
 */
 int8_t 			init_state_machine(t_state_machine *ptf, int fd);
 void			init_flags(t_state_machine *ptf, t_flag *flags);
+t_vector		*init_colors(void);
 
 /*
 **********************
@@ -127,6 +130,9 @@ void			check_and_cancel_flag(t_state_machine *ptf);
 void			cancel_flag_for_numeric_conv(t_flag *flag);
 void			cancel_flag_for_other_conv(t_flag *flag);
 void			cancel_flag_for_u_conv(t_flag *flag);
+
+void			search_color(t_state_machine *ptf, t_vector *vector,
+							char *input, int i);
 
 enum	e_type_flag
 {

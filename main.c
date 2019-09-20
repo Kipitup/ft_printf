@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 16:30:49 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 02:24:12 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,20 @@ int		main(int ac, char **av)
 
 	char *exemple;
 	char *monexemple;
-
+	// t_vector *vector;
+	//
+	// vector = vct_newstr(" saltu sdkcfls dl dl dskjd \033[0m \
+	// 					kdf kdf");
 
 	// ft_dprintf(1, "salut \n");
 	// dprintf(1, "salut \n");
 
-	asprintf(&exemple, "salut mon gars\n");
-	ft_asprintf(&monexemple, "salut mon gars\n");
+	// asprintf(&exemple, "salut mon gars\n");
+	// ft_asprintf(&monexemple, "salut mon gars\n");
 
-	printf("du coup : %s\n", exemple);
-	printf("du coup : %s\n", monexemple);
+	// printf("|%s|\033[0m\n", vector->str);
+	// ft_printf("|{{c_cyan}salut|%r|{c_eoc}} fin\n", "bon\10");
+	ft_printf("|%r eu\n", "bon\10");
 
 
 

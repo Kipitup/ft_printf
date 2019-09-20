@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 16:00:22 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 01:47:25 by amartinod        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int8_t		string(t_state_machine *ptf, char *input, va_list *arg_pf)
 	(void)arg_pf;
 	if (*input == CONVERSION_SIGN)
 		ptf->state = ST_FLAGS;
+	else if (*input == OPEN_BRACKET)
+	{
+		ptf->state = ST_COLOR;
+		return (0);
+	}
 	else if (*input == '\0')
 	{
 		ptf->state = ST_BUFFER;
@@ -58,7 +63,7 @@ int8_t		flags(t_state_machine *ptf, char *input, va_list *arg_pf)
 int8_t		conversion(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	(void)arg_pf;
-	static char *convs[NB_OF_CONVS] = {C, S, P, D, I, O, U, X, X_MAJ, F};
+	static char *convs[NB_OF_CONVS] = {C, S, P, D, I, O, U, X, X_MAJ, F, R};
 	uint8_t		i;
 
 	i = 0;
@@ -93,4 +98,32 @@ int8_t		buffer(t_state_machine *ptf, char *input, va_list *arg_pf)
 	ptf->width = 0;
 	ptf->precision = 0;
 	return (1);
+}
+
+int8_t		color(t_state_machine *ptf, char *input, va_list *arg_pf)
+{
+	t_vector	*vector;
+	int8_t		i;
+
+	i = 0;
+	input++;
+	(void)arg_pf;
+	if ((vector = init_colors()) == NULL)
+	{
+		ptf->state = ST_ERROR;
+		return (0);
+	}
+	if (input[i] != 'c' || input[i + 1] != '_')
+	{
+		if (vct_addchar(ptf->output, OPEN_BRACKET) == FAILURE)
+			ptf->state = ST_ERROR;
+		ptf->state = ST_STRING;
+		return (1);
+	}
+	while (input[i] != CLOSE_BRACKET)
+		i++;
+	search_color(ptf, vector, input, i);
+	vct_del(&vector);
+	ptf->state = ST_STRING;
+	return (i + NB_OF_BRACKET);
 }
