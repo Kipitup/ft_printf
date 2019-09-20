@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vct_add_str_at.c                                   :+:      :+:    :+:   */
+/*   vct_addstr_at.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:09:14 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/18 19:32:34 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:06:51 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 **	than the string SIZE, an equivalent reallocation occurs.
 */
 
-int8_t			vct_add_str_at(t_vector *vector, char *str, size_t index)
+int8_t			vct_addstr_at(t_vector *vector, char *str, size_t index)
 {
 	size_t	len;
 	int8_t	ret;
