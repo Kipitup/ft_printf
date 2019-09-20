@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/20 01:38:59 by amartinod        ###   ########.fr        #
+#    Updated: 2019/09/20 09:33:29 by fkante           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -69,6 +69,7 @@ SRCS += conv_to_ox
 SRCS += conv_to_u
 SRCS += conv_to_hexa_maj
 SRCS += conv_to_f
+SRCS += conv_to_b
 SRCS += conv_to_none
 
 # Modifier

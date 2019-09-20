@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:42:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 17:00:03 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:01:25 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int8_t		round_up(t_vector *vector, uint64_t accuracy)
 {
-	char 		c;
+	char	c;
 
 	c = vct_getchar_at(vector, accuracy);
 	if (c >= '0' && c <= '9')
@@ -36,7 +36,7 @@ int8_t		round_up(t_vector *vector, uint64_t accuracy)
 
 int8_t		check_for_rounding_up(t_vector *vector, double value, int64_t cast)
 {
-	uint64_t 	accuracy;
+	uint64_t	accuracy;
 	int64_t		tmp;
 
 	value *= 10;
@@ -84,8 +84,6 @@ t_vector	*ft_ftoa(double value, uint64_t precision, uint32_t option)
 	int64_t		cast;
 	uint64_t	accuracy;
 
-	if (value < (double)LLONG_MIN || value > (double)LLONG_MAX)
-		return (NULL);
 	vector = vct_new(0);
 	if (vector != NULL)
 	{

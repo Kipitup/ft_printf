@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:11:36 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 16:37:23 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:01:22 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int8_t			conv_f(t_vector *vector, t_flag *flag, t_vector *nb_ftoa)
 {
-	int 	ret;
+	int	ret;
 
 	ret = FAILURE;
 	if (vector != NULL && nb_ftoa != NULL)
@@ -33,11 +33,15 @@ t_vector		*conv_to_f(va_list *arg_pf, t_flag *flag)
 	if (flag->option & FLAG_L_MAJ)
 	{
 		ldb = va_arg(*arg_pf, long double);
+		if (ldb < (long double)LLONG_MIN || ldb > (long double)LLONG_MAX)
+			return (NULL);
 		nb_ftoa = ft_fldtoa(ldb, flag->precision, flag->option);
 	}
 	else
 	{
 		nbr = va_arg(*arg_pf, double);
+		if (nbr < (double)LLONG_MIN || nbr > (double)LLONG_MAX)
+			return (NULL);
 		nb_ftoa = ft_ftoa(nbr, flag->precision, flag->option);
 	}
 	vector = vct_new(flag->width);

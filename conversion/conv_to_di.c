@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 18:51:01 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 11:14:04 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 08:52:51 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int8_t			conv_di(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
-	int 	ret;
+	int	ret;
 
 	ret = FAILURE;
 	if (vector != NULL && nb_itoa != NULL)

@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 17:33:08 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/17 15:53:16 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 09:51:51 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int64_t		apply_modifier_di(int64_t nbr_conv, uint32_t flag)
 	return (nbr_conv);
 }
 
-uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag)
+uint64_t	apply_modifier_oxx_maj(int64_t nbr_conv, uint32_t flag)
 {
 	if (flag & FLAG_HH)
 		nbr_conv = (uint8_t)nbr_conv;
@@ -37,7 +37,7 @@ uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag)
 		nbr_conv = (uint64_t)nbr_conv;
 	else if (flag & FLAG_LL)
 		nbr_conv = (uint64_t)nbr_conv;
-	else 
+	else
 		nbr_conv = (uint32_t)nbr_conv;
 	return (nbr_conv);
 }
@@ -59,7 +59,7 @@ uint64_t	apply_modifier_u(uint64_t nbr_conv, uint32_t flag)
 
 uint64_t	apply_modifier_p(uint64_t address, uint64_t flag)
 {
-	 if (flag & FLAG_HH)
+	if (flag & FLAG_HH)
 		address = (uint64_t)address;
 	else if (flag & FLAG_H)
 		address = (uint64_t)address;

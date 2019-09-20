@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/02 11:54:54 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 15:37:42 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:49:05 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int8_t		apply_prefix(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
-	int 	ret;
+	int	ret;
 
 	ret = FAILURE;
 	if (vector != NULL && nb_itoa != NULL)

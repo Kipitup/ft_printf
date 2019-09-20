@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 02:40:51 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/20 09:52:35 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,12 @@ t_vector		*conv_to_di(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_u(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_hexa_maj(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_f(va_list *arg_pf, t_flag *flag);
+t_vector		*conv_to_b(va_list *arg_pf, t_flag *flag);
 t_vector		*conv_to_none(char input, t_flag *flag);
 
 
 int64_t			apply_modifier_di(int64_t nbr_conv, uint32_t flag);
-uint64_t		apply_modifier_oxX(int64_t nbr_conv, uint32_t flag);
+uint64_t		apply_modifier_oxx_maj(int64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_u(uint64_t nbr_conv, uint32_t flag);
 uint64_t		apply_modifier_s(uint64_t str, uint64_t flag);
 uint64_t		apply_modifier_p(uint64_t str, uint64_t flag);

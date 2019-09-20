@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 16:22:12 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 16:32:38 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:56:25 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				ft_asprintf(char **str, const char *input, ...)
 	va_list				arg_pf;
 	ssize_t				ret;
 
-	ret = init_state_machine(&ptf, STD_OUT); //change parser,should not write output
+	ret = init_state_machine(&ptf, 0);
 	if (ret == SUCCESS)
 	{
 		va_start(arg_pf, input);

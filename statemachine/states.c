@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 18:27:50 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 01:47:25 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/20 09:42:05 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int8_t		flags(t_state_machine *ptf, char *input, va_list *arg_pf)
 int8_t		conversion(t_state_machine *ptf, char *input, va_list *arg_pf)
 {
 	(void)arg_pf;
-	static char *convs[NB_OF_CONVS] = {C, S, P, D, I, O, U, X, X_MAJ, F, R};
+	static char *convs[NB_OF_CONVS] = {C, S, P, D, I, O, U, X, X_MAJ, F, R, B};
 	uint8_t		i;
 
 	i = 0;

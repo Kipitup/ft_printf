@@ -1,49 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_to_u.c                                        :+:      :+:    :+:   */
+/*   conv_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 09:47:42 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 08:56:43 by fkante           ###   ########.fr       */
+/*   Created: 2019/09/20 09:26:27 by fkante            #+#    #+#             */
+/*   Updated: 2019/09/20 09:48:19 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int8_t			conv_u(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
+int8_t			conv_b(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
 	int	ret;
 
 	ret = FAILURE;
 	if (vector != NULL && nb_itoa != NULL)
 		ret = apply_padding_flag(vector, flag, nb_itoa);
-	return (ret == FAILURE ? FAILURE : SUCCESS);
+	return (ret);
 }
 
-t_vector		*conv_to_u(va_list *arg_pf, t_flag *flag)
+t_vector		*conv_to_b(va_list *arg_pf, t_flag *flag)
 {
 	t_vector	*vector;
 	t_vector	*nb_itoa;
 	char		*str_itoa;
 	uint64_t	nbr;
+	size_t		base;
 
-	nbr = (uint64_t)va_arg(*arg_pf, uint64_t);
+	base = va_arg(*arg_pf, int);
+	if (base == 1)
+		return (NULL);
+	nbr = va_arg(*arg_pf, uint64_t);
 	vector = vct_new(flag->width);
 	nb_itoa = vct_new(0);
 	str_itoa = NULL;
-	cancel_flag_for_u_conv(flag);
-	nbr = apply_modifier_u(nbr, flag->option);
-	if (flag->option & FLAG_Z || flag->option & FLAG_J)
-		nbr = apply_modifier_zj(nbr, flag->option);
-	if ((str_itoa = ft_u_itoa_base(nbr, 10)) == NULL)
+	cancel_flag_for_numeric_conv(flag);
+	if ((str_itoa = ft_ox_itoa_base(nbr, base, flag->option)) == NULL)
 		vct_del(&nb_itoa);
 	if (nb_itoa != NULL)
 		if ((vct_strjoin(nb_itoa, str_itoa)) == FAILURE)
 			vct_del(&nb_itoa);
 	ft_strdel(&str_itoa);
-	if ((conv_u(vector, flag, nb_itoa)) == FAILURE)
+	if ((conv_b(vector, flag, nb_itoa)) == FAILURE)
 		vct_del(&vector);
 	vct_del(&nb_itoa);
 	return (vector);

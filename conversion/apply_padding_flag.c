@@ -6,23 +6,23 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 17:05:02 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/19 11:16:07 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 08:56:21 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
+int8_t		apply_padding_flag(t_vector *vector, t_flag *flag, t_vector *nb_ito)
 {
 	t_vector	*sign;
 	int8_t		ret;
 
 	ret = SUCCESS;
-	sign = handle_sign(nb_itoa, flag);
+	sign = handle_sign(nb_ito, flag);
 	if (sign == NULL)
 		ret = FAILURE;
 	if (ret == SUCCESS)
-		ret = vct_cat(vector, nb_itoa);
+		ret = vct_cat(vector, nb_ito);
 	if (ret == SUCCESS)
 		ret = apply_precision(vector, flag);
 	if (ret == SUCCESS)
@@ -58,7 +58,7 @@ t_vector	*handle_sign(t_vector *nb_itoa, t_flag *flag)
 	return (sign);
 }
 
-int8_t 		apply_precision(t_vector *vector, t_flag *flag)
+int8_t		apply_precision(t_vector *vector, t_flag *flag)
 {
 	uint64_t	len;
 	int8_t		ret;
@@ -84,7 +84,7 @@ int8_t 		apply_precision(t_vector *vector, t_flag *flag)
 	return (ret);
 }
 
-int8_t 		apply_width(t_vector *vector, t_flag *flag)
+int8_t		apply_width(t_vector *vector, t_flag *flag)
 {
 	uint64_t	len;
 	int8_t		ret;

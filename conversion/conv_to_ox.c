@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/05 09:39:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/19 11:14:53 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:53:01 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int8_t			conv_ox(t_vector *vector, t_flag *flag, t_vector *nb_itoa)
 {
-	int 	ret;
+	int	ret;
 
 	ret = FAILURE;
 	if (vector != NULL && nb_itoa != NULL)
@@ -37,7 +37,7 @@ t_vector		*conv_to_ox(va_list *arg_pf, t_flag *flag)
 	if (flag->option & FLAG_Z || flag->option & FLAG_J)
 		nbr = apply_modifier_zj(nbr, flag->option);
 	else
-		nbr = apply_modifier_oxX(nbr, flag->option);
+		nbr = apply_modifier_oxx_maj(nbr, flag->option);
 	if ((str_itoa = ft_ox_itoa_base(nbr, (flag->option & CONV_O ? 8 : 16),
 			flag->option)) == NULL)
 		vct_del(&nb_itoa);

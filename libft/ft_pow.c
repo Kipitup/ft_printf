@@ -6,16 +6,16 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 11:37:04 by amartino          #+#    #+#             */
-/*   Updated: 2019/08/31 21:43:03 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 10:06:45 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double ft_pow(double x, double y)
+double	ft_pow(double x, double y)
 {
 	double	i;
-	double 	tmp;
+	double	tmp;
 	int8_t	neg;
 
 	i = 1;
@@ -31,5 +31,7 @@ double ft_pow(double x, double y)
 		x *= tmp;
 		i++;
 	}
-	return (neg == 0 ? x : x == 1 ? 1/x : 1);
+	if (neg == 0)
+		return (x);
+	return (x == 1 ? 1 / x : 1);
 }
