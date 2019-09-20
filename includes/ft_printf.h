@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 11:50:44 by amartino         ###   ########.fr       */
+/*   Updated: 2019/09/20 12:17:50 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ int				ft_asprintf(char **str, const char *input, ...);
 **********************
 */
 ssize_t			parser(t_state_machine *ptf, char *input, va_list *arg_pf);
+ssize_t			parser_aspf(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			string(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			conversion(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			flags(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			buffer(t_state_machine *mahcine, char *input, va_list *arg_pf);
+int8_t			buffer_as_pf(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			color(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			error(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			end(t_state_machine *ptf, char *input, va_list *arg_pf);

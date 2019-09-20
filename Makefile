@@ -6,7 +6,7 @@
 #    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/09/20 09:33:29 by fkante           ###   ########.fr        #
+#    Updated: 2019/09/20 12:19:16 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
                      ####################################
@@ -55,6 +55,7 @@ SRCS += init_printf
 
 # State Machine
 SRCS += statemachine
+SRCS += statemachine_asprintf
 SRCS += states
 SRCS += width_and_precision
 
