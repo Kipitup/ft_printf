@@ -6,43 +6,39 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/31 20:31:42 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 02:51:34 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/20 10:03:43 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-// int8_t		conv_to_r(t_vector *vector)
-// {
-// 	char		*str;
-// 	size_t		index;
-// 	size_t		len;
-// 	int8_t		ret;
-// 	int			nb;
-//
-// 	index = 0;
-// 	len = vct_len(vector);
-// 	ret = SUCCESS;
-// 	while (index < len)
-// 	{
-// 		if ((ft_isprint(vct_getchar_at(vector, index))) == FALSE)
-// 		{
-// 			ret = vct_addchar_at(vector, '\\', index);
-// 			index++;
-// 			nb = (int)vct_getchar_at(vector, index);
-// 			printf("%d\n", nb);
-// 			str = ft_itoa(nb);
-// 			printf("str : %s\n", str);
-// 			ret = vct_addstr_at(vector, str, index);
-// 			printf("str : %s\n", vector->str);
-// 			if (ret == FAILURE)
-// 				break ;
-// 			index++;
-// 		}
-// 		index++;
-// 	}
-// 	return (ret);
-// }
+int8_t		conv_to_r(t_vector *vector, size_t index)
+{
+	char		*str;
+	int8_t		ret;
+	int			nb;
+
+	ret = SUCCESS;
+	while (index < vct_len(vector))
+	{
+		if ((ft_isprint(vct_getchar_at(vector, index))) == FALSE)
+		{
+			nb = (int)vct_getchar_at(vector, index);
+			str = ft_itoa_base(nb, 8);
+			ret = vct_addchar_at(vector, '\\', index);
+			if (ret == FAILURE)
+				break ;
+			vct_pop_from(vector, 1, index + 1);
+			ret = vct_addstr_at(vector, str, index + 1);
+			ft_strdel(&str);
+			if (ret == FAILURE)
+				break ;
+			index += ft_int64_t_len(nb, 8) + 1;
+		}
+		index++;
+	}
+	return (ret);
+}
 
 t_vector	*conv_to_str(va_list *arg_pf, t_flag *flag)
 {
@@ -59,20 +55,14 @@ t_vector	*conv_to_str(va_list *arg_pf, t_flag *flag)
 	else
 	{
 		to_be_joined = vct_newstr(str);
-		// if (flag->option & CONV_R)
-		// {
-		// 	if ((conv_to_r(to_be_joined)) == FAILURE)
-		// 		vct_del(&to_be_joined);
-		// }
+		if (flag->option & CONV_R)
+			if ((conv_to_r(to_be_joined, 0)) == FAILURE)
+				vct_del(&to_be_joined);
 	}
-	if (to_be_joined != NULL)
-	{
-		if ((apply_padding_flag(vector, flag, to_be_joined)) == FAILURE)
-			vct_del(&vector);
-	}
-	else
+	if (to_be_joined == NULL)
+		vct_del(&vector);
+	else if ((apply_padding_flag(vector, flag, to_be_joined)) == FAILURE)
 		vct_del(&vector);
 	vct_del(&to_be_joined);
-	printf("be join : %s\nlen: %zu\n", vector->str, vector->len);
 	return (vector);
 }

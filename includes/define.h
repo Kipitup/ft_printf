@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 02:13:52 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/20 09:21:01 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define STD_OUT			1
 
 # define NB_OF_FLAGS		13
-# define NB_OF_CONVS		11
+# define NB_OF_CONVS		12
 # define NB_OF_MODIFIER		5
 
 # define SHIFT_TO_CONVS		16
@@ -68,6 +68,7 @@
 # define J					"j"
 # define Z					"z"
 # define R					"r"
+# define B					"b"
 
 # define FLAG_HH			0x00000001
 # define FLAG_LL			0x00000002
@@ -96,8 +97,8 @@
 # define CONV_X_MAJ			0x01000000
 # define CONV_F				0x02000000
 # define CONV_R				0x04000000
-# define CONV_NONE			0x08000000
-// # define CONV_B				0x10000000
+# define CONV_B				0x08000000
+# define CONV_NONE			0x10000000
 
 # define C_RED   			\033[31m
 # define C_GREEN			\033[32m

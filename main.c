@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/28 15:19:55 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 02:24:12 by amartinod        ###   ########.fr       */
+/*   Updated: 2019/09/20 09:42:33 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int		main(int ac, char **av)
 
 	// printf("|%s|\033[0m\n", vector->str);
 	// ft_printf("|{{c_cyan}salut|%r|{c_eoc}} fin\n", "bon\10");
-	ft_printf("|%r eu\n", "bon\10");
+	ft_printf("|%r| eu\n", "bon\12s\10a");
+	// printf("|%s eu\n", "bon\10");
 
 
 
