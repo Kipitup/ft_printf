@@ -3,101 +3,164 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amartino <a.martino@sutdent.42.fr>         +#+  +:+       +#+         #
+#    By: amartino <amartino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/26 11:56:39 by amartino          #+#    #+#              #
-#    Updated: 2019/08/26 11:56:42 by amartino         ###   ########.fr        #
+#    Updated: 2019/09/20 12:19:16 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = ft_printf
-
-LIB_DIR = libft
-
+                     ####################################
+                     #                   				#
+                     #       	MAIN VARIABLES 			#
+                     #                   				#
+                     ####################################
+NAME = libftprintf.a
+LIB_DIR = libft/
 LIB = libft.a
+CC = gcc
+AR = ar -rcs
+CFLAGS = -Wall -Wextra -Werror
+DFLAGS =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
+INCLUDES += -I./includes
+INCLUDES += -I./libft/includes
+HEAD += ./includes/define.h
+HEAD += ./includes/ft_printf.h
 
+                     ####################################
+                     #                   				#
+                     #       		PATHS     			#
+                     #                   				#
+                     ####################################
+# LIB
 LIB_PATH = $(LIB_DIR)/$(LIB)
 
-SRC = 
+# SRCS
+PATH_SRC += statemachine/
+PATH_SRC += conversion/
+PATH_SRC += init/
+PATH_SRC += bonus/
 
-CC = gcc
+vpath %.c $(PATH_SRC)
 
-CFLAGS = -Wall -Wextra -Werror
+                     ####################################
+                     #                   				#
+                     #       	   SOURCE      			#
+                     #                   				#
+                     ####################################
+# main
+SRCS += ft_printf
 
-FFLAG =  -Wall -Wextra -Werror -fsanitize=address,undefined -g3
+# initialize
+SRCS += init_printf
 
-DFLAGS = -Wall -Wextra -Werror -fsanitize=address,undefined -g3 -pedantic\
-		 -ansi -O2 -Wchar-subscripts -Wformat=2 -Wimplicit-int\
-		 -Werror-implicit-function-declaration -Wmain -Wparentheses\
-		 -Wsequence-point -Wreturn-type -Wswitch -Wtrigraphs -Wunused\
-		 -Wuninitialized -Wunknown-pragmas -Wfloat-equal -Wundef -Wshadow\
-		 -Wpointer-arith -Wbad-function-cast -Wwrite-strings \
-		 -Wsign-compare -Waggregate-return -Wstrict-prototypes\
-		 -Wmissing-declarations -Wmissing-noreturn\
-		 -Wformat -Wmissing-format-attribute -Wno-deprecated-declarations\
-		 -Wpacked -Wredundant-decls -Wnested-externs -Winline -Wlong-long\
-		 -Wunreachable-code
+# State Machine
+SRCS += statemachine
+SRCS += statemachine_asprintf
+SRCS += states
+SRCS += width_and_precision
 
-OBJ = $(patsubst %, %.o, $(SRC))
+# Conversion
+SRCS += convert
+SRCS += check_flag
+SRCS += conv_to_c
+SRCS += conv_to_str
+SRCS += conv_to_ptr
+SRCS += conv_to_di
+SRCS += conv_to_ox
+SRCS += conv_to_u
+SRCS += conv_to_hexa_maj
+SRCS += conv_to_f
+SRCS += conv_to_b
+SRCS += conv_to_none
 
-INCLUDES = -I.
+# Modifier
+SRCS += apply_modifier
+SRCS += apply_modifier_zj
+SRCS += apply_padding_flag
+SRCS += apply_hash_flag
 
-HEAD = ./header/*.h #to be changed
+#bonus
+SRCS += search_color
+SRCS += ft_dprintf
+SRCS += ft_asprintf
 
+                     ####################################
+                     #                   				#
+                     #       	  VARIABLES    			#
+                     #                   				#
+                     ####################################
 T ?= sample
-
 VAL ?= no
-
 REQUEST = 'read -p "Enter a commit message:" pwd; echo $$pwd'
-
 COMMIT_MESSAGE ?= $(shell bash -c $(REQUEST))
 
+                     ####################################
+                     #                   				#
+                     #              OBJS	   			#
+                     #                   				#
+                     ####################################
+BUILD_DIR = build/
+
+OBJS = $(patsubst %, $(BUILD_DIR)%.o, $(SRCS))
+ALLOBJS += $(OBJS)
+ALLOBJS += $(LIB_DIR)$(BUILD_DIR)*.o
+
+                     ####################################
+                     #                   				#
+                     #       	   RULES      			#
+                     #                   				#
+                     ####################################
 all: $(NAME)
 
-$(NAME): $(OBJ) libft
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB_PATH)
-	@echo "\n$(CYAN)MAKE COMPLETE$(END)"
+$(NAME): $(BUILD_DIR) $(OBJS) $(LIB_PATH)
+	$(AR) $@ $(ALLOBJS)
+	echo "\n$(CYAN)MAKE COMPLETE$(END)"
 
-%.o: %.c $(HEAD)
-	@$(CC) $(CFLAGS) -c $< $(INCLUDES)
-	@echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+$(BUILD_DIR):
+	mkdir $@
 
-libft: FORCE
-	@echo  "\n$(CYAN)Makefile libft$(END)\n"
-	@make -C $(LIB_DIR)
+$(OBJS): $(BUILD_DIR)%.o: %.c $(HEAD) Makefile
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	echo "$(CFLAGS) \t\t $(GREEN)$<$(END)"
+
+$(LIB_PATH): FORCE
+	make -C $(LIB_DIR)
 
 t: all $(VAL)
 	$(VALGRIND) ./ft_printf examples/$(T) #to be changed
 
 clean:
-	@rm -f $(OBJ)
-	@echo "$(YELLOW)OBJ$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
-	@$(MAKE) clean -C $(LIB_DIR)
+	rm -f $(OBJS)
+	rm -rf ./build
+	echo "$(YELLOW)OBJS$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
+	$(MAKE) clean -C $(LIB_DIR)
 
 fclean: clean
-	@rm -rf $(NAME)
-	@echo "$(YELLOW)$(NAME)$(END) \t\t were \t\t $(GREEN)clean$(END)\n"
-	@$(MAKE) fclean -C $(LIB_DIR)
+	rm -rf $(NAME)
+	echo "$(YELLOW)$(NAME)$(END) \t were \t $(GREEN)clean$(END)\n"
+	$(MAKE) fclean -C $(LIB_DIR)
 
 re: fclean all
 
-.PHONY: clean fclean all re libft t FORCE git
-
+.PHONY: clean fclean all re t FORCE git
+.SILENT: $(NAME) $(OBJS) $(BUILD_DIR) $(LIB_PATH) clean fclean re t FORCE
 FORCE:
 
-                             #####################
-                             #                   #
-                             #       IFEQ        #
-                             #                   #
-                             #####################
+
+                     ####################################
+                     #                   				#
+                     #       	  	IFEQ	   			#
+                     #                   				#
+                     ####################################
+
+# FLAGS
 ifeq ($(f), no)
 CFLAGS = -g
-else ifeq ($(f), d)
-CFLAGS = $(DFLAGS)
 else ifeq ($(f), f)
-CFLAGS = $(FFLAG)
+CFLAGS = $(DFLAGS)
 endif
 
+# VALGRIND
 $(VAL):
 ifeq ($(VAL), no)
 VALGRIND =
@@ -106,21 +169,22 @@ CFLAGS += -g
 SHOW_LEAK = --show-leak-kinds=definite
 VALGRIND = valgrind --track-origins=yes --leak-check=full $(SHOW_LEAK)
 endif
-                             #####################
-                             #                   #
-                             #        GIT        #
-                             #                   #
-                             #####################
+
+                     ####################################
+                     #                   				#
+                     #        		GIT       			#
+                     #                   				#
+                     ####################################
 git:
 	@git add -f -A
 	@git commit -m "$(COMMIT_MESSAGE)"
 	@git push
 
-                             #####################
-                             #                   #
-                             #       COLOR       #
-                             #                   #
-                             #####################
+                     ####################################
+                     #                   				#
+                     #       		COLOR     			#
+                     #                  				#
+                     ####################################
 RED = \x1b[31m
 GREEN = \x1b[32m
 YELLOW = \x1b[33m

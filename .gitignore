@@ -1,0 +1,25 @@
+# Object files
+libftprintf/build/*.o
+*.o
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Temp files
+*.sw*
+
+# Libraries
+*.lib
+*.a
+libftprintf/*.a
+
+# Executables
+*.out
+ft_printf
+
+# Debug files
+*.dSYM/*
+*.su
+*.idb
+*.pdb

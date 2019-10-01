@@ -6,70 +6,63 @@
 /*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 10:24:25 by fkante            #+#    #+#             */
-/*   Updated: 2019/04/26 15:20:58 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/20 10:57:57 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*swap(char *c)
+char	*ft_u_itoa(uint64_t value)
 {
-	int		i;
-	int		y;
-	char	t;
+	const char	*base_str;
+	char		*ptr;
+	uint64_t	nb;
+	size_t		len;
+	uint8_t		base;
 
-	i = 0;
-	y = ft_strlen(c) - 1;
-	if (c[i] == '-')
-		i++;
-	while (i < y)
+	base = 10;
+	base_str = "0123456789";
+	ptr = NULL;
+	nb = value;
+	len = ft_uint64_t_len(nb, base);
+	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
-		t = c[i];
-		c[i] = c[y];
-		c[y] = t;
-		i++;
-		y--;
+		while (nb)
+		{
+			ptr[--len] = base_str[nb % base];
+			nb = nb / base;
+		}
+		if (value == 0)
+			ptr[0] = '0';
 	}
-	return (c);
+	return (ptr);
 }
 
-static char		*fill_tmp(int i, int n, int size, char *tmp)
+char	*ft_itoa(int64_t value)
 {
-	while (i < size)
-	{
-		tmp[i++] = n % 10 + '0';
-		n = n / 10;
-	}
-	tmp[i] = '\0';
-	return (tmp);
-}
+	const char	*base_str;
+	char		*ptr;
+	uint64_t	nb;
+	size_t		len;
+	uint8_t		base;
 
-static int		tmp_size(int n, int t)
-{
-	if (n > 9)
+	base = 10;
+	base_str = "0123456789";
+	ptr = NULL;
+	nb = value;
+	len = ft_int64_t_len(nb, base);
+	nb = ft_absolute(nb);
+	if ((ptr = (char*)ft_memalloc(len + 1)) != NULL)
 	{
-		t++;
-		return (tmp_size(n / 10, t));
+		while (nb)
+		{
+			ptr[--len] = base_str[nb % base];
+			nb = nb / base;
+		}
+		if (value < 0 && base == 10)
+			ptr[0] = '-';
+		if (value == 0)
+			ptr[0] = '0';
 	}
-	return (t + 1);
-}
-
-char			*ft_itoa(int n)
-{
-	int		size;
-	char	*tmp;
-
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	size = n < 0 ? tmp_size(-n, 0) + 1 : tmp_size(n, 0);
-	if (!(tmp = (char *)malloc(size + 1)))
-		return (NULL);
-	if (n < 0)
-	{
-		*tmp = '-';
-		tmp = fill_tmp(1, -n, size, tmp);
-	}
-	else
-		tmp = fill_tmp(0, n, size, tmp);
-	return (swap(tmp));
+	return (ptr);
 }
