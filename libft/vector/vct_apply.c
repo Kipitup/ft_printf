@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 11:43:23 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 10:19:37 by fkante           ###   ########.fr       */
+/*   Updated: 2019/09/30 13:32:26 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_char_ptr_func		apply_func(enum e_apply type)
 t_int_func			test_func(enum e_apply type)
 {
 	static	t_int_func	func[] = {ft_strisupcase, ft_strislowcase,
-								ft_strisblank,
+								ft_strisblank
 								};
 
 	return (func[type]);
@@ -44,7 +44,7 @@ int					vct_apply(t_vector *vector, enum e_apply type)
 	ret = 0;
 	if (vector != NULL && vector->str != NULL)
 	{
-		if (type < 3)
+		if (type < NB_OF_APPLY_FUNC)
 			apply_func(type)(vector->str);
 		else if (type < NB_TOTAL_OF_FUNC)
 			ret = test_func(type - NB_OF_APPLY_FUNC)(vector->str);
