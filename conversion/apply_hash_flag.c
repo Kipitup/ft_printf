@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 17:38:25 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 11:54:58 by amartino         ###   ########.fr       */
+/*   Updated: 2019/10/03 13:18:41 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 int8_t	apply_hash(t_vector *vector, t_flag *flag)
 {
 	int8_t	ret;
+	size_t	len;
 
 	ret = SUCCESS;
+	len = vct_len(vector);
 	if (flag->option & FLAG_HASH)
 	{
 		if ((flag->option & CONV_X || flag->option & CONV_X_MAJ)
-				&& (flag->option & FLAG_ZERO) == 0
-				&& (vct_getchar_at(vector, vct_len(vector) - 1) != '0')
+				&& ((flag->option & FLAG_ZERO) && flag->width > len) == FALSE
+				&& (vct_apply(vector, IS_ZERO) == FALSE)
 				&& (vct_apply(vector, IS_BLANK) == FALSE))
 		{
 			ret = vct_pushstr(vector, "0x");
@@ -32,6 +34,34 @@ int8_t	apply_hash(t_vector *vector, t_flag *flag)
 		{
 			if (vct_getchar_at(vector, START) != '0')
 				ret = vct_addchar_at(vector, '0', START);
+		}
+	}
+	return (ret);
+}
+
+int8_t	apply_hash_float(t_vector *vector, t_flag *flag)
+{
+	int8_t	ret;
+	size_t	index;
+
+	ret = SUCCESS;
+	index = vct_len(vector) - 1;
+	if ((flag->option & FLAG_HASH) && (flag->option & FLAG_HASH)
+			&& flag->precision == 0)
+	{
+		if (flag->option & FLAG_MINUS)
+		{
+			while (vct_getchar_at(vector, index) == ' ')
+				index--;
+			ret = vct_addchar_at(vector, '.', index + 1);
+			if (vct_getchar_at(vector, index + 2) == ' ')
+				vct_pop_from(vector, 1, index + 2);
+		}
+		else
+		{
+			if (vct_getchar_at(vector, START) == ' ')
+				vct_pop_from(vector, 1, START);
+			ret = vct_addchar(vector, '.');
 		}
 	}
 	return (ret);

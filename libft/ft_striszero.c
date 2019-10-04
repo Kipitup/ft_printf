@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striszero.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 16:48:49 by fkante            #+#    #+#             */
-/*   Updated: 2019/10/02 15:02:48 by amartino         ###   ########.fr       */
+/*   Created: 2019/10/02 11:59:16 by amartino          #+#    #+#             */
+/*   Updated: 2019/10/02 12:05:47 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *c)
+int		ft_striszero(char *str)
 {
-	int i;
+	int		index;
 
-	i = 0;
-	while (c[i])
-		i++;
-	return (i);
+	index = 0;
+	while (str[index] != '\0')
+	{
+		if (str[index] == '0')
+			index++;
+		else
+			return (FALSE);
+	}
+	return (TRUE);
 }

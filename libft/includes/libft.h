@@ -6,7 +6,7 @@
 /*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 12:58:24 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 11:07:55 by fkante           ###   ########.fr       */
+/*   Updated: 2019/10/02 14:59:51 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int					ft_isprint(int c);
 int					ft_strisupcase(char *str);
 int					ft_strislowcase(char *str);
 int					ft_strisblank(char *str);
+int					ft_striszero(char *str);
 char				*ft_strupcase(char *str);
 char				*ft_strlowcase(char *str);
 char				*ft_strchr_str(const char *str, char *find);
@@ -138,6 +139,8 @@ int					ft_fibonacci(int index);
 int					ft_atoi(const char *str);
 char				*ft_itoa(int64_t n);
 char				*ft_u_itoa(uint64_t n);
+char				*ft_d_itoa(double value);
+char				*ft_ld_itoa(long double value);
 char				*ft_itoa_base(int64_t n, uint8_t base);
 char				*ft_u_itoa_base(uint64_t n, uint8_t base);
 char				*ft_itoa_base_maj(uint64_t n, uint8_t base, uint64_t flag);

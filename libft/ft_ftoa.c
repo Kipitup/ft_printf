@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/16 10:42:35 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 11:07:25 by fkante           ###   ########.fr       */
+/*   Updated: 2019/10/03 13:18:03 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,25 @@ int8_t		round_up(t_vector *vector, uint64_t accuracy)
 	return (SUCCESS);
 }
 
-int8_t		check_for_rounding_up(t_vector *vector, double value, int64_t cast)
+int8_t		check_for_rounding_up(t_vector *vector, double value)
 {
+	int64_t		cast;
 	uint64_t	accuracy;
-	int64_t		tmp;
 
 	value *= 10;
 	cast = (int64_t)value;
-	value -= (double)cast;
-	tmp = (int64_t)(value * 10);
-	if (tmp > 0)
-		cast++;
 	accuracy = (uint64_t)vct_len(vector) - 1;
-	if ((cast == 5 && (vct_getchar_at(vector, accuracy) % 2 == 0)) == FALSE)
-	{
-		if (cast > 4)
-			if ((round_up(vector, accuracy)) == FAILURE)
-				vct_del(&vector);
-	}
+	if (cast > 4)
+		if ((round_up(vector, accuracy)) == FAILURE)
+			vct_del(&vector);
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
 
-int8_t		nb_to_string(t_vector *vector, double value, int64_t cast,
-	uint64_t accuracy)
+int8_t		nb_to_string(t_vector *vector, double value, uint64_t accuracy)
 {
 	const char	*base_str;
 	uint64_t	i;
+	int64_t		cast;
 
 	base_str = "0123456789";
 	i = accuracy;
@@ -72,7 +65,7 @@ int8_t		nb_to_string(t_vector *vector, double value, int64_t cast,
 			vct_del(&vector);
 		i--;
 	}
-	if ((check_for_rounding_up(vector, value, cast)) == FAILURE)
+	if ((check_for_rounding_up(vector, value)) == FAILURE)
 		vct_del(&vector);
 	return (vector == NULL ? FAILURE : SUCCESS);
 }
@@ -87,19 +80,19 @@ t_vector	*ft_ftoa(double value, uint64_t precision, uint32_t option)
 	vector = vct_new(0);
 	if (vector != NULL)
 	{
-		cast = (int64_t)value;
-		value -= (double)cast;
-		if ((str = ft_itoa(cast)) != NULL)
+		if ((str = ft_d_itoa(value)) != NULL)
 			if ((vct_strjoin(vector, str)) == FAILURE)
 				vct_del(&vector);
 		ft_strdel(&str);
+		cast = (int64_t)value;
+		value -= (double)cast;
 		value = value < 0 ? -value : value;
 		accuracy = (option & FLAG_POINT) ? precision : 6;
 		if (accuracy > 0)
 			if ((vct_addchar(vector, '.')) == FAILURE)
 				vct_del(&vector);
 		if (vector != NULL)
-			if ((nb_to_string(vector, value, cast, accuracy)) == FAILURE)
+			if ((nb_to_string(vector, value, accuracy)) == FAILURE)
 				vct_del(&vector);
 	}
 	return (vector);

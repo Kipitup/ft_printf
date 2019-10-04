@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:13:45 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 11:13:26 by fkante           ###   ########.fr       */
+/*   Updated: 2019/10/03 11:46:27 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdarg.h>
-# include <math.h>
 # include <inttypes.h>
 # include "libft.h"
 # include "ft_printf.h"
@@ -42,6 +41,9 @@
 # define OPEN_BRACKET		'{'
 # define CLOSE_BRACKET		'}'
 # define NB_OF_BRACKET		2
+# define NAN				"nan"
+# define INF				"inf"
+# define MINUS_INF			"-inf"
 
 # define HH 				"hh"
 # define LL 				"ll"
@@ -84,6 +86,8 @@
 # define FLAG_Z				0x00001000
 
 # define ALL_MOD			0x0000001f
+# define FLAG_NAN			0x000007a0
+# define FLAG_INF			0x00000580
 
 # define CONV_C				0x00010000
 # define CONV_S				0x00020000

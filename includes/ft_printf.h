@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:14:27 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 12:17:50 by amartino         ###   ########.fr       */
+/*   Updated: 2019/10/02 15:43:54 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int8_t			string(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			conversion(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			flags(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			buffer(t_state_machine *mahcine, char *input, va_list *arg_pf);
-int8_t			buffer_as_pf(t_state_machine *ptf, char *input, va_list *arg_pf);
+int8_t			buffer_as_pf(t_state_machine *ptf, char *inpt, va_list *arg_pf);
 int8_t			color(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			error(t_state_machine *ptf, char *input, va_list *arg_pf);
 int8_t			end(t_state_machine *ptf, char *input, va_list *arg_pf);
@@ -122,6 +122,7 @@ t_vector		*handle_sign(t_vector *nb_itoa, t_flag *flag);
 int8_t			apply_hash(t_vector *vector, t_flag *flag);
 void			apply_hash_flag_zero(t_vector *vector, t_flag *flag);
 void			apply_hash_special_case(t_vector *vector, t_flag *flag);
+int8_t			apply_hash_float(t_vector *vector, t_flag *flag);
 
 t_vector		*get_converted_number(t_vector	*vector, t_flag *flag,
 										uint8_t base, int64_t nbr);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   conv_to_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fkante <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fkante <fkante@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 09:26:27 by fkante            #+#    #+#             */
-/*   Updated: 2019/09/20 09:48:19 by fkante           ###   ########.fr       */
+/*   Updated: 2019/10/02 18:13:30 by amartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_vector		*conv_to_b(va_list *arg_pf, t_flag *flag)
 	size_t		base;
 
 	base = va_arg(*arg_pf, int);
-	if (base == 1)
+	if (base == 1 || base == 0)
 		return (NULL);
 	nbr = va_arg(*arg_pf, uint64_t);
 	vector = vct_new(flag->width);

@@ -6,7 +6,7 @@
 /*   By: amartino <amartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 11:43:23 by amartino          #+#    #+#             */
-/*   Updated: 2019/09/20 10:19:37 by fkante           ###   ########.fr       */
+/*   Updated: 2019/10/03 10:20:55 by fkante           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 t_char_ptr_func		apply_func(enum e_apply type)
 {
-	static	t_char_ptr_func	func[] = {ft_strupcase, ft_strlowcase,
-									ft_strcapitalize
+	static	t_char_ptr_func	func[] = {	ft_strupcase, ft_strlowcase,
+										ft_strcapitalize
 									};
 
 	return (func[type]);
@@ -30,9 +30,9 @@ t_char_ptr_func		apply_func(enum e_apply type)
 
 t_int_func			test_func(enum e_apply type)
 {
-	static	t_int_func	func[] = {ft_strisupcase, ft_strislowcase,
-								ft_strisblank,
-								};
+	static	t_int_func	func[] = {	ft_strisupcase, ft_strislowcase,
+									ft_strisblank, ft_striszero
+									};
 
 	return (func[type]);
 }

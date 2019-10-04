@@ -6,7 +6,7 @@
 #    By: fkante <fkante@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/19 17:11:38 by fkante            #+#    #+#              #
-#    Updated: 2019/09/20 11:50:48 by amartino         ###   ########.fr        #
+#    Updated: 2019/10/02 15:01:29 by amartino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ AR = ar -rcs
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
-#CFLAGS += -fsanitize=address,undefined -g3
+# CFLAGS += -fsanitize=address,undefined -g3
 BUILD_DIR = build/
 
 INCLUDES = -I./includes
@@ -101,6 +101,7 @@ SRCS += ft_strisupcase.c
 SRCS += ft_strislowcase.c
 SRCS += ft_strchr_str.c
 SRCS += ft_strisblank.c
+SRCS += ft_striszero.c
 SRCS += ft_len_printf.c
 SRCS += ft_ftoa.c
 SRCS += ft_fldtoa.c
